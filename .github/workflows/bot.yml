@@ -3,14 +3,18 @@ name: RemoteIN Auto-Scraper
 on:
   schedule:
     - cron: '0 * * * *'
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,6 +33,10 @@ jobs:
           git config --global user.name "RemoteIN Bot"
           git config --global user.email "bot@remotein.local"
           git add jobs.json companies.json
-          git commit -m "Auto-update jobs and expanded company database" || exit 0
-          git pull --rebase origin main
-          git push origin main
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-update jobs and expanded company database"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No changes detected."
+          fi
