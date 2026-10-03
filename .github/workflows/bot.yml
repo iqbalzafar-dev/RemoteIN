@@ -29,5 +29,6 @@ jobs:
           git config --global user.name "RemoteIN Bot"
           git config --global user.email "bot@remotein.local"
           git add jobs.json companies.json
-          git commit -m "Auto-update jobs and expanded company database every hour" || exit 0
-          git push
+          git commit -m "Auto-update jobs and expanded company database" || exit 0
+          git pull --rebase origin main
+          git push origin main
