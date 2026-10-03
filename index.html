@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoteIN | Premium Job Board</title>
+    <style>
+        /* Default Dark Theme Variables */
+        :root {
+            --bg-color: #030303; --surface: rgba(255, 255, 255, 0.02); --surface-hover: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.08); --text-main: #f8f9fa; --text-muted: #a1a1aa;
+            --accent: #3b82f6; --select-bg: rgba(255, 255, 255, 0.03); --option-bg: #0a0a0a; --option-text: #fff;
+            --header-gradient: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            --btn-border: rgba(255, 255, 255, 0.2); --btn-hover-bg: #ffffff; --btn-hover-text: #000000;
+            --highlight-bg: rgba(59, 130, 246, 0.25); --highlight-text: #60a5fa;
+        }
+
+        /* Light Theme Variables */
+        body.light-mode {
+            --bg-color: #f8fafc; --surface: rgba(0, 0, 0, 0.02); --surface-hover: rgba(0, 0, 0, 0.05);
+            --border: rgba(0, 0, 0, 0.1); --text-main: #0f172a; --text-muted: #64748b;
+            --select-bg: rgba(255, 255, 255, 0.6); --option-bg: #ffffff; --option-text: #000;
+            --header-gradient: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+            --btn-border: rgba(0, 0, 0, 0.2); --btn-hover-bg: #0f172a; --btn-hover-text: #ffffff;
+            --highlight-bg: rgba(59, 130, 246, 0.2); --highlight-text: #1d4ed8;
+        }
+
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: rgba(136, 136, 136, 0.3); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(136, 136, 136, 0.5); }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+        /* Lock overscroll so native pull-to-refresh doesn't fight our custom one */
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; overscroll-behavior-y: none; transition: background-color 0.4s ease, color 0.4s ease; margin: 0; }
+
+        .orb-1, .orb-2 { transition: opacity 0.4s ease; }
+        body.light-mode .orb-1, body.light-mode .orb-2 { opacity: 0.5; }
+
+        .orb-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 60%); filter: blur(80px); z-index: -1; animation: floatOrb 15s ease-in-out infinite alternate; }
+        .orb-2 { position: fixed; bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(147,51,234,0.1) 0%, rgba(0,0,0,0) 60%); filter: blur(80px); z-index: -1; animation: floatOrb 20s ease-in-out infinite alternate-reverse; }
+        @keyframes floatOrb { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
+
+        /* --- PULL TO REFRESH STYLES --- */
+        .ptr-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transform: translateY(-100%); z-index: 100; pointer-events: none; color: var(--text-muted);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .ptr-icon { font-size: 24px; transition: transform 0.3s ease; margin-bottom: 5px; }
+        .ptr-text { font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
+        .ptr-spin { animation: ptr-rotate 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+        @keyframes ptr-rotate { 100% { transform: rotate(360deg); } }
+
+        /* The App wrapper that gets "stretched" */
+        #app-wrapper {
+            will-change: transform; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); min-height: 100vh;
+        }
+
+        .layout-container { display: grid; grid-template-columns: 350px 1fr; gap: 60px; max-width: 1300px; margin: 0 auto; padding: 60px 40px; }
+        aside { position: sticky; top: 60px; height: max-content; animation: fadeInLeft 0.8s ease-out; }
+        header { display: flex; flex-direction: column; }
+        .title-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+
+        header h1 { font-size: 52px; font-weight: 800; letter-spacing: -2px; background: var(--header-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; transition: background 0.4s ease; user-select: none;}
+        .theme-toggle-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-main); padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
+        .theme-toggle-btn:hover { background: var(--surface-hover); transform: scale(1.05); }
+        header p { color: var(--text-muted); font-size: 18px; font-weight: 300; margin-bottom: 30px; transition: color 0.4s ease; }
+
+        .filters { display: flex; flex-direction: column; gap: 15px; }
+        .search-box { width: 100%; padding: 14px 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--select-bg); backdrop-filter: blur(10px); font-size: 15px; font-weight: 500; outline: none; color: var(--text-main); transition: all 0.3s ease; }
+        .search-box::placeholder { color: var(--text-muted); }
+        .search-box:focus { border-color: var(--accent); background: var(--surface-hover); transform: translateX(4px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1); }
+        .filters select { width: 100%; padding: 14px 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--select-bg); backdrop-filter: blur(10px); font-size: 15px; font-weight: 500; cursor: pointer; outline: none; color: var(--text-main); transition: all 0.3s ease; appearance: none; }
+        .filters select:hover { border-color: var(--border); background: var(--surface-hover); transform: translateX(4px); }
+        .filters select option { background: var(--option-bg); color: var(--option-text); }
+
+        main { animation: fadeInRight 0.8s ease-out; }
+        .job-list { display: flex; flex-direction: column; gap: 20px; }
+
+        .job-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 28px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: inherit; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); backdrop-filter: blur(12px); opacity: 0; }
+        .job-card:hover { transform: translateY(-5px) scale(1.02) !important; background: var(--surface-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 30px rgba(59, 130, 246, 0.05); }
+        .job-info h2 { font-size: 22px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.5px; transition: color 0.3s; }
+        .job-card:hover .job-info h2 { color: var(--accent); }
+        .badges { display: flex; gap: 10px; margin-bottom: 14px; }
+        .badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .badge.tech { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .badge.non-tech { background: rgba(236, 72, 153, 0.1); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.2); }
+        .job-meta { font-size: 15px; color: var(--text-muted); display: flex; gap: 15px; align-items: center; font-weight: 400; transition: color 0.4s ease; }
+        .job-meta span::after { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); margin-left: 15px; vertical-align: middle; opacity: 0.5; }
+        .job-meta span:last-child::after { display: none; }
+        .job-apply { text-align: right; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
+        .job-date { font-size: 14px; color: var(--text-muted); margin-bottom: 15px; font-weight: 500; transition: color 0.4s ease; }
+        .apply-btn { background: transparent; border: 1px solid var(--btn-border); padding: 12px 24px; border-radius: 30px; font-size: 15px; font-weight: 600; color: var(--text-main); transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+        .job-card:hover .apply-btn { background: var(--btn-hover-bg); color: var(--btn-hover-text); border-color: var(--btn-hover-bg); box-shadow: 0 0 15px rgba(0,0,0,0.1); transform: scale(1.05); }
+
+        .no-jobs { text-align: center; padding: 50px; color: var(--text-muted); font-size: 16px; background: rgba(0,0,0,0.2); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1); }
+        .highlight { background-color: var(--highlight-bg); color: var(--highlight-text); border-radius: 4px; padding: 0 2px; font-weight: 700; transition: all 0.3s; }
+
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes popInCascade { from { opacity: 0; transform: translateY(15px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+        @media (max-width: 900px) {
+            .layout-container { grid-template-columns: 1fr; padding: 30px 20px; gap: 40px; }
+            aside { position: static; }
+            .job-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .job-apply { align-items: flex-start; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Background Orbs -->
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+
+    <!-- Pull to Refresh Loading Icon -->
+    <div class="ptr-container" id="ptr-container">
+        <div class="ptr-icon" id="ptr-icon">↓</div>
+        <div class="ptr-text" id="ptr-text">Pull down to refresh</div>
+    </div>
+
+    <!-- Main Wrapper that will stretch -->
+    <div id="app-wrapper">
+        <div class="layout-container">
+            <aside>
+                <header>
+                    <div class="title-row">
+                        <h1 style="cursor: grab;" id="drag-handle">RemoteIN</h1>
+                        <button class="theme-toggle-btn" id="theme-btn"><span id="theme-icon">☀️️</span> Light</button>
+                    </div>
+                    <p>Curated remote roles for India & APAC. Direct links, zero friction.</p>
+                </header>
+                <div class="filters">
+                    <input type="text" id="search-input" class="search-box" placeholder="Search roles, companies, or locations...">
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="tech">Tech</option>
+                        <option value="non-tech">Non-Tech</option>
+                    </select>
+                    <select id="sort-filter">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+            </aside>
+            <main>
+                <div class="job-list" id="job-container"></div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // --- THEME LOGIC ---
+        const themeBtn = document.getElementById('theme-btn'); const themeIcon = document.getElementById('theme-icon');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if(document.body.classList.contains('light-mode')) {
+                themeIcon.textContent = '🌙'; themeBtn.childNodes[2].textContent = ' Dark';
+            } else {
+                themeIcon.textContent = '☀️'; themeBtn.childNodes[2].textContent = ' Light';
+            }
+        });
+
+        // --- DATA RENDERING LOGIC ---
+        let jobsData = [];
+        const container = document.getElementById('job-container');
+        const searchInput = document.getElementById('search-input');
+        const categoryFilter = document.getElementById('category-filter');
+        const sortFilter = document.getElementById('sort-filter');
+
+        function formatDate(dateString) {
+            if (!dateString) return "Recent";
+            return new Date(dateString).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function highlightText(text, searchTerm) {
+            if (!searchTerm) return text;
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            return text.replace(regex, `<span class="highlight">$1</span>`);
+        }
+
+        function renderJobs(isTyping = false) {
+            const category = categoryFilter.value;
+            const sortOrder = sortFilter.value;
+            const searchTerm = searchInput.value.toLowerCase().trim();
+
+            let filtered = jobsData.filter(job => {
+                const matchesCategory = category === 'all' || job.category === category;
+                const matchesSearch = searchTerm === '' || 
+                                      job.title.toLowerCase().includes(searchTerm) || 
+                                      job.company.toLowerCase().includes(searchTerm) || 
+                                      job.location.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+            
+            filtered.sort((a, b) => {
+                const dateA = new Date(a.dateAdded); const dateB = new Date(b.dateAdded);
+                return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+            });
+
+            container.innerHTML = '';
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="no-jobs">No roles found matching your criteria.</div>';
+                return;
+            }
+
+            filtered.forEach((job, index) => {
+                const card = document.createElement('a');
+                card.href = job.url; card.target = "_blank"; card.className = 'job-card';
+                
+                if (isTyping) {
+                    card.style.opacity = '1';
+                } else {
+                    card.style.animation = `popInCascade 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards`;
+                    card.style.animationDelay = `${index * 0.05}s`;
+                }
+
+                const highlightedTitle = highlightText(job.title, searchTerm);
+                const highlightedCompany = highlightText(job.company, searchTerm);
+                const highlightedLocation = highlightText(job.location, searchTerm);
+
+                card.innerHTML = `
+                    <div class="job-info">
+                        <div class="badges">
+                            <span class="badge ${job.category}">${job.category === 'tech' ? 'Tech' : 'Non-Tech'}</span>
+                        </div>
+                        <h2>${highlightedTitle}</h2>
+                        <div class="job-meta"><span>${highlightedCompany}</span><span>${highlightedLocation}</span></div>
+                    </div>
+                    <div class="job-apply">
+                        <span class="job-date">Posted ${formatDate(job.dateAdded)}</span>
+                        <div class="apply-btn">Apply Now</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function fetchRealJobs() {
+            try {
+                const response = await fetch('jobs.json');
+                jobsData = await response.json();
+                renderJobs(); 
+            } catch (error) {
+                container.innerHTML = '<div class="no-jobs">Could not load jobs. Make sure python server is running.</div>';
+            }
+        }
+
+        let typingTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(() => renderJobs(true), 300);
+        });
+        categoryFilter.addEventListener('change', () => renderJobs(false));
+        sortFilter.addEventListener('change', () => renderJobs(false));
+        
+        fetchRealJobs();
+
+        // --- PULL TO REFRESH (RUBBER BAND PHYSICS) ---
+        const appWrapper = document.getElementById('app-wrapper');
+        const ptrContainer = document.getElementById('ptr-container');
+        const ptrIcon = document.getElementById('ptr-icon');
+        const ptrText = document.getElementById('ptr-text');
+        
+        let startY = 0; let currentY = 0;
+        let isDragging = false; let isRefreshing = false;
+
+        function startDrag(clientY) {
+            // Sirf tabhi kaam karega jab website bilkul upar ho (scroll zero ho)
+            if (window.scrollY === 0 && !isRefreshing) {
+                startY = clientY;
+                isDragging = true;
+                appWrapper.style.transition = 'none'; // dragging buttery smooth rahe
+                ptrContainer.style.transition = 'none';
+            }
+        }
+
+        function dragMove(clientY) {
+            if (!isDragging) return;
+            currentY = clientY;
+            const pullDistance = currentY - startY;
+            
+            // Sirf niche ki taraf khichne par
+            if (pullDistance > 0 && window.scrollY === 0) {
+                // Physics: Jitna jyada khichoge, utna bhari lagega (friction)
+                const resistance = pullDistance * 0.35; 
+                
+                appWrapper.style.transform = `translateY(${resistance}px)`;
+                ptrContainer.style.transform = `translateY(${resistance - 80}px)`;
+
+                if (resistance > 70) {
+                    ptrIcon.style.transform = 'rotate(180deg)';
+                    ptrText.textContent = "Release to fetch new jobs";
+                } else {
+                    ptrIcon.style.transform = 'rotate(0deg)';
+                    ptrText.textContent = "Pull down to refresh";
+                }
+            }
+        }
+
+        function stopDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            appWrapper.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+            ptrContainer.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+
+            const pullDistance = currentY - startY || 0;
+            const resistance = pullDistance * 0.35;
+
+            if (resistance > 70) {
+                // Refresh trigger ho gaya
+                isRefreshing = true;
+                ptrIcon.style.transform = 'rotate(0deg)';
+                ptrIcon.innerHTML = '↻';
+                ptrIcon.classList.add('ptr-spin');
+                ptrText.textContent = "Refreshing data...";
+                
+                appWrapper.style.transform = `translateY(80px)`;
+                ptrContainer.style.transform = `translateY(0px)`;
+
+                // Naya data aane ka feel dene ke liye ek chhota sa delay
+                setTimeout(async () => {
+                    await fetchRealJobs();
+                    
+                    // Wapas purani jagah bounce karo
+                    appWrapper.style.transform = `translateY(0px)`;
+                    ptrContainer.style.transform = `translateY(-100%)`;
+                    
+                    setTimeout(() => {
+                        isRefreshing = false;
+                        ptrIcon.classList.remove('ptr-spin');
+                        ptrIcon.innerHTML = '↓';
+                        ptrText.textContent = "Pull down to refresh";
+                    }, 400);
+                }, 1000);
+            } else {
+                // Agar poora nahi khicha, toh wapas bina refresh kiye snap back karo
+                appWrapper.style.transform = `translateY(0px)`;
+                ptrContainer.style.transform = `translateY(-100%)`;
+            }
+            currentY = startY;
+        }
+
+        // Mouse Events (Laptop par mouse click karke khichne ke liye)
+        document.addEventListener('mousedown', e => startDrag(e.clientY));
+        document.addEventListener('mousemove', e => { if(isDragging) dragMove(e.clientY); });
+        document.addEventListener('mouseup', stopDrag);
+        
+        // Touch Events (Mobile feel ke liye)
+        document.addEventListener('touchstart', e => startDrag(e.touches[0].clientY), {passive: true});
+        document.addEventListener('touchmove', e => { if(isDragging) dragMove(e.touches[0].clientY); }, {passive: true});
+        document.addEventListener('touchend', stopDrag);
+    </script>
+</body>
+</html>

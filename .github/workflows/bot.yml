@@ -1,0 +1,33 @@
+name: RemoteIN Auto-Scraper
+
+on:
+  schedule:
+    - cron: '0 3,15 * * *' # Din mein do baar chalega (UTC 3:00 AM aur 3:00 PM)
+  workflow_dispatch: # Aap chahe toh GitHub dashboard se manually bhi run kar sakte hain
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install aiohttp requests
+
+      - name: Run Job Bot
+        run: python bot.py
+
+      - name: Commit and push updated jobs & companies
+        run: |
+          git config --global user.name "RemoteIN Bot"
+          git config --global user.email "bot@remotein.local"
+          git add jobs.json companies.json
+          git commit -m "Auto-update jobs and expanded company database" || exit 0
+          git push
