@@ -1,5 +1,32 @@
 [
     {
+        "id": "8139700",
+        "title": "Sales Development Representative, Singapore",
+        "company": "Cockroachlabs",
+        "location": "Remote, Singapore",
+        "category": "non-tech",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8139700",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "8106750",
+        "title": "Senior Staff Sales Engineer, Australia",
+        "company": "Cockroachlabs",
+        "location": "Remote, Australia",
+        "category": "tech",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8106750",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "8119500",
+        "title": "Senior Staff Sales Engineer, Singapore",
+        "company": "Cockroachlabs",
+        "location": "Remote, Singapore",
+        "category": "tech",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8119500",
+        "dateAdded": "2026-09-15"
+    },
+    {
         "id": "8857611002",
         "title": "Associate Renewals Manager, India",
         "company": "Gitlab",
@@ -90,33 +117,6 @@
         "dateAdded": "2026-10-01"
     },
     {
-        "id": "8139700",
-        "title": "Sales Development Representative, Singapore",
-        "company": "Cockroachlabs",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8139700",
-        "dateAdded": "2026-09-15"
-    },
-    {
-        "id": "8106750",
-        "title": "Senior Staff Sales Engineer, Australia",
-        "company": "Cockroachlabs",
-        "location": "Remote, Australia",
-        "category": "tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8106750",
-        "dateAdded": "2026-09-15"
-    },
-    {
-        "id": "8119500",
-        "title": "Senior Staff Sales Engineer, Singapore",
-        "company": "Cockroachlabs",
-        "location": "Remote, Singapore",
-        "category": "tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8119500",
-        "dateAdded": "2026-09-15"
-    },
-    {
         "id": "6001113004",
         "title": "Customer Success Engineer ",
         "company": "Algolia",
@@ -160,6 +160,15 @@
         "category": "non-tech",
         "url": "https://www.fivetran.com/careers/job?gh_jid=7818382003",
         "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "8184179",
+        "title": "Account Executive, Enterprise - Financial Services ",
+        "company": "Braze",
+        "location": "Remote - Australia",
+        "category": "non-tech",
+        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
+        "dateAdded": "2026-09-24"
     },
     {
         "id": "8099751002",
@@ -225,15 +234,6 @@
         "dateAdded": "2026-09-17"
     },
     {
-        "id": "8184179",
-        "title": "Account Executive, Enterprise - Financial Services ",
-        "company": "Braze",
-        "location": "Remote - Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
-        "dateAdded": "2026-09-24"
-    },
-    {
         "id": "5995789004",
         "title": "Senior Manager, Solutions Architect",
         "company": "Vercel",
@@ -250,6 +250,15 @@
         "category": "tech",
         "url": "https://job-boards.greenhouse.io/togetherai/jobs/5217063007",
         "dateAdded": "2026-09-23"
+    },
+    {
+        "id": "5391999008",
+        "title": "Community Engagement Manager, Data Centres (Australia)",
+        "company": "Anthropic",
+        "location": "Sydney, Australia | Remote-Friendly, Australia",
+        "category": "tech",
+        "url": "https://job-boards.greenhouse.io/anthropic/jobs/5391999008",
+        "dateAdded": "2026-08-28"
     },
     {
         "id": "6198592004",
@@ -286,15 +295,6 @@
         "category": "non-tech",
         "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
         "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "5391999008",
-        "title": "Community Engagement Manager, Data Centres (Australia)",
-        "company": "Anthropic",
-        "location": "Sydney, Australia | Remote-Friendly, Australia",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/anthropic/jobs/5391999008",
-        "dateAdded": "2026-08-28"
     },
     {
         "id": "7912473",
@@ -450,6 +450,15 @@
         "dateAdded": "2026-09-29"
     },
     {
+        "id": "8020043",
+        "title": "Senior Manager, Customer Engineering, India",
+        "company": "Cloudflare",
+        "location": "Remote India",
+        "category": "tech",
+        "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
+        "dateAdded": "2026-10-02"
+    },
+    {
         "id": "5648777004",
         "title": "Account Executive : Field Sales - Delhi NCR",
         "company": "Devrev",
@@ -511,15 +520,6 @@
         "category": "tech",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/5831999004",
         "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "8020043",
-        "title": "Senior Manager, Customer Engineering, India",
-        "company": "Cloudflare",
-        "location": "Remote India",
-        "category": "tech",
-        "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
-        "dateAdded": "2026-10-02"
     },
     {
         "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
