@@ -5,11 +5,12 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,10 +34,4 @@ jobs:
           git config --global user.name "RemoteIN Bot"
           git config --global user.email "bot@remotein.local"
           git add jobs.json companies.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-update jobs and expanded company database"
-            git pull --rebase origin main
-            git push origin main
-          else
-            echo "No changes detected."
-          fi
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update jobs and expanded company database" && git pull --rebase origin main && git push origin main)
