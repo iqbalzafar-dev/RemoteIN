@@ -1,57 +1,77 @@
 import asyncio
 import aiohttp
 import json
+import logging
 import os
-import xml.etree.ElementTree as ET
+import random
+from urllib.parse import urlparse
 from datetime import datetime, timezone, timedelta
+from duckduckgo_search import DDGS
 
-print("🚀 INITIATING STRICT FRESHNESS BOT: Eliminating Zombie Jobs...\n")
+# ==============================================================================
+# 1. CONFIGURATION & RULES
+# ==============================================================================
+CONFIG = {
+    "COMPANIES_FILE": "companies.json",
+    "JOBS_FILE": "jobs.json",
+    "MAX_CONCURRENT_REQUESTS": 20,
+    "REQUEST_TIMEOUT_SECONDS": 12,
+    "CUTOFF_DAYS": 30,
+    "USER_AGENT": "RemoteIN-Bot/2.0 (+https://github.com/iqbalzafar-dev/RemoteIN)",
+    
+    # Auto-discovery queries across target ATS platforms
+    "DISCOVERY_QUERIES": [
+        'site:boards.greenhouse.io "India" "Remote"',
+        'site:boards.greenhouse.io "APAC" "Remote"',
+        'site:jobs.lever.co "India" "Remote"',
+        'site:jobs.lever.co "APAC" "Remote"',
+        'site:jobs.ashbyhq.com "India" "Remote"',
+        'site:jobs.ashbyhq.com "APAC" "Remote"'
+    ],
 
-# --- LOAD DATABASE ---
-COMPANIES_FILE = 'companies.json'
-try:
-    with open(COMPANIES_FILE, 'r') as f:
-        ats_slugs = json.load(f)
-except FileNotFoundError:
-    ats_slugs = {
-        "greenhouse": ["razorpay", "gitlab", "postman", "automattic"],
-        "lever": ["figma", "atlassian"],
-        "ashby": ["deel", "multiplier", "linear", "ramp"]
-    }
+    # High-volume aggregator feeds
+    "BULK_FEEDS": [
+        {"url": "https://jobicy.com/api/v2/remote-jobs?count=50&geo=apac", "type": "jobicy"},
+        {"url": "https://www.arbeitnow.com/api/job-board-api", "type": "arbeitnow"}
+    ],
 
-filtered_jobs = []
-seen_job_urls = set()
+    # Classification Keywords
+    "ROLE_KEYWORDS": {
+        "Payroll & Compliance": ["payroll", "compensation", "benefits", "comp & ben"],
+        "HR & People Ops": ["hr", "recruiter", "talent acquisition", "people ops", "human resources", "talent", "onboarding"],
+        "Finance & Accounting": ["finance", "accountant", "accounting", "billing", "audit", "tax", "fp&a", "treasury"],
+        "Operations & Support": ["operations", "vendor ops", "customer support", "customer success", "ops associate", "support specialist"],
+        "Tech & Engineering": ["engineer", "developer", "data", "software", "product", "designer", "architect", "devops", "qa", "ml", "ai"]
+    },
 
-# --- STRICT 30-DAY FRESHNESS WINDOW ---
-CUTOFF_DATE = datetime.now(timezone.utc) - timedelta(days=30)
+    "STRICT_REMOTE_FLAGS": ["remote", "work from home", "wfh", "anywhere", "distributed"],
+    "APAC_FLAGS": ["india", "apac", "asia", "singapore", "australia", "philippines", "worldwide", "global", "anywhere"],
+    "EXCLUDE_FLAGS": ["hybrid", "on-site", "onsite", "wfo", "in-office", "us only", "uk only", "europe only", "latam", "emea"]
+}
 
-def parse_any_date(raw_val):
-    """Multiple date formats ko safely datetime object me convert karta hai"""
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s", datefmt="%H:%M:%S")
+log = logging.getLogger("RemoteIN")
+CUTOFF_TIMESTAMP = datetime.now(timezone.utc) - timedelta(days=CONFIG["CUTOFF_DAYS"])
+
+# ==============================================================================
+# 2. DATE & TEXT HELPERS
+# ==============================================================================
+def parse_iso_datetime(raw_val):
     if not raw_val:
         return None
-        
-    # Case 1: Millisecond integer / epoch timestamp (Lever & HackerNews)
     if isinstance(raw_val, (int, float)):
         try:
-            # Agar milliseconds me hai (> 10 digits)
             ts = raw_val / 1000 if raw_val > 10000000000 else raw_val
             return datetime.fromtimestamp(ts, tz=timezone.utc)
         except Exception:
             return None
-            
-    # Case 2: ISO string (Greenhouse / Ashby)
     if isinstance(raw_val, str):
-        raw_val = raw_val.strip()
+        val = raw_val.strip().replace("Z", "+00:00")
         try:
-            clean_str = raw_val.replace("Z", "+00:00")
-            dt = datetime.fromisoformat(clean_str)
-            if dt.tzinfo is None:
-                dt = dt.replace(tzinfo=timezone.utc)
-            return dt
+            dt = datetime.fromisoformat(val)
+            return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
         except Exception:
             pass
-            
-        # Case 3: RFC 2822 format (Jobicy / RSS: "Sun, 04 Oct 2026 12:00:00 +0000")
         for fmt in (
             "%a, %d %b %Y %H:%M:%S %z",
             "%a, %d %b %Y %H:%M:%S %Z",
@@ -60,238 +80,276 @@ def parse_any_date(raw_val):
         ):
             try:
                 dt = datetime.strptime(raw_val, fmt)
-                if dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=timezone.utc)
-                return dt
+                return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
             except Exception:
                 continue
-                
     return None
 
 def is_recent(dt_obj):
-    """Agar date missing hai ya 30 din se purani hai toh STRICTLY REJECT"""
-    if not dt_obj:
-        return False
-    return dt_obj >= CUTOFF_DATE
+    return dt_obj and dt_obj >= CUTOFF_TIMESTAMP
 
-# --- SMART CATEGORY CLASSIFIER ---
 def classify_role(title):
     t = title.lower()
-    if any(k in t for k in ["payroll", "compensation", "benefits", "comp & ben"]):
-        return "Payroll & Compliance"
-    elif any(k in t for k in ["hr", "recruiter", "talent acquisition", "people ops", "human resources", "talent"]):
-        return "HR & People Ops"
-    elif any(k in t for k in ["finance", "accountant", "accounting", "billing", "audit", "tax", "fp&a", "treasury"]):
-        return "Finance & Accounting"
-    elif any(k in t for k in ["operations", "vendor ops", "customer support", "customer success", "ops associate", "support specialist"]):
-        return "Operations & Support"
-    elif any(k in t for k in ["engineer", "developer", "data", "software", "product", "designer", "architect", "devops"]):
-        return "Tech & Engineering"
-    return "General Operations"
+    for cat, keywords in CONFIG["ROLE_KEYWORDS"].items():
+        if any(kw in t for kw in keywords):
+            return cat
+    return "Operations & Support"
 
-# --- ULTRA-STRICT REMOTE APAC / INDIA FILTER ---
-def is_strictly_remote_apac(title, location, commitment=""):
-    text = f"{title} {location} {commitment}".lower()
-    
-    red_flags = ['hybrid', 'on-site', 'onsite', 'wfo', 'in-office']
-    if any(word in text for word in red_flags): 
-        return False 
-        
-    western_flags = ['us only', 'uk only', 'europe only', 'usa', 'united states', 'canada', 'latam', 'emea', 'new york', 'london', 'san francisco', 'berlin', 'remote - us', 'remote (us)']
-    if any(word in text for word in western_flags) and 'india' not in text:
+def is_strictly_remote_apac(title, location, extra=""):
+    blob = f"{title} {location} {extra}".lower()
+    if any(ex in blob for ex in CONFIG["EXCLUDE_FLAGS"]) and "india" not in blob:
         return False
-        
-    green_flags = ['remote', 'work from home', 'wfh', 'anywhere', 'distributed']
-    if not any(word in text for word in green_flags): 
-        return False 
-        
-    apac_keywords = ['india', 'apac', 'asia', 'singapore', 'australia', 'philippines', 'worldwide', 'global', 'anywhere']
-    if not any(word in text for word in apac_keywords): 
+    if not any(rf in blob for rf in CONFIG["STRICT_REMOTE_FLAGS"]):
         return False
-        
-    return True 
+    if not any(af in blob for af in CONFIG["APAC_FLAGS"]):
+        return False
+    return True
 
-def add_job_record(job_id, title, company, location, category, url, dt_obj):
-    if not is_recent(dt_obj):
-        return  # Strictly block any expired job from entering
-        
-    if url in seen_job_urls:
+# ==============================================================================
+# 3. COMPANY REGISTRY (COMPATIBLE WITH YOUR EXACT JSON FORMAT)
+# ==============================================================================
+class CompanyRegistry:
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self.data = self._load()
+        # Normalizing to set for instant O(1) deduplication
+        self.slug_sets = {
+            "greenhouse": set(self.data.get("greenhouse", [])),
+            "lever": set(self.data.get("lever", [])),
+            "ashby": set(self.data.get("ashby", []))
+        }
+
+    def _load(self):
+        if os.path.exists(self.filepath):
+            try:
+                with open(self.filepath, 'r') as f:
+                    content = json.load(f)
+                    if isinstance(content, dict):
+                        return content
+            except Exception as e:
+                log.error(f"Error loading {self.filepath}: {e}")
+        return {"greenhouse": [], "lever": [], "ashby": []}
+
+    def save(self):
+        output = {
+            "greenhouse": sorted(list(self.slug_sets["greenhouse"])),
+            "lever": sorted(list(self.slug_sets["lever"])),
+            "ashby": sorted(list(self.slug_sets["ashby"]))
+        }
+        with open(self.filepath, 'w') as f:
+            json.dump(output, f, indent=4)
+
+    def extract_ats_from_url(self, url):
+        if not url:
+            return None, None
+        parsed = urlparse(url)
+        parts = [p for p in parsed.path.strip("/").split("/") if p]
+        if "greenhouse.io" in parsed.netloc and parts:
+            return "greenhouse", parts[0]
+        if "lever.co" in parsed.netloc and parts:
+            return "lever", parts[0]
+        if "ashbyhq.com" in parsed.netloc and parts:
+            return "ashby", parts[0]
+        return None, None
+
+    async def add_discovered_company(self, session, ats_type, slug):
+        slug = slug.strip().lower()
+        if ats_type not in self.slug_sets or slug in self.slug_sets[ats_type]:
+            return False
+
+        # Endpoint Validation
+        test_url = ""
+        if ats_type == "greenhouse":
+            test_url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
+        elif ats_type == "lever":
+            test_url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
+        elif ats_type == "ashby":
+            test_url = f"https://api.ashbyhq.com/posting-api/job-board/{slug}"
+
+        try:
+            async with session.get(test_url, timeout=8) as r:
+                if r.status != 200:
+                    return False
+        except Exception:
+            return False
+
+        self.slug_sets[ats_type].add(slug)
+        log.info(f"✨ New company discovered & added: {slug} ({ats_type.upper()})")
+        return True
+
+# ==============================================================================
+# 4. DISCOVERY VIA DUCKDUCKGO
+# ==============================================================================
+async def run_search_discovery(session, registry):
+    log.info("🔎 Auto-discovering new companies via search queries...")
+    ddgs = DDGS()
+    discovered_urls = []
+    for query in CONFIG["DISCOVERY_QUERIES"]:
+        try:
+            await asyncio.sleep(random.uniform(1.0, 2.0))
+            for res in ddgs.text(query, max_results=15):
+                discovered_urls.append(res.get("href"))
+        except Exception:
+            pass
+
+    for url in discovered_urls:
+        ats, slug = registry.extract_ats_from_url(url)
+        if ats and slug:
+            await registry.add_discovered_company(session, ats, slug)
+
+# ==============================================================================
+# 5. SCRAPING ENGINE (PUBLIC ATS APIS)
+# ==============================================================================
+jobs_output = []
+seen_urls = set()
+
+def record_job(job_id, title, company, location, category, url, dt_obj):
+    if not is_recent(dt_obj) or url in seen_urls:
         return
-    seen_job_urls.add(url)
-    
-    filtered_jobs.append({
+    seen_urls.add(url)
+    jobs_output.append({
         "id": str(job_id),
         "title": title,
-        "company": company.capitalize(),
-        "location": location if location else "Remote (India/Global)",
+        "company": company.replace("-", " ").title(),
+        "location": location if location else "Remote (India/APAC)",
         "category": category,
         "url": url,
-        "dateAdded": dt_obj.strftime("%Y-%m-%d")
+        "dateAdded": dt_obj.isoformat()
     })
 
-# --- ASYNC ATS FETCHERS ---
-async def fetch_greenhouse(session, company, semaphore):
-    async with semaphore:
-        url = f"https://boards-api.greenhouse.io/v1/boards/{company}/jobs"
+async def scrape_greenhouse(session, slug, sem):
+    async with sem:
+        url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
         try:
-            async with session.get(url, timeout=12) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    for job in data.get('jobs', []):
-                        title = job.get('title', '')
-                        loc = job.get('location', {}).get('name', '')
-                        dt_obj = parse_any_date(job.get('updated_at'))
-                        
-                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc):
-                            cat = classify_role(title)
-                            add_job_record(job['id'], title, company, loc, cat, job['absolute_url'], dt_obj)
+            async with session.get(url, timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    for item in data.get("jobs", []):
+                        title = item.get("title", "")
+                        loc = (item.get("location") or {}).get("name", "")
+                        dt = parse_iso_datetime(item.get("updated_at"))
+                        if is_strictly_remote_apac(title, loc):
+                            record_job(item["id"], title, slug, loc, classify_role(title), item["absolute_url"], dt)
         except Exception:
             pass
 
-async def fetch_lever(session, company, semaphore):
-    async with semaphore:
-        url = f"https://api.lever.co/v0/postings/{company}?mode=json"
+async def scrape_lever(session, slug, sem):
+    async with sem:
+        url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
         try:
-            async with session.get(url, timeout=12) as response:
-                if response.status == 200:
-                    jobs = await response.json()
-                    for job in jobs:
-                        title = job.get('text', '')
-                        loc = job.get('categories', {}).get('location', '')
-                        commit = job.get('categories', {}).get('commitment', '')
-                        dt_obj = parse_any_date(job.get('createdAt'))
-                        
-                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc, commit):
-                            cat = classify_role(title)
-                            add_job_record(job['id'], title, company, loc, cat, job.get('hostedUrl', ''), dt_obj)
+            async with session.get(url, timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    for item in data:
+                        title = item.get("text", "")
+                        cats = item.get("categories", {})
+                        loc = cats.get("location", "")
+                        commit = cats.get("commitment", "")
+                        dt = parse_iso_datetime(item.get("createdAt"))
+                        if is_strictly_remote_apac(title, loc, commit):
+                            record_job(item["id"], title, slug, loc, classify_role(title), item.get("hostedUrl", ""), dt)
         except Exception:
             pass
 
-async def fetch_ashby(session, company, semaphore):
-    async with semaphore:
-        api_url = f"https://api.ashbyhq.com/posting-api/job-board/{company}"
+async def scrape_ashby(session, slug, sem):
+    async with sem:
+        url = f"https://api.ashbyhq.com/posting-api/job-board/{slug}"
         try:
-            async with session.get(api_url, timeout=12) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    postings = data.get('jobs', [])
-                    for job in postings:
-                        title = job.get('title', '')
-                        loc = job.get('location', '')
-                        is_remote = job.get('isRemote', False)
-                        dt_obj = parse_any_date(job.get('publishedAt'))
-                        
-                        check_str = f"{title} {loc} {'remote' if is_remote else ''}"
-                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc, check_str):
-                            cat = classify_role(title)
-                            add_job_record(job['id'], title, company, loc, cat, job.get('jobUrl', ''), dt_obj)
+            async with session.get(url, timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    for item in data.get("jobs", []):
+                        title = item.get("title", "")
+                        loc = item.get("location", "")
+                        dt = parse_iso_datetime(item.get("publishedAt"))
+                        is_remote = item.get("isRemote", False)
+                        check_meta = f"{loc} {'remote' if is_remote else ''}"
+                        if is_strictly_remote_apac(title, loc, check_meta):
+                            record_job(item["id"], title, slug, loc, classify_role(title), item.get("jobUrl", ""), dt)
         except Exception:
             pass
 
-# --- BULK VOLUME ENGINE ---
-async def fetch_bulk_remote_feeds(session):
-    print("🌐 Pulling high-volume verified feeds...")
-    
-    # 1. Jobicy
-    jobicy_url = "https://jobicy.com/api/v2/remote-jobs?count=50&geo=apac"
-    try:
-        async with session.get(jobicy_url, timeout=12) as resp:
-            if resp.status == 200:
+async def scrape_aggregators_and_discover(session, registry):
+    log.info("🌐 Fetching bulk feeds and discovering candidate companies...")
+    for feed in CONFIG["BULK_FEEDS"]:
+        try:
+            async with session.get(feed["url"], timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
+                if resp.status != 200:
+                    continue
                 data = await resp.json()
-                for job in data.get('jobs', []):
-                    title = job.get('jobTitle', '')
-                    loc = job.get('jobGeo', '')
-                    dt_obj = parse_any_date(job.get('pubDate'))
-                    if is_recent(dt_obj) and is_strictly_remote_apac(title, loc):
-                        cat = classify_role(title)
-                        add_job_record(job.get('id', title), title, job.get('companyName', 'Global Remote'), loc, cat, job.get('url'), dt_obj)
-    except Exception:
-        pass
-
-    # 2. Arbeitnow
-    arbeit_url = "https://www.arbeitnow.com/api/job-board-api"
-    try:
-        async with session.get(arbeit_url, timeout=12) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                for job in data.get('data', []):
-                    if job.get('remote') is True:
-                        title = job.get('title', '')
-                        loc = job.get('location', 'Remote')
-                        dt_obj = parse_any_date(job.get('created_at'))
-                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc):
-                            cat = classify_role(title)
-                            add_job_record(job.get('slug', title), title, job.get('company_name', 'Tech Co'), loc, cat, job.get('url'), dt_obj)
-    except Exception:
-        pass
-
-# --- HIDDEN GEM: HACKER NEWS SCOUT ---
-async def fetch_hackernews(session):
-    print("🕵️‍♂️ Scouting Hacker News 'Who is Hiring' threads...")
-    try:
-        search_url = "https://hn.algolia.com/api/v1/search?tags=story,author_whoishiring&query=Who%20is%20hiring"
-        async with session.get(search_url, timeout=10) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                hits = data.get('hits', [])
-                if not hits: return
-                latest_story_id = hits[0]['objectID']
                 
-                item_url = f"https://hacker-news.firebaseio.com/v0/item/{latest_story_id}.json"
-                async with session.get(item_url, timeout=10) as item_resp:
-                    if item_resp.status == 200:
-                        story_data = await item_resp.json()
-                        kids = story_data.get('kids', [])[:40]
-                        comment_tasks = [session.get(f"https://hacker-news.firebaseio.com/v0/item/{kid}.json", timeout=5) for kid in kids]
-                        comment_resps = await asyncio.gather(*comment_tasks, return_exceptions=True)
+                if feed["type"] == "jobicy":
+                    for j in data.get("jobs", []):
+                        title = j.get("jobTitle", "")
+                        loc = j.get("jobGeo", "")
+                        url = j.get("url", "")
+                        comp_name = j.get("companyName", "Direct Company")
+                        dt = parse_iso_datetime(j.get("pubDate"))
                         
-                        for cres in comment_resps:
-                            try:
-                                if not isinstance(cres, Exception) and cres.status == 200:
-                                    c_data = await cres.json()
-                                    text = c_data.get('text', '')
-                                    dt_obj = parse_any_date(c_data.get('time'))
-                                    
-                                    if is_recent(dt_obj) and text and any(w in text.lower() for w in ['india', 'apac', 'remote']):
-                                        cat = classify_role(text[:100])
-                                        add_job_record(c_data.get('id'), "Direct Founder Role (HN Startup)", "Hacker News Startup", "Remote / India", cat, f"https://news.ycombinator.com/item?id={c_data.get('id')}", dt_obj)
-                            except:
-                                pass
-    except Exception:
-        pass
+                        ats, slug = registry.extract_ats_from_url(url)
+                        if ats and slug:
+                            await registry.add_discovered_company(session, ats, slug)
+                        if is_strictly_remote_apac(title, loc):
+                            record_job(j.get("id", url), title, comp_name, loc, classify_role(title), url, dt)
 
-# --- THE MAIN ASYNC ENGINE ---
+                elif feed["type"] == "arbeitnow":
+                    for j in data.get("data", []):
+                        if not j.get("remote"):
+                            continue
+                        title = j.get("title", "")
+                        loc = j.get("location", "Remote")
+                        url = j.get("url", "")
+                        comp_name = j.get("company_name", "Tech Startup")
+                        dt = parse_iso_datetime(j.get("created_at"))
+                        
+                        ats, slug = registry.extract_ats_from_url(url)
+                        if ats and slug:
+                            await registry.add_discovered_company(session, ats, slug)
+                        if is_strictly_remote_apac(title, loc):
+                            record_job(j.get("slug", url), title, comp_name, loc, classify_role(title), url, dt)
+        except Exception:
+            pass
+
+# ==============================================================================
+# 6. MAIN ORCHESTRATOR
+# ==============================================================================
 async def main():
-    start_time = datetime.now()
-    semaphore = asyncio.Semaphore(50) 
-    
-    async with aiohttp.ClientSession() as session:
+    start = datetime.now()
+    registry = CompanyRegistry(CONFIG["COMPANIES_FILE"])
+    headers = {"User-Agent": CONFIG["USER_AGENT"]}
+    sem = asyncio.Semaphore(CONFIG["MAX_CONCURRENT_REQUESTS"])
+
+    async with aiohttp.ClientSession(headers=headers) as session:
+        # Step 1: Auto-discover new companies & save back to companies.json
+        await run_search_discovery(session, registry)
+        await scrape_aggregators_and_discover(session, registry)
+        registry.save()
+
+        # Step 2: Scrape all companies in existing list
         tasks = []
-        for company in ats_slugs.get('greenhouse', []):
-            tasks.append(fetch_greenhouse(session, company, semaphore))
-        for company in ats_slugs.get('lever', []):
-            tasks.append(fetch_lever(session, company, semaphore))
-        for company in ats_slugs.get('ashby', []):
-            tasks.append(fetch_ashby(session, company, semaphore))
-            
-        tasks.append(fetch_bulk_remote_feeds(session))
-        tasks.append(fetch_hackernews(session))
-            
+        for slug in registry.slug_sets["greenhouse"]:
+            tasks.append(scrape_greenhouse(session, slug, sem))
+        for slug in registry.slug_sets["lever"]:
+            tasks.append(scrape_lever(session, slug, sem))
+        for slug in registry.slug_sets["ashby"]:
+            tasks.append(scrape_ashby(session, slug, sem))
+
+        total_companies = len(tasks)
+        log.info(f"⚡ Ingesting live boards across {total_companies} companies...")
         await asyncio.gather(*tasks)
 
-    # Sort descending by date (Most recent first)
-    filtered_jobs.sort(key=lambda x: x.get('dateAdded', ''), reverse=True)
+    # Sort newest first
+    jobs_output.sort(key=lambda x: x.get("dateAdded", ""), reverse=True)
 
-    # Save Results
-    with open('jobs.json', 'w') as f:
-        json.dump(filtered_jobs, f, indent=4)
+    with open(CONFIG["JOBS_FILE"], "w") as f:
+        json.dump(jobs_output, f, indent=2)
 
-    duration = datetime.now() - start_time
-    print(f"\n🔥 STRICT SCAN COMPLETE in {duration.total_seconds():.2f} seconds.")
-    print(f"🎯 Total 100% VERIFIED FRESH (Last 30 Days) Jobs found: {len(filtered_jobs)}")
+    elapsed = (datetime.now() - start).total_seconds()
+    log.info(f"✅ Finished in {elapsed:.2f}s.")
+    log.info(f"🎯 Total verified active jobs saved in jobs.json: {len(jobs_output)}")
 
 if __name__ == "__main__":
     import sys
-    if sys.platform == 'win32':
+    if sys.platform == "win32":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.run(main())
