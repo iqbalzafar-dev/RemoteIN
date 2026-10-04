@@ -1,420 +1,448 @@
+#!/usr/bin/env python3
+"""
+RemoteIN bot: collects remote / WFH jobs where India (or APAC) is eligible.
+
+Design notes
+- Official public job-board APIs only: Greenhouse, Lever, Ashby, Remotive, Himalayas.
+- Workday is optional and only runs for tenants you add to companies.json. The bot
+  reads each tenant's robots.txt first and skips it if the API path is disallowed.
+- Every source has its own schedule. Results are cached in state.json, so an hourly
+  run only hits the sources that are due.
+- Job descriptions are scanned in memory for remote / hybrid signals and never stored.
+- Stored per job: title, company, location, apply link (plus source credit where required).
+"""
 import asyncio
-import aiohttp
+import html
 import json
 import logging
+import math
 import os
 import random
+import re
+import sys
+import time
+from collections import Counter
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urlparse
-from datetime import datetime, timezone, timedelta
-from duckduckgo_search import DDGS
+from urllib.robotparser import RobotFileParser
+
+import aiohttp
 
 # ==============================================================================
-# 1. CONFIGURATION & COMPREHENSIVE FILTER RULES
+# 1. CONFIG
 # ==============================================================================
+REPO = os.environ.get("GITHUB_REPOSITORY", "")
+
 CONFIG = {
     "COMPANIES_FILE": "companies.json",
     "JOBS_FILE": "jobs.json",
-    "MAX_CONCURRENT_REQUESTS": 25,
-    "REQUEST_TIMEOUT_SECONDS": 15,
-    "CUTOFF_DAYS": 30,
-    "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    
-    # Auto-discovery queries across target ATS platforms
-    "DISCOVERY_QUERIES": [
-        'site:boards.greenhouse.io "India" "Remote"',
-        'site:boards.greenhouse.io "APAC" "Remote"',
-        'site:jobs.lever.co "India" "Remote"',
-        'site:jobs.lever.co "APAC" "Remote"',
-        'site:jobs.ashbyhq.com "India" "Remote"',
-        'site:jobs.ashbyhq.com "APAC" "Remote"'
-    ],
-
-    # Smart Category Mapping
-    "ROLE_KEYWORDS": {
-        "Payroll & Compliance": ["payroll", "compensation", "benefits", "comp & ben"],
-        "HR & People Ops": ["hr", "recruiter", "talent acquisition", "people ops", "human resources", "talent", "onboarding"],
-        "Finance & Accounting": ["finance", "accountant", "accounting", "billing", "audit", "tax", "fp&a", "treasury"],
-        "Operations & Support": ["operations", "vendor ops", "customer support", "customer success", "ops associate", "support specialist"],
-        "Tech & Engineering": ["engineer", "developer", "data", "software", "product", "designer", "architect", "devops", "qa", "ml", "ai"]
-    },
-
-    # Strict WFO / In-Office Red Flags
-    "RED_FLAGS": [
-        "hybrid", "onsite", "on-site", "wfo", "in-office", 
-        "work from office", "office based"
-    ],
-
-    # Strict Regional Locks (exclude only if India is NOT allowed)
-    "GEO_LOCKS": [
-        "us only", "uk only", "emea only", "europe only", 
-        "canada only", "latam only", "remote - us", "remote (us)",
-        "remote - uk", "remote - europe", "germany only"
-    ],
-
-    # Mandatory Remote Signals
-    "REMOTE_SIGNALS": [
-        "remote", "work from home", "wfh", "anywhere", 
-        "distributed", "telecommute", "virtual role", "work from anywhere"
-    ],
-
-    # Tier-1 & Indian Tech Hubs + APAC + Global
-    "ELIGIBLE_LOCATIONS": [
-        "india", "bangalore", "bengaluru", "gurgaon", "gurugram", 
-        "delhi", "new delhi", "ncr", "noida", "greater noida", 
-        "mumbai", "navi mumbai", "thane", "hyderabad", "secunderabad", 
-        "pune", "chennai", "kolkata", "ahmedabad", "kochi", "cochin", 
-        "chandigarh", "mohali", "indore", "jaipur", "apac", "asia", 
-        "singapore", "australia", "philippines", "malaysia", "indonesia", 
-        "worldwide", "global", "anywhere"
-    ]
-}
-
-BROWSER_HEADERS = {
-    "User-Agent": CONFIG["USER_AGENT"],
-    "Accept": "application/json, text/plain, */*",
-    "Accept-Language": "en-US,en;q=0.9"
+    "STATE_FILE": "state.json",
+    "USER_AGENT": f"RemoteINBot/1.0 (+https://github.com/{REPO})" if REPO else "RemoteINBot/1.0",
+    "MAX_CONCURRENT_REQUESTS": 8,
+    "REQUEST_TIMEOUT_SECONDS": 25,
+    "RUN_BUDGET_SECONDS": 12 * 60,       # stop starting new fetches after this
+    "CUTOFF_DAYS": None,                 # None = no age filter (set a number later to enable)
+    # False: single APAC countries (Singapore, Australia...) are NOT accepted unless India
+    # is also listed. True: they are accepted and tagged APAC.
+    "ALLOW_APAC_COUNTRIES": False,
+    # Refresh intervals (hours)
+    "BOARD_INTERVAL_HOURS": {"default": 3, "workday": 6},
+    "REMOTIVE_INTERVAL_HOURS": 6,        # Remotive allows ~4 fetches/day
+    "HIMALAYAS_INTERVAL_HOURS": 24,      # Himalayas refreshes its data every 24h
+    "MIN_BATCH": 40,                     # min boards refreshed per run (besides never-fetched)
+    "HIMALAYAS_MAX_PAGES": 25,
+    "WORKDAY_MAX_PAGES": 10,
+    "WORKDAY_MAX_DETAILS": 60,
+    # Added in memory on every run (not written to companies.json)
+    "ENSURE_COMPANIES": {"greenhouse": ["airbnb"]},
 }
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s", datefmt="%H:%M:%S")
 log = logging.getLogger("RemoteIN")
-CUTOFF_TIMESTAMP = datetime.now(timezone.utc) - timedelta(days=CONFIG["CUTOFF_DAYS"])
 
 # ==============================================================================
-# 2. DATE & TEXT HELPERS
+# 2. TEXT, DATE HELPERS
 # ==============================================================================
-def parse_iso_datetime(raw_val):
-    if not raw_val:
+def now_utc():
+    return datetime.now(timezone.utc)
+
+
+def iso(dt):
+    return dt.astimezone(timezone.utc).isoformat(timespec="seconds")
+
+
+def parse_dt(raw):
+    if not raw:
         return None
-    if isinstance(raw_val, (int, float)):
+    if isinstance(raw, (int, float)):
         try:
-            ts = raw_val / 1000 if raw_val > 10000000000 else raw_val
+            ts = raw / 1000 if raw > 10_000_000_000 else raw
             return datetime.fromtimestamp(ts, tz=timezone.utc)
         except Exception:
             return None
-    if isinstance(raw_val, str):
-        val = raw_val.strip().replace("Z", "+00:00")
+    if isinstance(raw, str):
+        val = raw.strip()
+        if val.isdigit():
+            return parse_dt(int(val))
         try:
-            dt = datetime.fromisoformat(val)
+            dt = datetime.fromisoformat(val.replace("Z", "+00:00"))
             return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
         except Exception:
             pass
-        for fmt in (
-            "%a, %d %b %Y %H:%M:%S %z",
-            "%a, %d %b %Y %H:%M:%S %Z",
-            "%Y-%m-%dT%H:%M:%S.%f%z",
-            "%Y-%m-%d"
-        ):
+        for fmt in ("%a, %d %b %Y %H:%M:%S %z", "%Y-%m-%dT%H:%M:%S.%f%z", "%Y-%m-%d"):
             try:
-                dt = datetime.strptime(raw_val, fmt)
+                dt = datetime.strptime(val, fmt)
                 return dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt
             except Exception:
                 continue
     return None
 
-def is_recent(dt_obj):
-    return dt_obj and dt_obj >= CUTOFF_TIMESTAMP
+
+TAG_RE = re.compile(r"<[^>]+>")
+
+
+def clean_text(raw, limit=25000):
+    """HTML (even entity-escaped HTML) -> lowercase plain text, only used in memory."""
+    if not raw:
+        return ""
+    t = html.unescape(str(raw))
+    t = TAG_RE.sub(" ", t)
+    t = html.unescape(t)
+    return re.sub(r"\s+", " ", t).strip().lower()[:limit]
+
+
+def term_re(terms):
+    parts = [r"[\s\-]+".join(re.escape(w) for w in t.split()) for t in terms]
+    return r"\b(?:" + "|".join(parts) + r")\b"
+
+
+# ==============================================================================
+# 3. ELIGIBILITY RULES
+# ==============================================================================
+INDIA_TERMS = [
+    "india", "bangalore", "bengaluru", "gurgaon", "gurugram", "delhi", "new delhi", "ncr",
+    "noida", "greater noida", "mumbai", "navi mumbai", "thane", "hyderabad", "secunderabad",
+    "pune", "chennai", "kolkata", "ahmedabad", "kochi", "cochin", "chandigarh", "mohali",
+    "indore", "jaipur", "coimbatore", "trivandrum", "thiruvananthapuram", "lucknow",
+    "nagpur", "vadodara", "bhubaneswar",
+]
+APAC_REGION_TERMS = ["apac", "asia pacific", "asia-pacific", "asia", "south asia", "southeast asia",
+                     "south-east asia", "asean", "apj"]
+APAC_COUNTRY_TERMS = ["singapore", "australia", "new zealand", "philippines", "malaysia", "indonesia",
+                      "vietnam", "thailand", "japan", "korea", "hong kong", "taiwan", "sri lanka",
+                      "bangladesh", "nepal"]
+WORLD_TERMS = ["worldwide", "anywhere", "global", "work from anywhere", "anywhere in the world",
+               "any location", "international"]
+OTHER_TERMS = [
+    "us", "usa", "u.s.", "u.s.a.", "united states", "america", "americas", "north america",
+    "uk", "u.k.", "united kingdom", "england", "scotland", "wales", "ireland", "canada",
+    "mexico", "brazil", "argentina", "colombia", "chile", "peru", "latam", "latin america",
+    "emea", "europe", "eu", "germany", "france", "spain", "italy", "portugal", "netherlands",
+    "belgium", "switzerland", "austria", "poland", "czech", "czechia", "romania", "bulgaria",
+    "hungary", "greece", "sweden", "norway", "denmark", "finland", "estonia", "latvia",
+    "lithuania", "ukraine", "serbia", "croatia", "turkey", "israel", "uae", "dubai", "saudi",
+    "egypt", "nigeria", "kenya", "south africa", "virgin islands", "puerto rico", "guam",
+]
+
+INDIA_RE = re.compile(term_re(INDIA_TERMS), re.I)
+APAC_REGION_RE = re.compile(term_re(APAC_REGION_TERMS), re.I)
+APAC_COUNTRY_RE = re.compile(term_re(APAC_COUNTRY_TERMS), re.I)
+WORLD_RE = re.compile(term_re(WORLD_TERMS), re.I)
+OTHER_RE = re.compile(term_re(OTHER_TERMS), re.I)
+
+# Hybrid / office signals in location or title (always a reject)
+HYBRID_LOC_RE = re.compile(
+    term_re(["hybrid", "onsite", "on-site", "on site", "wfo", "in-office", "in office",
+             "work from office", "office based", "office-based"]), re.I)
+
+# Hybrid / office signals in descriptions (strong phrases only, to avoid false rejects)
+HYBRID_DESC = [re.compile(p, re.I) for p in [
+    r"\bhybrid (?:work|role|position|model|schedule|setup|set-up|environment|basis|working|opportunity)",
+    r"\b(?:this|the) (?:role|position|job) is (?:a )?hybrid",
+    r"\bhybrid\b[^.]{0,30}\b(?:office|onsite|on-site|days)\b",
+    r"\bdays? (?:a|per) week (?:in|at) (?:the |our )?(?:office|on-?site)",
+    r"\b(?:\d|one|two|three|four|five)\+? days?[^.]{0,20}\b(?:in|at) (?:the |our )?office\b",
+    r"\b(?:in[- ]office|on-?site|office[- ]based) (?:role|position|job|presence|requirement|attendance|work)\b",
+    r"\b(?:required|expected|must|need) to (?:work|be|come) (?:from|in|at|into) (?:the |our |a )?(?:office|on-?site)",
+    r"\bwork from (?:the )?office\b",
+    r"\bwfo\b",
+    r"\boccasional(?:ly)?\b[^.]{0,30}\b(?:office|on-?site)\b",
+]]
+
+# Remote signals
+REMOTE_LOC_RE = re.compile(
+    r"\bremote\b|\bwork from home\b|\bwfh\b|\bwork from anywhere\b|\btelecommut\w*|"
+    r"\bhome[- ]based\b|\bvirtual (?:role|position|job|assistant)\b", re.I)
+REMOTE_DESC_RE = re.compile(
+    r"\b(?:fully|100%|completely|entirely|totally)[ -]remote\b|"
+    r"\bremote[- ](?:first|role|position|job|work|opportunity|based)\b|"
+    r"\bwork(?:ing)? (?:remotely|from home)\b|\bwork from home\b|\bwfh\b|"
+    r"\b(?:this|the) (?:role|position|job) is (?:fully |100% )?remote\b|"
+    r"\bwork from anywhere\b|\bremote within\b|"
+    r"\bremote\b[^.]{0,20}\bindia\b|\bindia\b[^.]{0,20}\bremote\b", re.I)
+TRAINING_RE = re.compile(
+    r"\bremote after training\b|"
+    r"\b(?:remote|work from home|wfh|work remotely)\b[^.]{0,50}\b(?:after|post|once|following|upon)\b[^.]{0,30}\btraining\b|"
+    r"\b(?:after|post|once)\b[^.]{0,30}\btraining\b[^.]{0,60}\b(?:remote|work from home|wfh|work remotely)\b|"
+    r"\btraining\b[^.]{0,80}\b(?:then|followed by|after which|thereafter|post which|following which)\b[^.]{0,40}\b(?:remote|work from home|wfh)\b",
+    re.I)
+
+# Eligibility hints for jobs whose location is only "Remote"
+_ELIG_VERBS = (r"(?:open to|hiring|hire|based in|located in|residing in|reside in|candidates|applicants|"
+               r"eligible|work(?:ing)? from|remote (?:in|within|from|across|-)|available in|apply from|location)")
+ELIG_INDIA_RE = re.compile(_ELIG_VERBS + r"\b[^.\n]{0,70}" + term_re(INDIA_TERMS) +
+                           r"|\bindia\b[^.\n]{0,30}\b(?:eligible|welcome|based candidates)\b", re.I)
+ELIG_APAC_RE = re.compile(_ELIG_VERBS + r"\b[^.\n]{0,70}\b(?:apac|asia[- ]pacific)\b", re.I)
+ELIG_WORLD_RE = re.compile(
+    r"\bwork from anywhere\b|\banywhere in the world\b|"
+    r"\b(?:hire|hiring|candidates?|applicants?|team) (?:from )?(?:anywhere|worldwide|globally)\b|"
+    r"\bglobal(?:ly)? remote\b", re.I)
+
+TECH_TITLE_RE = re.compile(
+    r"\b(?:engineers?|engineering|developers?|software|architects?|devops|sre|qa|sdet|ml|ai|"
+    r"machine learning|data scientists?|data engineers?|data analysts?|data analytics|analytics engineers?|"
+    r"backend|back-end|frontend|front-end|full[- ]?stack|cloud|security|cybersecurity|infosec|"
+    r"mobile|ios|android|product managers?|designers?|ux|ui)\b", re.I)
+SUPPORT_TITLE_RE = re.compile(r"\bsupport\b", re.I)
+HARD_TECH_RE = re.compile(r"\b(?:software|backend|frontend|platform|devops|sre|machine learning)\b", re.I)
+
 
 def classify_role(title):
-    t = title.lower()
-    for cat, keywords in CONFIG["ROLE_KEYWORDS"].items():
-        if any(kw in t for kw in keywords):
-            return cat
-    return "Operations & Support"
+    t = title or ""
+    if SUPPORT_TITLE_RE.search(t) and not HARD_TECH_RE.search(t):
+        return "Non-Tech"          # all Support roles (incl. Technical Support) are Non-Tech
+    return "Tech" if TECH_TITLE_RE.search(t) else "Non-Tech"
 
-def is_eligible_remote(title, location, extra=""):
-    blob = f"{title} {location} {extra}".lower()
-    
-    # 1. Reject WFO / Hybrid
-    if any(rf in blob for rf in CONFIG["RED_FLAGS"]):
-        return False
-        
-    # 2. Reject Geo-Locks (unless India is explicitly mentioned)
-    if any(gl in blob for gl in CONFIG["GEO_LOCKS"]) and "india" not in blob:
-        return False
-        
-    # 3. Mandatory Remote Signal
-    has_remote = any(rs in blob for rs in CONFIG["REMOTE_SIGNALS"])
-    if not has_remote:
-        return False
 
-    # 4. Location Eligibility Check
-    if not location or any(place in blob for place in CONFIG["ELIGIBLE_LOCATIONS"]):
-        return True
+def region_verdict(loc):
+    """Judge ONLY the location text (never the job title)."""
+    if not loc or not loc.strip():
+        return "empty"
+    if INDIA_RE.search(loc):
+        return "india"
+    if APAC_REGION_RE.search(loc):
+        return "apac"
+    if CONFIG["ALLOW_APAC_COUNTRIES"] and APAC_COUNTRY_RE.search(loc):
+        return "apac"
+    if OTHER_RE.search(loc):
+        return "other"
+    if WORLD_RE.search(loc):
+        return "worldwide"
+    return "unspecified"
 
-    return False
+
+def evaluate(title, loc, get_desc, remote_flag=False, nonremote_flag=False):
+    """
+    Returns (ok, reason, remote_type, display_location).
+    ok only when the job is remote/WFH (strict, no hybrid/office) AND India/APAC/worldwide eligible.
+    """
+    loc = (loc or "").strip()
+    region = region_verdict(loc)
+    if region == "other":
+        return False, "geo_other_country", None, loc
+    if nonremote_flag or HYBRID_LOC_RE.search(f"{loc} {title}"):
+        return False, "hybrid_or_office", None, loc
+
+    desc = get_desc() or ""
+    if desc and any(p.search(desc) for p in HYBRID_DESC):
+        return False, "hybrid_or_office", None, loc
+
+    display = loc
+    if region in ("unspecified", "empty"):
+        if ELIG_INDIA_RE.search(desc):
+            display = "Remote - India"
+        elif ELIG_APAC_RE.search(desc):
+            display = "Remote - APAC"
+        elif ELIG_WORLD_RE.search(desc):
+            display = "Remote - Worldwide"
+        else:
+            return False, "region_not_confirmed", None, loc
+
+    if remote_flag or REMOTE_LOC_RE.search(f"{loc} {title}"):
+        rtype = "confirmed"
+    elif desc and TRAINING_RE.search(desc):
+        rtype = "after-training"
+    elif desc and REMOTE_DESC_RE.search(desc):
+        rtype = "confirmed"
+    else:
+        return False, "no_remote_signal", None, loc
+    return True, "ok", rtype, display
+
 
 # ==============================================================================
-# 3. COMPANY REGISTRY (COMPATIBLE WITH EXISTING 300+ COMPANIES)
+# 4. HTTP LAYER (polite: honest UA, concurrency cap, jitter, cooldown friendly)
 # ==============================================================================
-class CompanyRegistry:
-    def __init__(self, filepath):
-        self.filepath = filepath
-        self.data = self._load()
-        self.slug_sets = {
-            "greenhouse": set(self.data.get("greenhouse", [])),
-            "lever": set(self.data.get("lever", [])),
-            "ashby": set(self.data.get("ashby", []))
-        }
+class Ctx:
+    def __init__(self, session, deadline):
+        self.session = session
+        self.sem = asyncio.Semaphore(CONFIG["MAX_CONCURRENT_REQUESTS"])
+        self.timeout = aiohttp.ClientTimeout(total=CONFIG["REQUEST_TIMEOUT_SECONDS"])
+        self.stats = Counter()
+        self.rej = Counter()
+        self.deadline = deadline
+        self.wd_map = {}
+        self.robots_cache = {}
 
-    def _load(self):
-        if os.path.exists(self.filepath):
+    async def json(self, method, url, tag, **kw):
+        """Returns (status, data). status 0 = network/parse failure."""
+        for attempt in range(2):
             try:
-                with open(self.filepath, 'r') as f:
-                    content = json.load(f)
-                    if isinstance(content, dict):
-                        return content
-            except Exception as e:
-                log.error(f"Error loading {self.filepath}: {e}")
-        return {"greenhouse": [], "lever": [], "ashby": []}
+                async with self.sem:
+                    await asyncio.sleep(random.uniform(0.05, 0.3))
+                    async with self.session.request(method, url, timeout=self.timeout, **kw) as r:
+                        if r.status == 200:
+                            return 200, await r.json(content_type=None)
+                        if r.status >= 500 and attempt == 0:
+                            self.stats[f"{tag}:http_{r.status}_retry"] += 1
+                            await asyncio.sleep(2 + random.random() * 2)
+                            continue
+                        self.stats[f"{tag}:http_{r.status}"] += 1
+                        return r.status, None
+            except asyncio.TimeoutError:
+                self.stats[f"{tag}:timeout"] += 1
+                if attempt == 0:
+                    await asyncio.sleep(2)
+                    continue
+                return 0, None
+            except (aiohttp.ClientError, ValueError) as e:
+                self.stats[f"{tag}:error"] += 1
+                log.debug("%s %s failed: %s", tag, url, e)
+                return 0, None
+        return 0, None
 
-    def save(self):
-        output = {
-            "greenhouse": sorted(list(self.slug_sets["greenhouse"])),
-            "lever": sorted(list(self.slug_sets["lever"])),
-            "ashby": sorted(list(self.slug_sets["ashby"]))
-        }
-        with open(self.filepath, 'w') as f:
-            json.dump(output, f, indent=4)
-
-    def extract_ats_from_url(self, url):
-        if not url:
-            return None, None
-        parsed = urlparse(url)
-        parts = [p for p in parsed.path.strip("/").split("/") if p]
-        if "greenhouse.io" in parsed.netloc and parts:
-            return "greenhouse", parts[0]
-        if "lever.co" in parsed.netloc and parts:
-            return "lever", parts[0]
-        if "ashbyhq.com" in parsed.netloc and parts:
-            return "ashby", parts[0]
-        return None, None
-
-    async def add_discovered_company(self, session, ats_type, slug):
-        slug = slug.strip().lower()
-        if ats_type not in self.slug_sets or slug in self.slug_sets[ats_type]:
+    async def robots_allowed(self, url):
+        p = urlparse(url)
+        origin = f"{p.scheme}://{p.netloc}"
+        if origin not in self.robots_cache:
+            rp = RobotFileParser()
+            try:
+                async with self.sem:
+                    async with self.session.get(origin + "/robots.txt", timeout=self.timeout) as r:
+                        if r.status == 200:
+                            rp.parse((await r.text()).splitlines())
+                            self.robots_cache[origin] = rp
+                        elif 400 <= r.status < 500:
+                            self.robots_cache[origin] = None      # no robots rules -> allowed
+                        else:
+                            self.robots_cache[origin] = False     # server error -> be conservative
+            except Exception:
+                self.robots_cache[origin] = False
+        rp = self.robots_cache[origin]
+        if rp is None:
+            return True
+        if rp is False:
             return False
+        return rp.can_fetch("RemoteINBot", url)
 
-        test_url = ""
-        if ats_type == "greenhouse":
-            test_url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
-        elif ats_type == "lever":
-            test_url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
-        elif ats_type == "ashby":
-            test_url = f"https://api.ashbyhq.com/posting-api/job-board/{slug}"
 
-        try:
-            async with session.get(test_url, timeout=8) as r:
-                if r.status != 200:
-                    return False
-        except Exception:
-            return False
+def pretty_company(slug):
+    return str(slug).replace("-", " ").replace("_", " ").title()
 
-        self.slug_sets[ats_type].add(slug)
-        log.info(f"✨ Discovered new company: {slug} ({ats_type.upper()})")
-        return True
 
-# ==============================================================================
-# 4. DISCOVERY VIA DUCKDUCKGO
-# ==============================================================================
-async def run_search_discovery(session, registry):
-    log.info("🔎 Searching for new companies via ATS indexing...")
-    ddgs = DDGS()
-    discovered_urls = []
-    for query in CONFIG["DISCOVERY_QUERIES"]:
-        try:
-            await asyncio.sleep(random.uniform(1.0, 1.5))
-            for res in ddgs.text(query, max_results=12):
-                discovered_urls.append(res.get("href"))
-        except Exception:
-            pass
+def uniq_join(parts):
+    seen, out = set(), []
+    for p in parts:
+        p = (p or "").strip()
+        if p and p.lower() not in seen:
+            seen.add(p.lower())
+            out.append(p)
+    return "; ".join(out)
 
-    for url in discovered_urls:
-        ats, slug = registry.extract_ats_from_url(url)
-        if ats and slug:
-            await registry.add_discovered_company(session, ats, slug)
 
-# ==============================================================================
-# 5. SCRAPING ENGINE (PUBLIC ATS APIS + VERIFIED FEEDS)
-# ==============================================================================
-jobs_output = []
-seen_urls = set()
-
-def record_job(job_id, title, company, location, category, url, dt_obj):
-    if not is_recent(dt_obj) or url in seen_urls:
-        return
-    seen_urls.add(url)
-    
-    iso_date = dt_obj.isoformat()
-    jobs_output.append({
+def make_job(job_id, title, company, location, url, posted, rtype, source=None, source_url=None):
+    job = {
         "id": str(job_id),
-        "title": title,
-        "company": company.replace("-", " ").title(),
-        "location": location if location else "Remote (India/APAC)",
-        "category": category,
+        "title": (title or "").strip(),
+        "company": company,
+        "location": (location or "").strip() or "Remote",
+        "category": classify_role(title),
+        "remoteType": rtype,
         "url": url,
-        "date": iso_date,
-        "dateAdded": iso_date
-    })
+        "posted": iso(posted) if posted else None,
+    }
+    if source:
+        job["source"] = source
+        job["sourceUrl"] = source_url or url
+    return job
 
-async def scrape_greenhouse(session, slug, sem):
-    async with sem:
-        url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
-        try:
-            async with session.get(url, timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
-                if resp.status == 200:
-                    data = await resp.json()
-                    for item in data.get("jobs", []):
-                        title = item.get("title", "")
-                        loc = (item.get("location") or {}).get("name", "")
-                        dt = parse_iso_datetime(item.get("updated_at"))
-                        if is_eligible_remote(title, loc):
-                            record_job(item["id"], title, slug, loc, classify_role(title), item["absolute_url"], dt)
-        except Exception:
-            pass
-
-async def scrape_lever(session, slug, sem):
-    async with sem:
-        url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
-        try:
-            async with session.get(url, timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
-                if resp.status == 200:
-                    data = await resp.json()
-                    for item in data:
-                        title = item.get("text", "")
-                        cats = item.get("categories", {})
-                        loc = cats.get("location", "")
-                        commit = cats.get("commitment", "")
-                        dt = parse_iso_datetime(item.get("createdAt"))
-                        if is_eligible_remote(title, loc, commit):
-                            record_job(item["id"], title, slug, loc, classify_role(title), item.get("hostedUrl", ""), dt)
-        except Exception:
-            pass
-
-async def scrape_ashby(session, slug, sem):
-    async with sem:
-        url = f"https://api.ashbyhq.com/posting-api/job-board/{slug}"
-        try:
-            async with session.get(url, timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
-                if resp.status == 200:
-                    data = await resp.json()
-                    for item in data.get("jobs", []):
-                        title = item.get("title", "")
-                        loc = item.get("location", "")
-                        dt = parse_iso_datetime(item.get("publishedAt"))
-                        is_remote = item.get("isRemote", False)
-                        check_meta = f"{loc} {'remote' if is_remote else ''}"
-                        if is_eligible_remote(title, loc, check_meta):
-                            record_job(item["id"], title, slug, loc, classify_role(title), item.get("jobUrl", ""), dt)
-        except Exception:
-            pass
-
-async def scrape_verified_feeds(session, registry):
-    log.info("🌐 Ingesting verified direct remote feeds (Remotive, Himalayas, Arbeitnow)...")
-
-    # 1. Remotive (Smart Worldwide/India Filter)
-    try:
-        async with session.get("https://remotive.com/api/remote-jobs", headers=BROWSER_HEADERS, timeout=20) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                remotive_jobs = data.get("jobs", [])
-                log.info(f"Remotive responded with {len(remotive_jobs)} raw jobs.")
-                for j in remotive_jobs:
-                    title = j.get("title", "")
-                    loc = (j.get("candidate_required_location") or "Worldwide").strip()
-                    loc_lower = loc.lower()
-                    url = j.get("url", "")
-                    comp_name = j.get("company_name", "Global Remote")
-                    dt = parse_iso_datetime(j.get("publication_date"))
-
-                    ats, slug = registry.extract_ats_from_url(url)
-                    if ats and slug:
-                        await registry.add_discovered_company(session, ats, slug)
-
-                    is_india_eligible = any(k in loc_lower for k in ["india", "apac", "asia", "worldwide", "anywhere", "global"]) or loc_lower == ""
-                    strict_exclusion = any(gl in loc_lower for gl in ["us only", "uk only", "canada only", "emea only", "europe only", "latam only", "germany only"])
-                    
-                    if is_india_eligible and not (strict_exclusion and "india" not in loc_lower):
-                        cat = classify_role(title)
-                        record_job(j.get("id", url), title, comp_name, loc if loc else "Worldwide (Remote)", cat, url, dt)
-    except Exception as e:
-        log.warning(f"Remotive feed error: {e}")
-
-    # 2. Himalayas Public API (100% Direct Remote Openings)
-    try:
-        async with session.get("https://himalayas.app/jobs/api?limit=50", headers=BROWSER_HEADERS, timeout=15) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                for j in data.get("jobs", []):
-                    title = j.get("title", "")
-                    loc = "Remote (India/Global)"
-                    url = j.get("applicationLink") or j.get("url", "")
-                    comp = j.get("companyName", "Himalayas Startup")
-                    dt = parse_iso_datetime(j.get("pubDate") or j.get("createdAt"))
-                    
-                    ats, slug = registry.extract_ats_from_url(url)
-                    if ats and slug:
-                        await registry.add_discovered_company(session, ats, slug)
-                        
-                    record_job(j.get("id", url), title, comp, loc, classify_role(title), url, dt)
-    except Exception as e:
-        log.warning(f"Himalayas feed error: {e}")
-
-    # 3. Arbeitnow
-    try:
-        async with session.get("https://www.arbeitnow.com/api/job-board-api", headers=BROWSER_HEADERS, timeout=15) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                for j in data.get("data", []):
-                    if j.get("remote"):
-                        title = j.get("title", "")
-                        loc = j.get("location", "Remote")
-                        url = j.get("url", "")
-                        comp = j.get("company_name", "Tech Startup")
-                        dt = parse_iso_datetime(j.get("created_at"))
-                        if is_eligible_remote(title, loc):
-                            record_job(j.get("slug", url), title, comp, loc, classify_role(title), url, dt)
-    except Exception as e:
-        pass
 
 # ==============================================================================
-# 6. MAIN ENGINE EXECUTION
+# 5. SCRAPERS (each returns (status, jobs or None))
 # ==============================================================================
-async def main():
-    start = datetime.now()
-    registry = CompanyRegistry(CONFIG["COMPANIES_FILE"])
-    sem = asyncio.Semaphore(CONFIG["MAX_CONCURRENT_REQUESTS"])
+async def scrape_greenhouse(ctx, slug):
+    url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs?content=true"
+    status, data = await ctx.json("GET", url, "greenhouse")
+    if status != 200 or not isinstance(data, dict):
+        return status, None
+    jobs = []
+    for item in data.get("jobs", []):
+        title = item.get("title") or ""
+        loc = uniq_join([(item.get("location") or {}).get("name", "")] +
+                        [(o or {}).get("name", "") for o in (item.get("offices") or [])])
+        ok, reason, rtype, dloc = evaluate(title, loc, lambda i=item: clean_text(i.get("content")))
+        ctx.rej[f"greenhouse:{reason}"] += 1
+        if ok and item.get("absolute_url"):
+            jobs.append(make_job(f"gh-{slug}-{item.get('id')}", title, pretty_company(slug), dloc,
+                                 item["absolute_url"], parse_dt(item.get("first_published")), rtype))
+    return 200, jobs
 
-    async with aiohttp.ClientSession(headers=BROWSER_HEADERS) as session:
-        # Step 1: Auto-discover new companies and update companies.json
-        await run_search_discovery(session, registry)
-        await scrape_verified_feeds(session, registry)
-        registry.save()
 
-        # Step 2: Scrape live boards across all registered companies
-        tasks = []
-        for slug in registry.slug_sets["greenhouse"]:
-            tasks.append(scrape_greenhouse(session, slug, sem))
-        for slug in registry.slug_sets["lever"]:
-            tasks.append(scrape_lever(session, slug, sem))
-        for slug in registry.slug_sets["ashby"]:
-            tasks.append(scrape_ashby(session, slug, sem))
+async def scrape_lever(ctx, slug):
+    url = f"https://api.lever.co/v0/postings/{slug}?mode=json"
+    status, data = await ctx.json("GET", url, "lever")
+    if status != 200 or not isinstance(data, list):
+        return status, None
+    jobs = []
+    for item in data:
+        title = item.get("text") or ""
+        cats = item.get("categories") or {}
+        locs = [cats.get("location") or ""] + list(cats.get("allLocations") or [])
+        if str(item.get("country") or "").upper() == "IN":
+            locs.append("India")
+        loc = uniq_join(locs)
+        wp = str(item.get("workplaceType") or "").lower()
 
-        total_companies = len(tasks)
-        log.info(f"⚡ Ingesting live boards across {total_companies} companies...")
-        await asyncio.gather(*tasks)
+        def desc(i=item):
+            lists = " ".join(str(x.get("content", "")) for x in (i.get("lists") or []) if isinstance(x, dict))
+            return clean_text(f"{i.get('descriptionPlain') or i.get('description') or ''} "
+                              f"{i.get('additionalPlain') or ''} {lists}")
 
-    # Sort descending by newest dateAdded first
-    jobs_output.sort(key=lambda x: x.get("dateAdded", ""), reverse=True)
+        ok, reason, rtype, dloc = evaluate(title, loc, desc, remote_flag=(wp == "remote"),
+                                           nonremote_flag=(wp in ("hybrid", "on-site", "onsite")))
+        ctx.rej[f"lever:{reason}"] += 1
+        if ok and item.get("hostedUrl"):
+            jobs.append(make_job(f"lv-{slug}-{item.get('id')}", title, pretty_company(slug), dloc,
+                                 item["hostedUrl"], parse_dt(item.get("createdAt")), rtype))
+    return 200, jobs
 
-    with open(CONFIG["JOBS_FILE"], "w") as f:
-        json.dump(jobs_output, f, indent=2)
 
-    elapsed = (datetime.now() - start).total_seconds()
-    log.info(f"✅ Finished in {elapsed:.2f}s.")
-    log.info(f"🎯 Total verified active jobs saved in jobs.json: {len(jobs_output)}")
+async def scrape_ashby(ctx, slug):
+    url = f"https://api.ashbyhq.com/posting-api/job-board/{slug}"
+    status, data = await ctx.json("GET", url, "ashby")
+    if status != 200 or not isinstance(data, dict):
+        return status, None
+    jobs = []
+    for item in data.get("jobs", []):
+        if item.get("isListed") is False:
+            continue
+        title = item.get("title") or ""
+        locs = [item.get("location") or ""]
+        locs += [(s or {}).get("location", "") for s in (item.get("secondaryLocations") or []) if isinstance(s, dict)]
+        country = (((item.get("address") or {}).get("postalAddress")) or {}).get("addressCountry") or ""
+        if country.strip().lower() in ("india", "in"):
+            locs.append("India")
+        loc = uniq_join(locs)
+        wp = str(item.get("workplaceType") or "").lower()
+        ok, reason, rtype, dloc = evaluate(
+            title, loc, lambda i=item: clean_text(i.get("descriptionPlain") or i.get("descriptionHtml")),
+            remote_flag=bool(item.get("isRemote")) or wp == "remote",
+            nonremote_flag=(wp in ("hybrid", "onsite", "on-site")))
+        ctx.rej[f"ashby:{reason}"] += 1
+        link = item.get("jobUrl") or item.get("applyUrl")
+        if ok and link:
+            jobs.append(make_job(f"ab-{slug}-{item.get('id') or link}", title, pretty_company(slug), dloc,
+                                 link, parse_dt(item.get("publishedAt")), rtype))
+    return 200, jobs
 
-if __name__ == "__main__":
-    import sys
-    if sys.platform == "win32":
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(main())
+
+async def 
