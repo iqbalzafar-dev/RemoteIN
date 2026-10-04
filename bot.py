@@ -9,13 +9,13 @@ from datetime import datetime, timezone, timedelta
 from duckduckgo_search import DDGS
 
 # ==============================================================================
-# 1. CONFIGURATION & RULES
+# 1. CONFIGURATION & COMPREHENSIVE FILTER RULES
 # ==============================================================================
 CONFIG = {
     "COMPANIES_FILE": "companies.json",
     "JOBS_FILE": "jobs.json",
-    "MAX_CONCURRENT_REQUESTS": 20,
-    "REQUEST_TIMEOUT_SECONDS": 12,
+    "MAX_CONCURRENT_REQUESTS": 25,
+    "REQUEST_TIMEOUT_SECONDS": 14,
     "CUTOFF_DAYS": 30,
     "USER_AGENT": "RemoteIN-Bot/2.0 (+https://github.com/iqbalzafar-dev/RemoteIN)",
     
@@ -31,11 +31,11 @@ CONFIG = {
 
     # High-volume aggregator feeds
     "BULK_FEEDS": [
-        {"url": "https://jobicy.com/api/v2/remote-jobs?count=50&geo=apac", "type": "jobicy"},
+        {"url": "https://jobicy.com/api/v2/remote-jobs?count=100", "type": "jobicy"},
         {"url": "https://www.arbeitnow.com/api/job-board-api", "type": "arbeitnow"}
     ],
 
-    # Classification Keywords
+    # Smart Category Mapping
     "ROLE_KEYWORDS": {
         "Payroll & Compliance": ["payroll", "compensation", "benefits", "comp & ben"],
         "HR & People Ops": ["hr", "recruiter", "talent acquisition", "people ops", "human resources", "talent", "onboarding"],
@@ -44,9 +44,35 @@ CONFIG = {
         "Tech & Engineering": ["engineer", "developer", "data", "software", "product", "designer", "architect", "devops", "qa", "ml", "ai"]
     },
 
-    "STRICT_REMOTE_FLAGS": ["remote", "work from home", "wfh", "anywhere", "distributed"],
-    "APAC_FLAGS": ["india", "apac", "asia", "singapore", "australia", "philippines", "worldwide", "global", "anywhere"],
-    "EXCLUDE_FLAGS": ["hybrid", "on-site", "onsite", "wfo", "in-office", "us only", "uk only", "europe only", "latam", "emea"]
+    # Strict WFO / In-Office Red Flags
+    "RED_FLAGS": [
+        "hybrid", "onsite", "on-site", "wfo", "in-office", 
+        "work from office", "office based"
+    ],
+
+    # Non-India / Non-APAC regional locks
+    "GEO_LOCKS": [
+        "us only", "uk only", "emea only", "europe only", 
+        "canada only", "latam only", "remote - us", "remote (us)",
+        "remote - uk", "remote - europe", "remote - north america"
+    ],
+
+    # Mandatory Remote Signals
+    "REMOTE_SIGNALS": [
+        "remote", "work from home", "wfh", "anywhere", 
+        "distributed", "telecommute", "virtual role", "work from anywhere"
+    ],
+
+    # Tier-1 & Indian Tech Hubs + APAC + Global
+    "ELIGIBLE_LOCATIONS": [
+        "india", "bangalore", "bengaluru", "gurgaon", "gurugram", 
+        "delhi", "new delhi", "ncr", "noida", "greater noida", 
+        "mumbai", "navi mumbai", "thane", "hyderabad", "secunderabad", 
+        "pune", "chennai", "kolkata", "ahmedabad", "kochi", "cochin", 
+        "chandigarh", "mohali", "indore", "jaipur", "apac", "asia", 
+        "singapore", "australia", "philippines", "malaysia", "indonesia", 
+        "worldwide", "global", "anywhere"
+    ]
 }
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s", datefmt="%H:%M:%S")
@@ -95,24 +121,35 @@ def classify_role(title):
             return cat
     return "Operations & Support"
 
-def is_strictly_remote_apac(title, location, extra=""):
+def is_eligible_remote(title, location, extra=""):
     blob = f"{title} {location} {extra}".lower()
-    if any(ex in blob for ex in CONFIG["EXCLUDE_FLAGS"]) and "india" not in blob:
+    
+    # 1. Strict Red Flags Check (Reject WFO / Hybrid)
+    if any(rf in blob for rf in CONFIG["RED_FLAGS"]):
         return False
-    if not any(rf in blob for rf in CONFIG["STRICT_REMOTE_FLAGS"]):
+        
+    # 2. Regional Lock Check
+    if any(gl in blob for gl in CONFIG["GEO_LOCKS"]) and "india" not in blob:
         return False
-    if not any(af in blob for af in CONFIG["APAC_FLAGS"]):
+        
+    # 3. Mandatory Remote Signal Check (Zero WFO tolerance)
+    has_remote = any(rs in blob for rs in CONFIG["REMOTE_SIGNALS"])
+    if not has_remote:
         return False
-    return True
+
+    # 4. Eligibility Check (India Tier-1, Tech Hubs, APAC & Global)
+    if not location or any(place in blob for place in CONFIG["ELIGIBLE_LOCATIONS"]):
+        return True
+
+    return False
 
 # ==============================================================================
-# 3. COMPANY REGISTRY (COMPATIBLE WITH YOUR EXACT JSON FORMAT)
+# 3. COMPANY REGISTRY (COMPATIBLE WITH EXISTING 300+ COMPANIES DATABASE)
 # ==============================================================================
 class CompanyRegistry:
     def __init__(self, filepath):
         self.filepath = filepath
         self.data = self._load()
-        # Normalizing to set for instant O(1) deduplication
         self.slug_sets = {
             "greenhouse": set(self.data.get("greenhouse", [])),
             "lever": set(self.data.get("lever", [])),
@@ -157,7 +194,6 @@ class CompanyRegistry:
         if ats_type not in self.slug_sets or slug in self.slug_sets[ats_type]:
             return False
 
-        # Endpoint Validation
         test_url = ""
         if ats_type == "greenhouse":
             test_url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
@@ -174,20 +210,20 @@ class CompanyRegistry:
             return False
 
         self.slug_sets[ats_type].add(slug)
-        log.info(f"✨ New company discovered & added: {slug} ({ats_type.upper()})")
+        log.info(f"✨ Discovered and validated new company: {slug} ({ats_type.upper()})")
         return True
 
 # ==============================================================================
 # 4. DISCOVERY VIA DUCKDUCKGO
 # ==============================================================================
 async def run_search_discovery(session, registry):
-    log.info("🔎 Auto-discovering new companies via search queries...")
+    log.info("🔎 Searching for new companies via ATS Google/DDG indexing...")
     ddgs = DDGS()
     discovered_urls = []
     for query in CONFIG["DISCOVERY_QUERIES"]:
         try:
-            await asyncio.sleep(random.uniform(1.0, 2.0))
-            for res in ddgs.text(query, max_results=15):
+            await asyncio.sleep(random.uniform(1.0, 1.5))
+            for res in ddgs.text(query, max_results=12):
                 discovered_urls.append(res.get("href"))
         except Exception:
             pass
@@ -207,6 +243,9 @@ def record_job(job_id, title, company, location, category, url, dt_obj):
     if not is_recent(dt_obj) or url in seen_urls:
         return
     seen_urls.add(url)
+    
+    # Store complete ISO timestamp string
+    iso_date = dt_obj.isoformat()
     jobs_output.append({
         "id": str(job_id),
         "title": title,
@@ -214,7 +253,8 @@ def record_job(job_id, title, company, location, category, url, dt_obj):
         "location": location if location else "Remote (India/APAC)",
         "category": category,
         "url": url,
-        "dateAdded": dt_obj.isoformat()
+        "date": iso_date,
+        "dateAdded": iso_date
     })
 
 async def scrape_greenhouse(session, slug, sem):
@@ -228,7 +268,7 @@ async def scrape_greenhouse(session, slug, sem):
                         title = item.get("title", "")
                         loc = (item.get("location") or {}).get("name", "")
                         dt = parse_iso_datetime(item.get("updated_at"))
-                        if is_strictly_remote_apac(title, loc):
+                        if is_eligible_remote(title, loc):
                             record_job(item["id"], title, slug, loc, classify_role(title), item["absolute_url"], dt)
         except Exception:
             pass
@@ -246,7 +286,7 @@ async def scrape_lever(session, slug, sem):
                         loc = cats.get("location", "")
                         commit = cats.get("commitment", "")
                         dt = parse_iso_datetime(item.get("createdAt"))
-                        if is_strictly_remote_apac(title, loc, commit):
+                        if is_eligible_remote(title, loc, commit):
                             record_job(item["id"], title, slug, loc, classify_role(title), item.get("hostedUrl", ""), dt)
         except Exception:
             pass
@@ -264,13 +304,13 @@ async def scrape_ashby(session, slug, sem):
                         dt = parse_iso_datetime(item.get("publishedAt"))
                         is_remote = item.get("isRemote", False)
                         check_meta = f"{loc} {'remote' if is_remote else ''}"
-                        if is_strictly_remote_apac(title, loc, check_meta):
+                        if is_eligible_remote(title, loc, check_meta):
                             record_job(item["id"], title, slug, loc, classify_role(title), item.get("jobUrl", ""), dt)
         except Exception:
             pass
 
 async def scrape_aggregators_and_discover(session, registry):
-    log.info("🌐 Fetching bulk feeds and discovering candidate companies...")
+    log.info("🌐 Ingesting partner feeds and discovering outbound ATS links...")
     for feed in CONFIG["BULK_FEEDS"]:
         try:
             async with session.get(feed["url"], timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
@@ -283,13 +323,13 @@ async def scrape_aggregators_and_discover(session, registry):
                         title = j.get("jobTitle", "")
                         loc = j.get("jobGeo", "")
                         url = j.get("url", "")
-                        comp_name = j.get("companyName", "Direct Company")
+                        comp_name = j.get("companyName", "Direct Employer")
                         dt = parse_iso_datetime(j.get("pubDate"))
                         
                         ats, slug = registry.extract_ats_from_url(url)
                         if ats and slug:
                             await registry.add_discovered_company(session, ats, slug)
-                        if is_strictly_remote_apac(title, loc):
+                        if is_eligible_remote(title, loc):
                             record_job(j.get("id", url), title, comp_name, loc, classify_role(title), url, dt)
 
                 elif feed["type"] == "arbeitnow":
@@ -299,19 +339,19 @@ async def scrape_aggregators_and_discover(session, registry):
                         title = j.get("title", "")
                         loc = j.get("location", "Remote")
                         url = j.get("url", "")
-                        comp_name = j.get("company_name", "Tech Startup")
+                        comp_name = j.get("company_name", "Direct Employer")
                         dt = parse_iso_datetime(j.get("created_at"))
                         
                         ats, slug = registry.extract_ats_from_url(url)
                         if ats and slug:
                             await registry.add_discovered_company(session, ats, slug)
-                        if is_strictly_remote_apac(title, loc):
+                        if is_eligible_remote(title, loc):
                             record_job(j.get("slug", url), title, comp_name, loc, classify_role(title), url, dt)
         except Exception:
             pass
 
 # ==============================================================================
-# 6. MAIN ORCHESTRATOR
+# 6. MAIN ENGINE EXECUTION
 # ==============================================================================
 async def main():
     start = datetime.now()
@@ -320,12 +360,12 @@ async def main():
     sem = asyncio.Semaphore(CONFIG["MAX_CONCURRENT_REQUESTS"])
 
     async with aiohttp.ClientSession(headers=headers) as session:
-        # Step 1: Auto-discover new companies & save back to companies.json
+        # Step 1: Auto-discover new companies and update companies.json
         await run_search_discovery(session, registry)
         await scrape_aggregators_and_discover(session, registry)
         registry.save()
 
-        # Step 2: Scrape all companies in existing list
+        # Step 2: Scrape live boards across all registered companies
         tasks = []
         for slug in registry.slug_sets["greenhouse"]:
             tasks.append(scrape_greenhouse(session, slug, sem))
@@ -338,7 +378,7 @@ async def main():
         log.info(f"⚡ Ingesting live boards across {total_companies} companies...")
         await asyncio.gather(*tasks)
 
-    # Sort newest first
+    # Sort descending by newest dateAdded first
     jobs_output.sort(key=lambda x: x.get("dateAdded", ""), reverse=True)
 
     with open(CONFIG["JOBS_FILE"], "w") as f:
