@@ -2,36 +2,61 @@ name: RemoteIN Auto-Scraper
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    # Minute 17 instead of 0: GitHub is busiest at the top of the hour and delays or drops runs then
+    - cron: '17 * * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Refetch every source now (ignores schedules, not cooldowns)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
 
+# Never run two bots at once, state.json would get corrupted
+concurrency:
+  group: remotein-scraper
+  cancel-in-progress: false
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Install dependencies
-        run: |
-          pip install aiohttp requests duckduckgo_search urllib3
+        run: pip install aiohttp
 
       - name: Run Job Bot
+        env:
+          FORCE_ALL: ${{ github.event.inputs.force }}
         run: python bot.py
 
-      - name: Commit and push updated jobs & companies
+      - name: Commit and push updated data
         run: |
-          git config --global user.name "RemoteIN Bot"
-          git config --global user.email "bot@remotein.local"
-          git add jobs.json companies.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update jobs and expanded company database" && git pull --rebase origin main && git push origin main)
+          git config user.name "RemoteIN Bot"
+          git config user.email "bot@remotein.local"
+          git add jobs.json state.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Auto-update jobs"
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin main; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Push failed after 3 attempts"
+          exit 1
