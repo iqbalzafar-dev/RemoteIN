@@ -5,14 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>RemoteIN — Verified Remote Jobs for India & APAC</title>
   
-  <!-- SEO & Social Open Graph Tags -->
-  <meta name="description" content="Discover verified remote tech and non-tech opportunities open to talent in India and APAC. Updated hourly via automated pipelines." />
-  <meta name="keywords" content="Remote Jobs India, APAC Remote Careers, Tech Jobs, Non-Tech Remote Work, Work From Home" />
-  <meta property="og:title" content="RemoteIN — Verified Remote Jobs for India & APAC" />
-  <meta property="og:description" content="Curated remote openings across Tech, Operations, HR, Finance, and Customer Experience." />
+  <meta name="description" content="Discover verified remote opportunities for India and APAC." />
+  <meta property="og:title" content="RemoteIN — Remote Jobs for India & APAC" />
+  <meta property="og:description" content="Curated remote openings across Tech, Operations, HR, and Finance." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://iqbalzafar-dev.github.io/RemoteIN/" />
-  <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root {
@@ -22,12 +18,9 @@
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --primary: #38bdf8;
-      --primary-hover: #0284c7;
       --tag-tech: #0ea5e9;
       --tag-nontech: #10b981;
       --badge-new: #ef4444;
-      --badge-bg: #1e1b4b;
-      --badge-border: #4338ca;
       --card-bg: #1e293b;
       --input-bg: #0f172a;
     }
@@ -39,12 +32,9 @@
       --text-main: #0f172a;
       --text-muted: #64748b;
       --primary: #0284c7;
-      --primary-hover: #0369a1;
       --tag-tech: #0284c7;
       --tag-nontech: #059669;
       --badge-new: #dc2626;
-      --badge-bg: #e0e7ff;
-      --badge-border: #c7d2fe;
       --card-bg: #ffffff;
       --input-bg: #f1f5f9;
     }
@@ -53,14 +43,12 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     body {
       background-color: var(--bg);
       color: var(--text-main);
-      line-height: 1.4;
-      transition: background-color 0.2s ease, color 0.2s ease;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -72,7 +60,6 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(8px);
     }
 
     .nav-container {
@@ -94,7 +81,6 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--primary);
-      letter-spacing: -0.5px;
     }
 
     .count-indicator {
@@ -153,10 +139,6 @@
       outline: none;
     }
 
-    .search-input:focus {
-      border-color: var(--primary);
-    }
-
     .clear-search {
       position: absolute;
       right: 8px;
@@ -168,7 +150,6 @@
       font-size: 1.1rem;
       cursor: pointer;
       display: none;
-      line-height: 1;
     }
 
     .sort-select {
@@ -186,7 +167,6 @@
       flex-wrap: wrap;
       gap: 6px;
       align-items: center;
-      justify-content: space-between;
     }
 
     .chips-group {
@@ -199,13 +179,11 @@
       background: var(--surface);
       border: 1px solid var(--surface-border);
       color: var(--text-muted);
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 14px;
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
-      user-select: none;
-      transition: all 0.15s ease;
     }
 
     .chip.active {
@@ -231,12 +209,6 @@
       gap: 12px;
       text-decoration: none;
       color: inherit;
-      transition: transform 0.1s ease, border-color 0.15s ease;
-    }
-
-    .job-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-1px);
     }
 
     .card-main {
@@ -264,7 +236,6 @@
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-bottom: 4px;
-      font-weight: 500;
     }
 
     .meta-row {
@@ -278,9 +249,6 @@
       padding: 1px 6px;
       border-radius: 4px;
       font-weight: 600;
-      letter-spacing: 0.3px;
-      display: inline-flex;
-      align-items: center;
     }
 
     .badge-tech {
@@ -297,10 +265,8 @@
       background: var(--badge-new);
       color: #ffffff;
       font-size: 0.62rem;
-      padding: 0 4px;
+      padding: 1px 4px;
       border-radius: 3px;
-      font-weight: 700;
-      animation: pulse 2s infinite;
     }
 
     .badge-location {
@@ -324,11 +290,6 @@
       margin-left: auto;
     }
 
-    .card-action {
-      display: flex;
-      align-items: center;
-    }
-
     .apply-btn {
       background: transparent;
       border: 1px solid var(--primary);
@@ -337,12 +298,6 @@
       border-radius: 6px;
       font-size: 0.75rem;
       font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .job-card:hover .apply-btn {
-      background: var(--primary);
-      color: #0f172a;
     }
 
     .empty-state {
@@ -352,17 +307,7 @@
       font-size: 0.88rem;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-
     @media (max-width: 600px) {
-      .nav-container { padding: 8px 12px; }
-      main { padding: 8px 12px; }
-      .job-card { padding: 8px 10px; }
-      .job-title { font-size: 0.86rem; }
-      .company-name { font-size: 0.72rem; }
       .apply-btn { display: none; }
     }
   </style>
@@ -375,25 +320,23 @@
         <h1>RemoteIN</h1>
         <span class="count-indicator" id="jobs-count">Loading...</span>
       </div>
-      <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">☀️ Light</button>
+      <button class="theme-toggle" id="theme-btn">☀️ Light</button>
     </div>
   </header>
 
   <main>
     <div class="controls">
-      <!-- Search & Sort -->
       <div class="search-row">
         <div class="search-box-wrapper">
-          <input type="text" id="search-input" class="search-input" placeholder="Search by title, skill, or company..." autocomplete="off" />
-          <button id="clear-search" class="clear-search" aria-label="Clear search">&times;</button>
+          <input type="text" id="search-input" class="search-input" placeholder="Search by title or company..." />
+          <button id="clear-search" class="clear-search">&times;</button>
         </div>
-        <select id="sort-select" class="sort-select" aria-label="Sort listings">
+        <select id="sort-select" class="sort-select">
           <option value="latest">Latest</option>
           <option value="oldest">Oldest</option>
         </select>
       </div>
 
-      <!-- Filter Chips -->
       <div class="filter-chips-container">
         <div class="chips-group" id="category-chips">
           <button class="chip active" data-filter="all">All Roles</button>
@@ -405,153 +348,121 @@
           <button class="chip active" data-loc="all">All Locations</button>
           <button class="chip" data-loc="india">India</button>
           <button class="chip" data-loc="apac">APAC</button>
-          <button class="chip" data-loc="global">Global (Eligible)</button>
+          <button class="chip" data-loc="global">Global</button>
         </div>
       </div>
     </div>
 
-    <!-- Jobs Stream -->
-    <div id="jobs-list" role="feed"></div>
-
-    <noscript>
-      <div class="empty-state">
-        <h2>JavaScript Required</h2>
-        <p>RemoteIN indexes live opportunities via dynamic feeds. Please enable JavaScript to access real-time job listings.</p>
-      </div>
-    </noscript>
+    <div id="jobs-list"></div>
   </main>
 
   <script>
-    /* ==========================================================================
-       1. CONFIGURATION & CLASSIFIER DICTIONARIES
-       ========================================================================== */
-    const CLASSIFICATION_CONFIG = {
-      techKeywords: [
-        "engineer", "developer", "architect", "solutions", "data", "devops", 
-        "qa", "sre", "ml", "ai", "machine learning", "backend", "frontend", 
-        "fullstack", "full stack", "cloud", "infra", "security", "sysadmin", 
-        "platform", "embedded", "firmware", "mobile", "ios", "android", "scrum master"
-      ],
-      nonTechOverrides: [
-        "recruiter", "talent acquisition", "hr", "payroll", "sales", 
-        "account executive", "marketing", "content", "finance", "accountant", 
-        "customer support", "customer success", "operations associate", "legal"
-      ],
-      apacKeywords: [
-        "india", "apac", "asia", "singapore", "australia", "japan", "philippines", 
-        "vietnam", "indonesia", "malaysia", "thailand", "new zealand", "korea", "taiwan"
-      ]
-    };
-
+    // 1. Data State
     let jobsData = [];
     let activeCategory = "all";
     let activeLocation = "all";
     let searchQuery = "";
     let sortOrder = "latest";
 
-    /* ==========================================================================
-       2. NORMALIZATION FUNCTIONS
-       ========================================================================== */
-    function classifyCategory(title = "") {
-      const lower = title.toLowerCase();
+    // 2. Keyword Config
+    const TECH_KEYWORDS = [
+      "engineer", "developer", "architect", "solutions", "data", "devops", 
+      "qa", "sre", "ml", "ai", "machine learning", "backend", "frontend", 
+      "fullstack", "cloud", "security", "sysadmin", "mobile", "ios", "android"
+    ];
 
-      for (const kw of CLASSIFICATION_CONFIG.nonTechOverrides) {
-        if (new RegExp(`\\b${kw}\\b`, 'i').test(lower)) {
-          return "Non-Tech";
-        }
+    const NON_TECH_KEYWORDS = [
+      "recruiter", "talent acquisition", "hr", "payroll", "sales", 
+      "marketing", "content", "finance", "accountant", "support", "operations"
+    ];
+
+    const APAC_KEYWORDS = ["india", "apac", "asia", "singapore", "australia", "japan", "philippines", "malaysia", "indonesia"];
+
+    function classifyCategory(title) {
+      if (!title) return "Non-Tech";
+      const t = String(title).toLowerCase();
+      for (let k of NON_TECH_KEYWORDS) {
+        if (t.includes(k)) return "Non-Tech";
       }
-
-      for (const kw of CLASSIFICATION_CONFIG.techKeywords) {
-        if (lower.includes(kw)) {
-          return "Tech";
-        }
+      for (let k of TECH_KEYWORDS) {
+        if (t.includes(k)) return "Tech";
       }
-
       return "Non-Tech";
     }
 
-    function classifyLocation(loc = "") {
-      const lower = String(loc).toLowerCase();
-
-      if (lower.includes("india")) return "India";
-      for (const kw of CLASSIFICATION_CONFIG.apacKeywords) {
-        if (lower.includes(kw)) return "APAC";
+    function classifyLocation(loc) {
+      if (!loc) return "Global";
+      const l = String(loc).toLowerCase();
+      if (l.includes("india")) return "India";
+      for (let k of APAC_KEYWORDS) {
+        if (l.includes(k)) return "APAC";
       }
       return "Global";
     }
 
     function isUnder24Hours(dateStr) {
       if (!dateStr) return false;
-      const jobDate = new Date(dateStr);
-      if (isNaN(jobDate.getTime())) return false;
-      const hoursAgo = (Date.now() - jobDate.getTime()) / (1000 * 60 * 60);
-      return hoursAgo >= 0 && hoursAgo <= 24;
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return false;
+      const diffHours = (Date.now() - d.getTime()) / (1000 * 60 * 60);
+      return diffHours >= 0 && diffHours <= 24;
     }
 
-    function formatDisplayDate(dateStr) {
-      if (!dateStr) return "";
-      const date = new Date(dateStr);
-      if (isNaN(date.getTime())) return String(dateStr).slice(0, 10);
-      return date.toLocaleDateString("en-IN", { month: "short", day: "numeric" });
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>'"]/g, t => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[t] || t));
     }
 
-    /* ==========================================================================
-       3. RENDER JOBS
-       ========================================================================== */
-    const jobsContainer = document.getElementById("jobs-list");
-    const countBadge = document.getElementById("jobs-count");
-
+    // 3. Render
     function renderJobs() {
+      const container = document.getElementById("jobs-list");
+      const countEl = document.getElementById("jobs-count");
+
       const filtered = jobsData.filter(job => {
-        const categoryMatch = (activeCategory === "all") || (job._category.toLowerCase() === activeCategory);
-        const locationMatch = (activeLocation === "all") || (job._locCategory.toLowerCase() === activeLocation);
-
+        const catOk = (activeCategory === "all") || (job._category.toLowerCase() === activeCategory);
+        const locOk = (activeLocation === "all") || (job._locCategory.toLowerCase() === activeLocation);
         const q = searchQuery.toLowerCase().trim();
-        const searchMatch = !q || 
+        const searchOk = !q || 
           job.title.toLowerCase().includes(q) || 
-          (job.company && job.company.toLowerCase().includes(q)) ||
-          (Array.isArray(job.tags) && job.tags.some(t => String(t).toLowerCase().includes(q)));
+          job.company.toLowerCase().includes(q);
 
-        return categoryMatch && locationMatch && searchMatch;
+        return catOk && locOk && searchOk;
       });
 
       filtered.sort((a, b) => {
-        const timeA = new Date(a.date || 0).getTime();
-        const timeB = new Date(b.date || 0).getTime();
-        return sortOrder === "latest" ? timeB - timeA : timeA - timeB;
+        const tA = new Date(a.date || 0).getTime() || 0;
+        const tB = new Date(b.date || 0).getTime() || 0;
+        return sortOrder === "latest" ? tB - tA : tA - tB;
       });
 
-      countBadge.textContent = `${filtered.length} Jobs`;
+      countEl.textContent = `${filtered.length} Jobs`;
 
       if (filtered.length === 0) {
-        jobsContainer.innerHTML = `
-          <div class="empty-state">
-            <p>No matching positions found. Adjust your keywords or filter parameters.</p>
-          </div>
-        `;
+        container.innerHTML = `<div class="empty-state"><p>No jobs found matching your criteria.</p></div>`;
         return;
       }
 
-      jobsContainer.innerHTML = filtered.map(job => {
+      container.innerHTML = filtered.map(job => {
         const isTech = job._category === "Tech";
         const isNew = isUnder24Hours(job.date);
         const locClass = job._locCategory.toLowerCase();
+        const displayDate = job.date ? String(job.date).slice(0, 10) : "";
 
         return `
-          <a class="job-card" href="${job.url || '#'}" target="_blank" rel="noopener noreferrer">
+          <a class="job-card" href="${job.url}" target="_blank" rel="noopener noreferrer">
             <div class="card-main">
               <div class="card-top">
-                <span class="job-title" title="${escapeHtml(job.title)}">${escapeHtml(job.title)}</span>
+                <span class="job-title">${escapeHtml(job.title)}</span>
                 ${isNew ? '<span class="badge badge-new">NEW</span>' : ''}
               </div>
-              <div class="company-name">${escapeHtml(job.company || 'Direct Employer')}</div>
+              <div class="company-name">${escapeHtml(job.company)}</div>
               <div class="meta-row">
                 <span class="badge ${isTech ? 'badge-tech' : 'badge-nontech'}">${job._category}</span>
                 <span class="badge badge-location ${locClass}">${escapeHtml(job._locCategory)}</span>
-                <span class="date-text">${formatDisplayDate(job.date)}</span>
+                <span class="date-text">${escapeHtml(displayDate)}</span>
               </div>
             </div>
-            <div class="card-action">
+            <div>
               <span class="apply-btn">Apply &rarr;</span>
             </div>
           </a>
@@ -559,130 +470,98 @@
       }).join('');
     }
 
-    function escapeHtml(str) {
-      if (!str) return '';
-      return String(str).replace(/[&<>'"]/g, tag => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        "'": '&#39;',
-        '"': '&quot;'
-      }[tag] || tag));
-    }
+    // 4. Fetch Function (Bulletproof)
+    async function loadData() {
+      const countEl = document.getElementById("jobs-count");
+      const container = document.getElementById("jobs-list");
+      
+      try {
+        // Try direct relative jobs.json
+        const response = await fetch('jobs.json?v=' + Date.now());
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        
+        let raw = await response.json();
+        let items = Array.isArray(raw) ? raw : (raw.jobs || raw.data || []);
 
-    /* ==========================================================================
-       4. ROBUST DATA FETCHING
-       ========================================================================== */
-    async function loadJobs() {
-      // Direct repo target with relative fallbacks
-      const targetPaths = [
-        'jobs.json',
-        './jobs.json',
-        '/RemoteIN/jobs.json'
-      ];
-
-      let raw = null;
-
-      for (const p of targetPaths) {
-        try {
-          const res = await fetch(`${p}?t=${Date.now()}`);
-          if (res.ok) {
-            raw = await res.json();
-            break;
-          }
-        } catch (e) {
-          // Check next candidate path
-        }
-      }
-
-      if (!raw) {
-        countBadge.textContent = "Error";
-        jobsContainer.innerHTML = `
-          <div class="empty-state">
-            <p>Unable to load jobs data file. Please verify the URL path or reload.</p>
-          </div>
-        `;
-        return;
-      }
-
-      // Format unwrapping
-      if (!Array.isArray(raw)) {
-        if (raw.jobs && Array.isArray(raw.jobs)) {
-          raw = raw.jobs;
-        } else if (raw.data && Array.isArray(raw.data)) {
-          raw = raw.data;
-        } else {
-          raw = [];
-        }
-      }
-
-      jobsData = raw.map(item => {
-        const title = item.title || item.role || item.position || "Untitled Opening";
-        const locationRaw = item.location || item.candidate_required_location || item.country || "Global";
-        const category = classifyCategory(title);
-        const locCategory = classifyLocation(locationRaw);
-
-        return {
-          ...item,
-          title: title,
+        jobsData = items.map(item => ({
+          title: item.title || item.role || item.position || "Opening",
           company: item.company || item.company_name || "Direct Employer",
           url: item.url || item.apply_url || item.link || "#",
-          _category: category,
-          _locCategory: locCategory,
-          date: item.date || item.publication_date || item.created_at || ""
-        };
-      });
+          date: item.date || item.created_at || item.publication_date || "",
+          _category: classifyCategory(item.title || item.role),
+          _locCategory: classifyLocation(item.location || item.candidate_required_location)
+        }));
 
-      renderJobs();
+        renderJobs();
+      } catch (err) {
+        console.error("Fetch failed:", err);
+        countEl.textContent = "0 Jobs";
+        container.innerHTML = `<div class="empty-state"><p>Could not load jobs list. Please verify <code>jobs.json</code> exists on GitHub.</p></div>`;
+      }
     }
 
-    /* ==========================================================================
-       5. CONTROLS SETUP
-       ========================================================================== */
-    const searchInput = document.getElementById("search-input");
-    const clearBtn = document.getElementById("clear-search");
+    // 5. Setup UI Listeners (Guaranteed to bind)
+    window.addEventListener("DOMContentLoaded", () => {
+      // Theme Toggle
+      const themeBtn = document.getElementById("theme-btn");
+      themeBtn.addEventListener("click", () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        if (isLight) {
+          document.documentElement.removeAttribute("data-theme");
+          themeBtn.textContent = "☀️ Light";
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeBtn.textContent = "🌙 Dark";
+        }
+      });
 
-    searchInput.addEventListener("input", (e) => {
-      searchQuery = e.target.value;
-      clearBtn.style.display = searchQuery ? "block" : "none";
-      renderJobs();
+      // Category Chips
+      const catChips = document.querySelectorAll("#category-chips .chip");
+      catChips.forEach(chip => {
+        chip.addEventListener("click", function() {
+          catChips.forEach(c => c.classList.remove("active"));
+          this.classList.add("active");
+          activeCategory = this.getAttribute("data-filter");
+          renderJobs();
+        });
+      });
+
+      // Location Chips
+      const locChips = document.querySelectorAll("#location-chips .chip");
+      locChips.forEach(chip => {
+        chip.addEventListener("click", function() {
+          locChips.forEach(c => c.classList.remove("active"));
+          this.classList.add("active");
+          activeLocation = this.getAttribute("data-loc");
+          renderJobs();
+        });
+      });
+
+      // Search
+      const searchBox = document.getElementById("search-input");
+      const clearBtn = document.getElementById("clear-search");
+      searchBox.addEventListener("input", (e) => {
+        searchQuery = e.target.value;
+        clearBtn.style.display = searchQuery ? "block" : "none";
+        renderJobs();
+      });
+
+      clearBtn.addEventListener("click", () => {
+        searchBox.value = "";
+        searchQuery = "";
+        clearBtn.style.display = "none";
+        renderJobs();
+      });
+
+      // Sort
+      document.getElementById("sort-select").addEventListener("change", (e) => {
+        sortOrder = e.target.value;
+        renderJobs();
+      });
+
+      // Start Data Fetch
+      loadData();
     });
-
-    clearBtn.addEventListener("click", () => {
-      searchInput.value = "";
-      searchQuery = "";
-      clearBtn.style.display = "none";
-      searchInput.focus();
-      renderJobs();
-    });
-
-    document.getElementById("sort-select").addEventListener("change", (e) => {
-      sortOrder = e.target.value;
-      renderJobs();
-    });
-
-    document.getElementById("category-chips").addEventListener("click", (e) => {
-      if (!e.target.classList.contains("chip")) return;
-      document.querySelectorAll("#category-chips .chip").forEach(c => c.classList.remove("active"));
-      e.target.classList.add("active");
-      activeCategory = e.target.dataset.filter;
-      renderJobs();
-    });
-
-    document.getElementById("location-chips").addEventListener("click", (e) => {
-      if (!e.target.classList.contains("chip")) return;
-      document.querySelectorAll("#location-chips .chip").forEach(c => c.classList.remove("active"));
-      e.target.classList.add("active");
-      activeLocation = e.target.dataset.loc;
-      renderJobs();
-    });
-
-    /* ==========================================================================
-       6. THEME TOGGLE
-       ========================================================================== */
-    const themeBtn = document.getElementById("theme-btn");
-    const currentTheme = localStorage.getItem("remotein_theme") || "dark";
-
-    function applyTheme(theme) {
-      if (theme === "light") {
-        document.documentElement.setAttribute("data-theme",
+  </script>
+</body>
+</html>
