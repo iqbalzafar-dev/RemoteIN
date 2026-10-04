@@ -44,11 +44,11 @@ CONFIG = {
         "work from office", "office based"
     ],
 
-    # Non-India / Non-APAC regional locks
+    # Strict Regional Locks (exclude only if India is NOT allowed)
     "GEO_LOCKS": [
         "us only", "uk only", "emea only", "europe only", 
         "canada only", "latam only", "remote - us", "remote (us)",
-        "remote - uk", "remote - europe", "remote - north america", "germany only"
+        "remote - uk", "remote - europe", "germany only"
     ],
 
     # Mandatory Remote Signals
@@ -210,7 +210,7 @@ class CompanyRegistry:
             return False
 
         self.slug_sets[ats_type].add(slug)
-        log.info(f"✨ Discovered and validated new company: {slug} ({ats_type.upper()})")
+        log.info(f"✨ Discovered new company: {slug} ({ats_type.upper()})")
         return True
 
 # ==============================================================================
@@ -234,7 +234,7 @@ async def run_search_discovery(session, registry):
             await registry.add_discovered_company(session, ats, slug)
 
 # ==============================================================================
-# 5. SCRAPING ENGINE (PUBLIC ATS APIS + MASSIVE FEEDS)
+# 5. SCRAPING ENGINE (PUBLIC ATS APIS + VERIFIED FEEDS)
 # ==============================================================================
 jobs_output = []
 seen_urls = set()
@@ -308,10 +308,10 @@ async def scrape_ashby(session, slug, sem):
         except Exception:
             pass
 
-async def scrape_aggregators_and_discover(session, registry):
-    log.info("🌐 Fetching bulk verified remote feeds...")
+async def scrape_verified_feeds(session, registry):
+    log.info("🌐 Ingesting verified direct remote feeds (Remotive, Himalayas, Arbeitnow)...")
 
-    # 1. Remotive (Cloudflare Safe + Worldwide/India Open Filter)
+    # 1. Remotive (Smart Worldwide/India Filter)
     try:
         async with session.get("https://remotive.com/api/remote-jobs", headers=BROWSER_HEADERS, timeout=20) as resp:
             if resp.status == 200:
@@ -326,41 +326,38 @@ async def scrape_aggregators_and_discover(session, registry):
                     comp_name = j.get("company_name", "Global Remote")
                     dt = parse_iso_datetime(j.get("publication_date"))
 
-                    # Discovery check
                     ats, slug = registry.extract_ats_from_url(url)
                     if ats and slug:
                         await registry.add_discovered_company(session, ats, slug)
 
-                    # Remotive is 100% remote: verify it is open to India/APAC/Worldwide
-                    if not any(gl in loc_lower for gl in CONFIG["GEO_LOCKS"]):
-                        if any(k in loc_lower for k in ["worldwide", "anywhere", "india", "apac", "asia", "global"]) or loc_lower == "":
-                            cat = classify_role(title)
-                            record_job(j.get("id", url), title, comp_name, loc if loc else "Worldwide (Remote)", cat, url, dt)
+                    is_india_eligible = any(k in loc_lower for k in ["india", "apac", "asia", "worldwide", "anywhere", "global"]) or loc_lower == ""
+                    strict_exclusion = any(gl in loc_lower for gl in ["us only", "uk only", "canada only", "emea only", "europe only", "latam only", "germany only"])
+                    
+                    if is_india_eligible and not (strict_exclusion and "india" not in loc_lower):
+                        cat = classify_role(title)
+                        record_job(j.get("id", url), title, comp_name, loc if loc else "Worldwide (Remote)", cat, url, dt)
     except Exception as e:
         log.warning(f"Remotive feed error: {e}")
 
-    # 2. Jobicy
+    # 2. Himalayas Public API (100% Direct Remote Openings)
     try:
-        async with session.get("https://jobicy.com/api/v2/remote-jobs?count=100", headers=BROWSER_HEADERS, timeout=15) as resp:
+        async with session.get("https://himalayas.app/jobs/api?limit=50", headers=BROWSER_HEADERS, timeout=15) as resp:
             if resp.status == 200:
                 data = await resp.json()
                 for j in data.get("jobs", []):
-                    title = j.get("jobTitle", "")
-                    loc = (j.get("jobGeo") or "Anywhere").strip()
-                    loc_lower = loc.lower()
-                    url = j.get("url", "")
-                    comp = j.get("companyName", "Direct Company")
-                    dt = parse_iso_datetime(j.get("pubDate"))
+                    title = j.get("title", "")
+                    loc = "Remote (India/Global)"
+                    url = j.get("applicationLink") or j.get("url", "")
+                    comp = j.get("companyName", "Himalayas Startup")
+                    dt = parse_iso_datetime(j.get("pubDate") or j.get("createdAt"))
                     
                     ats, slug = registry.extract_ats_from_url(url)
                     if ats and slug:
                         await registry.add_discovered_company(session, ats, slug)
-
-                    if not any(gl in loc_lower for gl in CONFIG["GEO_LOCKS"]):
-                        if any(k in loc_lower for k in ["worldwide", "anywhere", "india", "apac", "asia", "global"]) or loc_lower == "":
-                            record_job(j.get("id", url), title, comp, loc, classify_role(title), url, dt)
+                        
+                    record_job(j.get("id", url), title, comp, loc, classify_role(title), url, dt)
     except Exception as e:
-        log.warning(f"Jobicy error: {e}")
+        log.warning(f"Himalayas feed error: {e}")
 
     # 3. Arbeitnow
     try:
@@ -390,7 +387,7 @@ async def main():
     async with aiohttp.ClientSession(headers=BROWSER_HEADERS) as session:
         # Step 1: Auto-discover new companies and update companies.json
         await run_search_discovery(session, registry)
-        await scrape_aggregators_and_discover(session, registry)
+        await scrape_verified_feeds(session, registry)
         registry.save()
 
         # Step 2: Scrape live boards across all registered companies
