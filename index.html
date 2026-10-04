@@ -124,7 +124,6 @@
       width: 100%;
     }
 
-    /* Controls Panel */
     .controls {
       display: flex;
       flex-direction: column;
@@ -215,7 +214,6 @@
       color: #0f172a;
     }
 
-    /* Jobs List & Compact Cards */
     #jobs-list {
       display: flex;
       flex-direction: column;
@@ -347,7 +345,6 @@
       color: #0f172a;
     }
 
-    /* Fallbacks & Alerts */
     .empty-state {
       text-align: center;
       padding: 40px 16px;
@@ -366,7 +363,7 @@
       .job-card { padding: 8px 10px; }
       .job-title { font-size: 0.86rem; }
       .company-name { font-size: 0.72rem; }
-      .apply-btn { display: none; } /* Saves screen space on small viewports */
+      .apply-btn { display: none; }
     }
   </style>
 </head>
@@ -384,7 +381,7 @@
 
   <main>
     <div class="controls">
-      <!-- Search & Sort Row -->
+      <!-- Search & Sort -->
       <div class="search-row">
         <div class="search-box-wrapper">
           <input type="text" id="search-input" class="search-input" placeholder="Search by title, skill, or company..." autocomplete="off" />
@@ -396,16 +393,14 @@
         </select>
       </div>
 
-      <!-- Compact Filter Chips -->
+      <!-- Filter Chips -->
       <div class="filter-chips-container">
-        <!-- Category Filter -->
         <div class="chips-group" id="category-chips">
           <button class="chip active" data-filter="all">All Roles</button>
           <button class="chip" data-filter="tech">Tech</button>
           <button class="chip" data-filter="non-tech">Non-Tech</button>
         </div>
 
-        <!-- Location Filter -->
         <div class="chips-group" id="location-chips">
           <button class="chip active" data-loc="all">All Locations</button>
           <button class="chip" data-loc="india">India</button>
@@ -415,7 +410,7 @@
       </div>
     </div>
 
-    <!-- Listings Container -->
+    <!-- Jobs Stream -->
     <div id="jobs-list" role="feed"></div>
 
     <noscript>
@@ -428,23 +423,20 @@
 
   <script>
     /* ==========================================================================
-       1. CENTRALIZED KEYWORDS & CONFIGURATION (Easily Editable)
+       1. CONFIGURATION & CLASSIFIER DICTIONARIES
        ========================================================================== */
     const CLASSIFICATION_CONFIG = {
-      // Direct substring or whole-word match for Tech roles
       techKeywords: [
         "engineer", "developer", "architect", "solutions", "data", "devops", 
         "qa", "sre", "ml", "ai", "machine learning", "backend", "frontend", 
         "fullstack", "full stack", "cloud", "infra", "security", "sysadmin", 
         "platform", "embedded", "firmware", "mobile", "ios", "android", "scrum master"
       ],
-      // Non-tech override keywords (if title is ambiguous or contains overlap)
       nonTechOverrides: [
         "recruiter", "talent acquisition", "hr", "payroll", "sales", 
         "account executive", "marketing", "content", "finance", "accountant", 
         "customer support", "customer success", "operations associate", "legal"
       ],
-      // APAC countries/regions keywords
       apacKeywords: [
         "india", "apac", "asia", "singapore", "australia", "japan", "philippines", 
         "vietnam", "indonesia", "malaysia", "thailand", "new zealand", "korea", "taiwan"
@@ -458,19 +450,17 @@
     let sortOrder = "latest";
 
     /* ==========================================================================
-       2. REFINED NORMALIZATION LOGIC
+       2. NORMALIZATION FUNCTIONS
        ========================================================================== */
     function classifyCategory(title = "") {
       const lower = title.toLowerCase();
 
-      // Check non-tech explicitly first in case of hybrid phrases
       for (const kw of CLASSIFICATION_CONFIG.nonTechOverrides) {
         if (new RegExp(`\\b${kw}\\b`, 'i').test(lower)) {
           return "Non-Tech";
         }
       }
 
-      // Check tech keywords (supports phrases like "solutions architect")
       for (const kw of CLASSIFICATION_CONFIG.techKeywords) {
         if (lower.includes(kw)) {
           return "Tech";
@@ -481,14 +471,11 @@
     }
 
     function classifyLocation(loc = "") {
-      const lower = loc.toLowerCase();
+      const lower = String(loc).toLowerCase();
 
       if (lower.includes("india")) return "India";
       for (const kw of CLASSIFICATION_CONFIG.apacKeywords) {
         if (lower.includes(kw)) return "APAC";
-      }
-      if (lower.includes("anywhere") || lower.includes("worldwide") || lower.includes("remote")) {
-        return "Global";
       }
       return "Global";
     }
@@ -504,7 +491,7 @@
     function formatDisplayDate(dateStr) {
       if (!dateStr) return "";
       const date = new Date(dateStr);
-      if (isNaN(date.getTime())) return dateStr;
+      if (isNaN(date.getTime())) return String(dateStr).slice(0, 10);
       return date.toLocaleDateString("en-IN", { month: "short", day: "numeric" });
     }
 
@@ -516,30 +503,24 @@
 
     function renderJobs() {
       const filtered = jobsData.filter(job => {
-        // Category check
         const categoryMatch = (activeCategory === "all") || (job._category.toLowerCase() === activeCategory);
-
-        // Location check
         const locationMatch = (activeLocation === "all") || (job._locCategory.toLowerCase() === activeLocation);
 
-        // Search check
         const q = searchQuery.toLowerCase().trim();
         const searchMatch = !q || 
           job.title.toLowerCase().includes(q) || 
           (job.company && job.company.toLowerCase().includes(q)) ||
-          (job.tags && job.tags.some(t => t.toLowerCase().includes(q)));
+          (Array.isArray(job.tags) && job.tags.some(t => String(t).toLowerCase().includes(q)));
 
         return categoryMatch && locationMatch && searchMatch;
       });
 
-      // Sorting
       filtered.sort((a, b) => {
         const timeA = new Date(a.date || 0).getTime();
         const timeB = new Date(b.date || 0).getTime();
         return sortOrder === "latest" ? timeB - timeA : timeA - timeB;
       });
 
-      // Update counters
       countBadge.textContent = `${filtered.length} Jobs`;
 
       if (filtered.length === 0) {
@@ -580,7 +561,7 @@
 
     function escapeHtml(str) {
       if (!str) return '';
-      return str.replace(/[&<>'"]/g, tag => ({
+      return String(str).replace(/[&<>'"]/g, tag => ({
         '&': '&amp;',
         '<': '&lt;',
         '>': '&gt;',
@@ -590,43 +571,74 @@
     }
 
     /* ==========================================================================
-       4. DATA INGESTION & PIPELINE FETCH
+       4. ROBUST DATA FETCHING
        ========================================================================== */
     async function loadJobs() {
-      try {
-        const res = await fetch(`jobs.json?v=${Date.now()}`);
-        if (!res.ok) throw new Error("Could not load jobs.json");
-        const raw = await res.json();
+      // Direct repo target with relative fallbacks
+      const targetPaths = [
+        'jobs.json',
+        './jobs.json',
+        '/RemoteIN/jobs.json'
+      ];
 
-        // Standardize schema
-        jobsData = raw.map(item => {
-          const category = classifyCategory(item.title);
-          const locCategory = classifyLocation(item.location || item.candidate_required_location || "");
+      let raw = null;
 
-          return {
-            ...item,
-            _category: category,
-            _locCategory: locCategory,
-            date: item.date || item.publication_date || item.created_at || ""
-          };
-        });
+      for (const p of targetPaths) {
+        try {
+          const res = await fetch(`${p}?t=${Date.now()}`);
+          if (res.ok) {
+            raw = await res.json();
+            break;
+          }
+        } catch (e) {
+          // Check next candidate path
+        }
+      }
 
-        renderJobs();
-      } catch (err) {
-        console.error(err);
-        countBadge.textContent = "Offline";
+      if (!raw) {
+        countBadge.textContent = "Error";
         jobsContainer.innerHTML = `
           <div class="empty-state">
-            <p>Failed to load current postings. Pull down or reload to retry.</p>
+            <p>Unable to load jobs data file. Please verify the URL path or reload.</p>
           </div>
         `;
+        return;
       }
+
+      // Format unwrapping
+      if (!Array.isArray(raw)) {
+        if (raw.jobs && Array.isArray(raw.jobs)) {
+          raw = raw.jobs;
+        } else if (raw.data && Array.isArray(raw.data)) {
+          raw = raw.data;
+        } else {
+          raw = [];
+        }
+      }
+
+      jobsData = raw.map(item => {
+        const title = item.title || item.role || item.position || "Untitled Opening";
+        const locationRaw = item.location || item.candidate_required_location || item.country || "Global";
+        const category = classifyCategory(title);
+        const locCategory = classifyLocation(locationRaw);
+
+        return {
+          ...item,
+          title: title,
+          company: item.company || item.company_name || "Direct Employer",
+          url: item.url || item.apply_url || item.link || "#",
+          _category: category,
+          _locCategory: locCategory,
+          date: item.date || item.publication_date || item.created_at || ""
+        };
+      });
+
+      renderJobs();
     }
 
     /* ==========================================================================
-       5. EVENT LISTENERS & FILTER CONTROLS
+       5. CONTROLS SETUP
        ========================================================================== */
-    // Search box and clear button
     const searchInput = document.getElementById("search-input");
     const clearBtn = document.getElementById("clear-search");
 
@@ -644,13 +656,11 @@
       renderJobs();
     });
 
-    // Sorting select
     document.getElementById("sort-select").addEventListener("change", (e) => {
       sortOrder = e.target.value;
       renderJobs();
     });
 
-    // Category chips
     document.getElementById("category-chips").addEventListener("click", (e) => {
       if (!e.target.classList.contains("chip")) return;
       document.querySelectorAll("#category-chips .chip").forEach(c => c.classList.remove("active"));
@@ -659,7 +669,6 @@
       renderJobs();
     });
 
-    // Location chips
     document.getElementById("location-chips").addEventListener("click", (e) => {
       if (!e.target.classList.contains("chip")) return;
       document.querySelectorAll("#location-chips .chip").forEach(c => c.classList.remove("active"));
@@ -669,10 +678,11 @@
     });
 
     /* ==========================================================================
-       6. THEME TOGGLE (Persistent)
+       6. THEME TOGGLE
        ========================================================================== */
     const themeBtn = document.getElementById("theme-btn");
     const currentTheme = localStorage.getItem("remotein_theme") || "dark";
 
     function applyTheme(theme) {
-  
+      if (theme === "light") {
+        document.documentElement.setAttribute("data-theme",
