@@ -1,361 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RemoteIN | Premium Job Board</title>
-    <style>
-        /* Default Dark Theme Variables */
-        :root {
-            --bg-color: #030303; --surface: rgba(255, 255, 255, 0.02); --surface-hover: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.08); --text-main: #f8f9fa; --text-muted: #a1a1aa;
-            --accent: #3b82f6; --select-bg: rgba(255, 255, 255, 0.03); --option-bg: #0a0a0a; --option-text: #fff;
-            --header-gradient: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-            --btn-border: rgba(255, 255, 255, 0.2); --btn-hover-bg: #ffffff; --btn-hover-text: #000000;
-            --highlight-bg: rgba(59, 130, 246, 0.25); --highlight-text: #60a5fa;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>RemoteIN — Verified Remote Jobs for India & APAC</title>
+  
+  <!-- SEO & Social Open Graph Tags -->
+  <meta name="description" content="Discover verified remote tech and non-tech opportunities open to talent in India and APAC. Updated hourly via automated pipelines." />
+  <meta name="keywords" content="Remote Jobs India, APAC Remote Careers, Tech Jobs, Non-Tech Remote Work, Work From Home" />
+  <meta property="og:title" content="RemoteIN — Verified Remote Jobs for India & APAC" />
+  <meta property="og:description" content="Curated remote openings across Tech, Operations, HR, Finance, and Customer Experience." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iqbalzafar-dev.github.io/RemoteIN/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        /* Light Theme Variables */
-        body.light-mode {
-            --bg-color: #f8fafc; --surface: rgba(0, 0, 0, 0.02); --surface-hover: rgba(0, 0, 0, 0.05);
-            --border: rgba(0, 0, 0, 0.1); --text-main: #0f172a; --text-muted: #64748b;
-            --select-bg: rgba(255, 255, 255, 0.6); --option-bg: #ffffff; --option-text: #000;
-            --header-gradient: linear-gradient(135deg, #0f172a 0%, #475569 100%);
-            --btn-border: rgba(0, 0, 0, 0.2); --btn-hover-bg: #0f172a; --btn-hover-text: #ffffff;
-            --highlight-bg: rgba(59, 130, 246, 0.2); --highlight-text: #1d4ed8;
-        }
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --tag-tech: #0ea5e9;
+      --tag-nontech: #10b981;
+      --badge-new: #ef4444;
+      --badge-bg: #1e1b4b;
+      --badge-border: #4338ca;
+      --card-bg: #1e293b;
+      --input-bg: #0f172a;
+    }
 
-        html { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-color); }
-        ::-webkit-scrollbar-thumb { background: rgba(136, 136, 136, 0.3); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(136, 136, 136, 0.5); }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --tag-tech: #0284c7;
+      --tag-nontech: #059669;
+      --badge-new: #dc2626;
+      --badge-bg: #e0e7ff;
+      --badge-border: #c7d2fe;
+      --card-bg: #ffffff;
+      --input-bg: #f1f5f9;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
 
-        /* Lock overscroll so native pull-to-refresh doesn't fight our custom one */
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; overscroll-behavior-y: none; transition: background-color 0.4s ease, color 0.4s ease; margin: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.4;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .orb-1, .orb-2 { transition: opacity 0.4s ease; }
-        body.light-mode .orb-1, body.light-mode .orb-2 { opacity: 0.5; }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
 
-        .orb-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 60%); filter: blur(80px); z-index: -1; animation: floatOrb 15s ease-in-out infinite alternate; }
-        .orb-2 { position: fixed; bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(147,51,234,0.1) 0%, rgba(0,0,0,0) 60%); filter: blur(80px); z-index: -1; animation: floatOrb 20s ease-in-out infinite alternate-reverse; }
-        @keyframes floatOrb { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* --- PULL TO REFRESH STYLES --- */
-        .ptr-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            transform: translateY(-100%); z-index: 100; pointer-events: none; color: var(--text-muted);
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .ptr-icon { font-size: 24px; transition: transform 0.3s ease; margin-bottom: 5px; }
-        .ptr-text { font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
-        .ptr-spin { animation: ptr-rotate 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-        @keyframes ptr-rotate { 100% { transform: rotate(360deg); } }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        /* The App wrapper that gets "stretched" */
-        #app-wrapper {
-            will-change: transform; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); min-height: 100vh;
-        }
+    .brand h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
 
-        .layout-container { display: grid; grid-template-columns: 350px 1fr; gap: 60px; max-width: 1300px; margin: 0 auto; padding: 60px 40px; }
-        aside { position: sticky; top: 60px; height: max-content; animation: fadeInLeft 0.8s ease-out; }
-        header { display: flex; flex-direction: column; }
-        .title-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+    .count-indicator {
+      font-size: 0.72rem;
+      background: var(--surface-border);
+      color: var(--text-muted);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
 
-        header h1 { font-size: 52px; font-weight: 800; letter-spacing: -2px; background: var(--header-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; transition: background 0.4s ease; user-select: none;}
-        .theme-toggle-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-main); padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; transition: all 0.3s ease; backdrop-filter: blur(10px); }
-        .theme-toggle-btn:hover { background: var(--surface-hover); transform: scale(1.05); }
-        header p { color: var(--text-muted); font-size: 18px; font-weight: 300; margin-bottom: 30px; transition: color 0.4s ease; }
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
 
-        .filters { display: flex; flex-direction: column; gap: 15px; }
-        .search-box { width: 100%; padding: 14px 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--select-bg); backdrop-filter: blur(10px); font-size: 15px; font-weight: 500; outline: none; color: var(--text-main); transition: all 0.3s ease; }
-        .search-box::placeholder { color: var(--text-muted); }
-        .search-box:focus { border-color: var(--accent); background: var(--surface-hover); transform: translateX(4px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1); }
-        .filters select { width: 100%; padding: 14px 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--select-bg); backdrop-filter: blur(10px); font-size: 15px; font-weight: 500; cursor: pointer; outline: none; color: var(--text-main); transition: all 0.3s ease; appearance: none; }
-        .filters select:hover { border-color: var(--border); background: var(--surface-hover); transform: translateX(4px); }
-        .filters select option { background: var(--option-bg); color: var(--option-text); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      flex: 1;
+      width: 100%;
+    }
 
-        main { animation: fadeInRight 0.8s ease-out; }
-        .job-list { display: flex; flex-direction: column; gap: 20px; }
+    /* Controls Panel */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
 
-        .job-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 28px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: inherit; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); backdrop-filter: blur(12px); opacity: 0; }
-        .job-card:hover { transform: translateY(-5px) scale(1.02) !important; background: var(--surface-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 30px rgba(59, 130, 246, 0.05); }
-        .job-info h2 { font-size: 22px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.5px; transition: color 0.3s; }
-        .job-card:hover .job-info h2 { color: var(--accent); }
-        .badges { display: flex; gap: 10px; margin-bottom: 14px; }
-        .badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
-        .badge.tech { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
-        .badge.non-tech { background: rgba(236, 72, 153, 0.1); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.2); }
-        .job-meta { font-size: 15px; color: var(--text-muted); display: flex; gap: 15px; align-items: center; font-weight: 400; transition: color 0.4s ease; }
-        .job-meta span::after { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); margin-left: 15px; vertical-align: middle; opacity: 0.5; }
-        .job-meta span:last-child::after { display: none; }
-        .job-apply { text-align: right; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
-        .job-date { font-size: 14px; color: var(--text-muted); margin-bottom: 15px; font-weight: 500; transition: color 0.4s ease; }
-        .apply-btn { background: transparent; border: 1px solid var(--btn-border); padding: 12px 24px; border-radius: 30px; font-size: 15px; font-weight: 600; color: var(--text-main); transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
-        .job-card:hover .apply-btn { background: var(--btn-hover-bg); color: var(--btn-hover-text); border-color: var(--btn-hover-bg); box-shadow: 0 0 15px rgba(0,0,0,0.1); transform: scale(1.05); }
+    .search-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
 
-        .no-jobs { text-align: center; padding: 50px; color: var(--text-muted); font-size: 16px; background: rgba(0,0,0,0.2); border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1); }
-        .highlight { background-color: var(--highlight-bg); color: var(--highlight-text); border-radius: 4px; padding: 0 2px; font-weight: 700; transition: all 0.3s; }
+    .search-box-wrapper {
+      position: relative;
+      flex: 1;
+    }
 
-        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes popInCascade { from { opacity: 0; transform: translateY(15px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .search-input {
+      width: 100%;
+      padding: 8px 30px 8px 12px;
+      background: var(--input-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 0.88rem;
+      outline: none;
+    }
 
-        @media (max-width: 900px) {
-            .layout-container { grid-template-columns: 1fr; padding: 30px 20px; gap: 40px; }
-            aside { position: static; }
-            .job-card { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .job-apply { align-items: flex-start; text-align: left; }
-        }
-    </style>
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .clear-search {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: none;
+      line-height: 1;
+    }
+
+    .sort-select {
+      background: var(--input-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 0.82rem;
+      outline: none;
+    }
+
+    .filter-chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .chip.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #0f172a;
+    }
+
+    /* Jobs List & Compact Cards */
+    #jobs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .job-card {
+      background: var(--card-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.1s ease, border-color 0.15s ease;
+    }
+
+    .job-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .card-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .company-name {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.7rem;
+    }
+
+    .badge {
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .badge-tech {
+      background: rgba(14, 165, 233, 0.15);
+      color: var(--tag-tech);
+    }
+
+    .badge-nontech {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--tag-nontech);
+    }
+
+    .badge-new {
+      background: var(--badge-new);
+      color: #ffffff;
+      font-size: 0.62rem;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-weight: 700;
+      animation: pulse 2s infinite;
+    }
+
+    .badge-location {
+      background: var(--surface-border);
+      color: var(--text-muted);
+    }
+
+    .badge-location.india {
+      border: 1px solid #f59e0b;
+      color: #f59e0b;
+    }
+
+    .badge-location.apac {
+      border: 1px solid #8b5cf6;
+      color: #8b5cf6;
+    }
+
+    .date-text {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      margin-left: auto;
+    }
+
+    .card-action {
+      display: flex;
+      align-items: center;
+    }
+
+    .apply-btn {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .job-card:hover .apply-btn {
+      background: var(--primary);
+      color: #0f172a;
+    }
+
+    /* Fallbacks & Alerts */
+    .empty-state {
+      text-align: center;
+      padding: 40px 16px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-container { padding: 8px 12px; }
+      main { padding: 8px 12px; }
+      .job-card { padding: 8px 10px; }
+      .job-title { font-size: 0.86rem; }
+      .company-name { font-size: 0.72rem; }
+      .apply-btn { display: none; } /* Saves screen space on small viewports */
+    }
+  </style>
 </head>
 <body>
-    
-    <!-- Background Orbs -->
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
 
-    <!-- Pull to Refresh Loading Icon -->
-    <div class="ptr-container" id="ptr-container">
-        <div class="ptr-icon" id="ptr-icon">↓</div>
-        <div class="ptr-text" id="ptr-text">Pull down to refresh</div>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        <h1>RemoteIN</h1>
+        <span class="count-indicator" id="jobs-count">Loading...</span>
+      </div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">☀️ Light</button>
     </div>
+  </header>
 
-    <!-- Main Wrapper that will stretch -->
-    <div id="app-wrapper">
-        <div class="layout-container">
-            <aside>
-                <header>
-                    <div class="title-row">
-                        <h1 style="cursor: grab;" id="drag-handle">RemoteIN</h1>
-                        <button class="theme-toggle-btn" id="theme-btn"><span id="theme-icon">☀️️</span> Light</button>
-                    </div>
-                    <p>Curated remote roles for India & APAC. Direct links, zero friction.</p>
-                </header>
-                <div class="filters">
-                    <input type="text" id="search-input" class="search-box" placeholder="Search roles, companies, or locations...">
-                    <select id="category-filter">
-                        <option value="all">All Categories</option>
-                        <option value="tech">Tech</option>
-                        <option value="non-tech">Non-Tech</option>
-                    </select>
-                    <select id="sort-filter">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
-                    </select>
-                </div>
-            </aside>
-            <main>
-                <div class="job-list" id="job-container"></div>
-            </main>
+  <main>
+    <div class="controls">
+      <!-- Search & Sort Row -->
+      <div class="search-row">
+        <div class="search-box-wrapper">
+          <input type="text" id="search-input" class="search-input" placeholder="Search by title, skill, or company..." autocomplete="off" />
+          <button id="clear-search" class="clear-search" aria-label="Clear search">&times;</button>
         </div>
+        <select id="sort-select" class="sort-select" aria-label="Sort listings">
+          <option value="latest">Latest</option>
+          <option value="oldest">Oldest</option>
+        </select>
+      </div>
+
+      <!-- Compact Filter Chips -->
+      <div class="filter-chips-container">
+        <!-- Category Filter -->
+        <div class="chips-group" id="category-chips">
+          <button class="chip active" data-filter="all">All Roles</button>
+          <button class="chip" data-filter="tech">Tech</button>
+          <button class="chip" data-filter="non-tech">Non-Tech</button>
+        </div>
+
+        <!-- Location Filter -->
+        <div class="chips-group" id="location-chips">
+          <button class="chip active" data-loc="all">All Locations</button>
+          <button class="chip" data-loc="india">India</button>
+          <button class="chip" data-loc="apac">APAC</button>
+          <button class="chip" data-loc="global">Global (Eligible)</button>
+        </div>
+      </div>
     </div>
 
-    <script>
-        // --- THEME LOGIC ---
-        const themeBtn = document.getElementById('theme-btn'); const themeIcon = document.getElementById('theme-icon');
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            if(document.body.classList.contains('light-mode')) {
-                themeIcon.textContent = '🌙'; themeBtn.childNodes[2].textContent = ' Dark';
-            } else {
-                themeIcon.textContent = '☀️'; themeBtn.childNodes[2].textContent = ' Light';
-            }
+    <!-- Listings Container -->
+    <div id="jobs-list" role="feed"></div>
+
+    <noscript>
+      <div class="empty-state">
+        <h2>JavaScript Required</h2>
+        <p>RemoteIN indexes live opportunities via dynamic feeds. Please enable JavaScript to access real-time job listings.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <script>
+    /* ==========================================================================
+       1. CENTRALIZED KEYWORDS & CONFIGURATION (Easily Editable)
+       ========================================================================== */
+    const CLASSIFICATION_CONFIG = {
+      // Direct substring or whole-word match for Tech roles
+      techKeywords: [
+        "engineer", "developer", "architect", "solutions", "data", "devops", 
+        "qa", "sre", "ml", "ai", "machine learning", "backend", "frontend", 
+        "fullstack", "full stack", "cloud", "infra", "security", "sysadmin", 
+        "platform", "embedded", "firmware", "mobile", "ios", "android", "scrum master"
+      ],
+      // Non-tech override keywords (if title is ambiguous or contains overlap)
+      nonTechOverrides: [
+        "recruiter", "talent acquisition", "hr", "payroll", "sales", 
+        "account executive", "marketing", "content", "finance", "accountant", 
+        "customer support", "customer success", "operations associate", "legal"
+      ],
+      // APAC countries/regions keywords
+      apacKeywords: [
+        "india", "apac", "asia", "singapore", "australia", "japan", "philippines", 
+        "vietnam", "indonesia", "malaysia", "thailand", "new zealand", "korea", "taiwan"
+      ]
+    };
+
+    let jobsData = [];
+    let activeCategory = "all";
+    let activeLocation = "all";
+    let searchQuery = "";
+    let sortOrder = "latest";
+
+    /* ==========================================================================
+       2. REFINED NORMALIZATION LOGIC
+       ========================================================================== */
+    function classifyCategory(title = "") {
+      const lower = title.toLowerCase();
+
+      // Check non-tech explicitly first in case of hybrid phrases
+      for (const kw of CLASSIFICATION_CONFIG.nonTechOverrides) {
+        if (new RegExp(`\\b${kw}\\b`, 'i').test(lower)) {
+          return "Non-Tech";
+        }
+      }
+
+      // Check tech keywords (supports phrases like "solutions architect")
+      for (const kw of CLASSIFICATION_CONFIG.techKeywords) {
+        if (lower.includes(kw)) {
+          return "Tech";
+        }
+      }
+
+      return "Non-Tech";
+    }
+
+    function classifyLocation(loc = "") {
+      const lower = loc.toLowerCase();
+
+      if (lower.includes("india")) return "India";
+      for (const kw of CLASSIFICATION_CONFIG.apacKeywords) {
+        if (lower.includes(kw)) return "APAC";
+      }
+      if (lower.includes("anywhere") || lower.includes("worldwide") || lower.includes("remote")) {
+        return "Global";
+      }
+      return "Global";
+    }
+
+    function isUnder24Hours(dateStr) {
+      if (!dateStr) return false;
+      const jobDate = new Date(dateStr);
+      if (isNaN(jobDate.getTime())) return false;
+      const hoursAgo = (Date.now() - jobDate.getTime()) / (1000 * 60 * 60);
+      return hoursAgo >= 0 && hoursAgo <= 24;
+    }
+
+    function formatDisplayDate(dateStr) {
+      if (!dateStr) return "";
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return dateStr;
+      return date.toLocaleDateString("en-IN", { month: "short", day: "numeric" });
+    }
+
+    /* ==========================================================================
+       3. RENDER JOBS
+       ========================================================================== */
+    const jobsContainer = document.getElementById("jobs-list");
+    const countBadge = document.getElementById("jobs-count");
+
+    function renderJobs() {
+      const filtered = jobsData.filter(job => {
+        // Category check
+        const categoryMatch = (activeCategory === "all") || (job._category.toLowerCase() === activeCategory);
+
+        // Location check
+        const locationMatch = (activeLocation === "all") || (job._locCategory.toLowerCase() === activeLocation);
+
+        // Search check
+        const q = searchQuery.toLowerCase().trim();
+        const searchMatch = !q || 
+          job.title.toLowerCase().includes(q) || 
+          (job.company && job.company.toLowerCase().includes(q)) ||
+          (job.tags && job.tags.some(t => t.toLowerCase().includes(q)));
+
+        return categoryMatch && locationMatch && searchMatch;
+      });
+
+      // Sorting
+      filtered.sort((a, b) => {
+        const timeA = new Date(a.date || 0).getTime();
+        const timeB = new Date(b.date || 0).getTime();
+        return sortOrder === "latest" ? timeB - timeA : timeA - timeB;
+      });
+
+      // Update counters
+      countBadge.textContent = `${filtered.length} Jobs`;
+
+      if (filtered.length === 0) {
+        jobsContainer.innerHTML = `
+          <div class="empty-state">
+            <p>No matching positions found. Adjust your keywords or filter parameters.</p>
+          </div>
+        `;
+        return;
+      }
+
+      jobsContainer.innerHTML = filtered.map(job => {
+        const isTech = job._category === "Tech";
+        const isNew = isUnder24Hours(job.date);
+        const locClass = job._locCategory.toLowerCase();
+
+        return `
+          <a class="job-card" href="${job.url || '#'}" target="_blank" rel="noopener noreferrer">
+            <div class="card-main">
+              <div class="card-top">
+                <span class="job-title" title="${escapeHtml(job.title)}">${escapeHtml(job.title)}</span>
+                ${isNew ? '<span class="badge badge-new">NEW</span>' : ''}
+              </div>
+              <div class="company-name">${escapeHtml(job.company || 'Direct Employer')}</div>
+              <div class="meta-row">
+                <span class="badge ${isTech ? 'badge-tech' : 'badge-nontech'}">${job._category}</span>
+                <span class="badge badge-location ${locClass}">${escapeHtml(job._locCategory)}</span>
+                <span class="date-text">${formatDisplayDate(job.date)}</span>
+              </div>
+            </div>
+            <div class="card-action">
+              <span class="apply-btn">Apply &rarr;</span>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag));
+    }
+
+    /* ==========================================================================
+       4. DATA INGESTION & PIPELINE FETCH
+       ========================================================================== */
+    async function loadJobs() {
+      try {
+        const res = await fetch(`jobs.json?v=${Date.now()}`);
+        if (!res.ok) throw new Error("Could not load jobs.json");
+        const raw = await res.json();
+
+        // Standardize schema
+        jobsData = raw.map(item => {
+          const category = classifyCategory(item.title);
+          const locCategory = classifyLocation(item.location || item.candidate_required_location || "");
+
+          return {
+            ...item,
+            _category: category,
+            _locCategory: locCategory,
+            date: item.date || item.publication_date || item.created_at || ""
+          };
         });
 
-        // --- DATA RENDERING LOGIC ---
-        let jobsData = [];
-        const container = document.getElementById('job-container');
-        const searchInput = document.getElementById('search-input');
-        const categoryFilter = document.getElementById('category-filter');
-        const sortFilter = document.getElementById('sort-filter');
+        renderJobs();
+      } catch (err) {
+        console.error(err);
+        countBadge.textContent = "Offline";
+        jobsContainer.innerHTML = `
+          <div class="empty-state">
+            <p>Failed to load current postings. Pull down or reload to retry.</p>
+          </div>
+        `;
+      }
+    }
 
-        function formatDate(dateString) {
-            if (!dateString) return "Recent";
-            return new Date(dateString).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        }
+    /* ==========================================================================
+       5. EVENT LISTENERS & FILTER CONTROLS
+       ========================================================================== */
+    // Search box and clear button
+    const searchInput = document.getElementById("search-input");
+    const clearBtn = document.getElementById("clear-search");
 
-        function highlightText(text, searchTerm) {
-            if (!searchTerm) return text;
-            const regex = new RegExp(`(${searchTerm})`, 'gi');
-            return text.replace(regex, `<span class="highlight">$1</span>`);
-        }
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      clearBtn.style.display = searchQuery ? "block" : "none";
+      renderJobs();
+    });
 
-        function renderJobs(isTyping = false) {
-            const category = categoryFilter.value;
-            const sortOrder = sortFilter.value;
-            const searchTerm = searchInput.value.toLowerCase().trim();
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      searchQuery = "";
+      clearBtn.style.display = "none";
+      searchInput.focus();
+      renderJobs();
+    });
 
-            let filtered = jobsData.filter(job => {
-                const matchesCategory = category === 'all' || job.category === category;
-                const matchesSearch = searchTerm === '' || 
-                                      job.title.toLowerCase().includes(searchTerm) || 
-                                      job.company.toLowerCase().includes(searchTerm) || 
-                                      job.location.toLowerCase().includes(searchTerm);
-                return matchesCategory && matchesSearch;
-            });
-            
-            filtered.sort((a, b) => {
-                const dateA = new Date(a.dateAdded); const dateB = new Date(b.dateAdded);
-                return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
-            });
+    // Sorting select
+    document.getElementById("sort-select").addEventListener("change", (e) => {
+      sortOrder = e.target.value;
+      renderJobs();
+    });
 
-            container.innerHTML = '';
-            if (filtered.length === 0) {
-                container.innerHTML = '<div class="no-jobs">No roles found matching your criteria.</div>';
-                return;
-            }
+    // Category chips
+    document.getElementById("category-chips").addEventListener("click", (e) => {
+      if (!e.target.classList.contains("chip")) return;
+      document.querySelectorAll("#category-chips .chip").forEach(c => c.classList.remove("active"));
+      e.target.classList.add("active");
+      activeCategory = e.target.dataset.filter;
+      renderJobs();
+    });
 
-            filtered.forEach((job, index) => {
-                const card = document.createElement('a');
-                card.href = job.url; card.target = "_blank"; card.className = 'job-card';
-                
-                if (isTyping) {
-                    card.style.opacity = '1';
-                } else {
-                    card.style.animation = `popInCascade 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards`;
-                    card.style.animationDelay = `${index * 0.05}s`;
-                }
+    // Location chips
+    document.getElementById("location-chips").addEventListener("click", (e) => {
+      if (!e.target.classList.contains("chip")) return;
+      document.querySelectorAll("#location-chips .chip").forEach(c => c.classList.remove("active"));
+      e.target.classList.add("active");
+      activeLocation = e.target.dataset.loc;
+      renderJobs();
+    });
 
-                const highlightedTitle = highlightText(job.title, searchTerm);
-                const highlightedCompany = highlightText(job.company, searchTerm);
-                const highlightedLocation = highlightText(job.location, searchTerm);
+    /* ==========================================================================
+       6. THEME TOGGLE (Persistent)
+       ========================================================================== */
+    const themeBtn = document.getElementById("theme-btn");
+    const currentTheme = localStorage.getItem("remotein_theme") || "dark";
 
-                card.innerHTML = `
-                    <div class="job-info">
-                        <div class="badges">
-                            <span class="badge ${job.category}">${job.category === 'tech' ? 'Tech' : 'Non-Tech'}</span>
-                        </div>
-                        <h2>${highlightedTitle}</h2>
-                        <div class="job-meta"><span>${highlightedCompany}</span><span>${highlightedLocation}</span></div>
-                    </div>
-                    <div class="job-apply">
-                        <span class="job-date">Posted ${formatDate(job.dateAdded)}</span>
-                        <div class="apply-btn">Apply Now</div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        async function fetchRealJobs() {
-            try {
-                const response = await fetch('jobs.json');
-                jobsData = await response.json();
-                renderJobs(); 
-            } catch (error) {
-                container.innerHTML = '<div class="no-jobs">Could not load jobs. Make sure python server is running.</div>';
-            }
-        }
-
-        let typingTimer;
-        searchInput.addEventListener('input', () => {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(() => renderJobs(true), 300);
-        });
-        categoryFilter.addEventListener('change', () => renderJobs(false));
-        sortFilter.addEventListener('change', () => renderJobs(false));
-        
-        fetchRealJobs();
-
-        // --- PULL TO REFRESH (RUBBER BAND PHYSICS) ---
-        const appWrapper = document.getElementById('app-wrapper');
-        const ptrContainer = document.getElementById('ptr-container');
-        const ptrIcon = document.getElementById('ptr-icon');
-        const ptrText = document.getElementById('ptr-text');
-        
-        let startY = 0; let currentY = 0;
-        let isDragging = false; let isRefreshing = false;
-
-        function startDrag(clientY) {
-            // Sirf tabhi kaam karega jab website bilkul upar ho (scroll zero ho)
-            if (window.scrollY === 0 && !isRefreshing) {
-                startY = clientY;
-                isDragging = true;
-                appWrapper.style.transition = 'none'; // dragging buttery smooth rahe
-                ptrContainer.style.transition = 'none';
-            }
-        }
-
-        function dragMove(clientY) {
-            if (!isDragging) return;
-            currentY = clientY;
-            const pullDistance = currentY - startY;
-            
-            // Sirf niche ki taraf khichne par
-            if (pullDistance > 0 && window.scrollY === 0) {
-                // Physics: Jitna jyada khichoge, utna bhari lagega (friction)
-                const resistance = pullDistance * 0.35; 
-                
-                appWrapper.style.transform = `translateY(${resistance}px)`;
-                ptrContainer.style.transform = `translateY(${resistance - 80}px)`;
-
-                if (resistance > 70) {
-                    ptrIcon.style.transform = 'rotate(180deg)';
-                    ptrText.textContent = "Release to fetch new jobs";
-                } else {
-                    ptrIcon.style.transform = 'rotate(0deg)';
-                    ptrText.textContent = "Pull down to refresh";
-                }
-            }
-        }
-
-        function stopDrag() {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            appWrapper.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
-            ptrContainer.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
-
-            const pullDistance = currentY - startY || 0;
-            const resistance = pullDistance * 0.35;
-
-            if (resistance > 70) {
-                // Refresh trigger ho gaya
-                isRefreshing = true;
-                ptrIcon.style.transform = 'rotate(0deg)';
-                ptrIcon.innerHTML = '↻';
-                ptrIcon.classList.add('ptr-spin');
-                ptrText.textContent = "Refreshing data...";
-                
-                appWrapper.style.transform = `translateY(80px)`;
-                ptrContainer.style.transform = `translateY(0px)`;
-
-                // Naya data aane ka feel dene ke liye ek chhota sa delay
-                setTimeout(async () => {
-                    await fetchRealJobs();
-                    
-                    // Wapas purani jagah bounce karo
-                    appWrapper.style.transform = `translateY(0px)`;
-                    ptrContainer.style.transform = `translateY(-100%)`;
-                    
-                    setTimeout(() => {
-                        isRefreshing = false;
-                        ptrIcon.classList.remove('ptr-spin');
-                        ptrIcon.innerHTML = '↓';
-                        ptrText.textContent = "Pull down to refresh";
-                    }, 400);
-                }, 1000);
-            } else {
-                // Agar poora nahi khicha, toh wapas bina refresh kiye snap back karo
-                appWrapper.style.transform = `translateY(0px)`;
-                ptrContainer.style.transform = `translateY(-100%)`;
-            }
-            currentY = startY;
-        }
-
-        // Mouse Events (Laptop par mouse click karke khichne ke liye)
-        document.addEventListener('mousedown', e => startDrag(e.clientY));
-        document.addEventListener('mousemove', e => { if(isDragging) dragMove(e.clientY); });
-        document.addEventListener('mouseup', stopDrag);
-        
-        // Touch Events (Mobile feel ke liye)
-        document.addEventListener('touchstart', e => startDrag(e.touches[0].clientY), {passive: true});
-        document.addEventListener('touchmove', e => { if(isDragging) dragMove(e.touches[0].clientY); }, {passive: true});
-        document.addEventListener('touchend', stopDrag);
-    </script>
-</body>
-</html>
+    function applyTheme(theme) {
+  
