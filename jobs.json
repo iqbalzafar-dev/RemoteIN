@@ -81,15 +81,6 @@
         "dateAdded": "2026-10-03"
     },
     {
-        "id": "6001113004",
-        "title": "Customer Success Engineer ",
-        "company": "Algolia",
-        "location": "Remote - Australia",
-        "category": "Operations & Support",
-        "url": "https://job-boards.greenhouse.io/algolia/jobs/6001113004",
-        "dateAdded": "2026-10-02"
-    },
-    {
         "id": "7790607003",
         "title": "Manager, Customer Support Engineering",
         "company": "Fivetran",
@@ -123,6 +114,15 @@
         "location": "Remote, Japan, APAC",
         "category": "General Operations",
         "url": "https://www.fivetran.com/careers/job?gh_jid=7818382003",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "6001113004",
+        "title": "Customer Success Engineer ",
+        "company": "Algolia",
+        "location": "Remote - Australia",
+        "category": "Operations & Support",
+        "url": "https://job-boards.greenhouse.io/algolia/jobs/6001113004",
         "dateAdded": "2026-10-02"
     },
     {
@@ -522,21 +522,21 @@
         "dateAdded": "2026-09-25"
     },
     {
-        "id": "5995789004",
-        "title": "Senior Manager, Solutions Architect",
-        "company": "Vercel",
-        "location": "Remote - Australia",
-        "category": "Tech & Engineering",
-        "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
-        "dateAdded": "2026-09-24"
-    },
-    {
         "id": "8184179",
         "title": "Account Executive, Enterprise - Financial Services ",
         "company": "Braze",
         "location": "Remote - Australia",
         "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
+        "dateAdded": "2026-09-24"
+    },
+    {
+        "id": "5995789004",
+        "title": "Senior Manager, Solutions Architect",
+        "company": "Vercel",
+        "location": "Remote - Australia",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
         "dateAdded": "2026-09-24"
     },
     {
@@ -684,6 +684,15 @@
         "dateAdded": "2026-09-14"
     },
     {
+        "id": "ab43991e-fc10-487c-83ab-0e056e6312f6",
+        "title": "Buyer Support Team Lead",
+        "company": "Paddle",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobs.ashbyhq.com/paddle/ab43991e-fc10-487c-83ab-0e056e6312f6",
+        "dateAdded": "2026-09-09"
+    },
+    {
         "id": "a68db3e5-0ec3-472a-8597-8586f40d43a5",
         "title": "Release Engineer - Data Plane Internal Tooling and Productivity",
         "company": "Clickhouse",
@@ -699,15 +708,6 @@
         "location": "Australia",
         "category": "Tech & Engineering",
         "url": "https://jobs.ashbyhq.com/clickhouse/095fdff6-c00e-4635-92a6-fa3ec99288d5",
-        "dateAdded": "2026-09-09"
-    },
-    {
-        "id": "ab43991e-fc10-487c-83ab-0e056e6312f6",
-        "title": "Buyer Support Team Lead",
-        "company": "Paddle",
-        "location": "Philippines",
-        "category": "General Operations",
-        "url": "https://jobs.ashbyhq.com/paddle/ab43991e-fc10-487c-83ab-0e056e6312f6",
         "dateAdded": "2026-09-09"
     }
 ]
