@@ -126,6 +126,15 @@
         "dateAdded": "2026-10-02"
     },
     {
+        "id": "8184179",
+        "title": "Account Executive, Enterprise - Financial Services ",
+        "company": "Braze",
+        "location": "Remote - Australia",
+        "category": "non-tech",
+        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
+        "dateAdded": "2026-09-24"
+    },
+    {
         "id": "8099751002",
         "title": "AI Engineer - FDE (Forward Deployed Engineer)",
         "company": "Databricks",
@@ -178,15 +187,6 @@
         "category": "tech",
         "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530855002",
         "dateAdded": "2026-09-21"
-    },
-    {
-        "id": "8184179",
-        "title": "Account Executive, Enterprise - Financial Services ",
-        "company": "Braze",
-        "location": "Remote - Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
-        "dateAdded": "2026-09-24"
     },
     {
         "id": "8208317",
@@ -295,6 +295,24 @@
         "category": "non-tech",
         "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
         "dateAdded": "2026-09-25"
+    },
+    {
+        "id": "7912473",
+        "title": "Threat Detection Analyst (Japanese & English speaking)",
+        "company": "Fastly",
+        "location": "Australia (Remote)",
+        "category": "non-tech",
+        "url": "https://www.fastly.com/about/jobs/apply?gh_jid=7912473",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "8020043",
+        "title": "Senior Manager, Customer Engineering, India",
+        "company": "Cloudflare",
+        "location": "Remote India",
+        "category": "tech",
+        "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
+        "dateAdded": "2026-10-02"
     },
     {
         "id": "8138860",
@@ -441,24 +459,6 @@
         "dateAdded": "2026-09-29"
     },
     {
-        "id": "7912473",
-        "title": "Threat Detection Analyst (Japanese & English speaking)",
-        "company": "Fastly",
-        "location": "Australia (Remote)",
-        "category": "non-tech",
-        "url": "https://www.fastly.com/about/jobs/apply?gh_jid=7912473",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "8020043",
-        "title": "Senior Manager, Customer Engineering, India",
-        "company": "Cloudflare",
-        "location": "Remote India",
-        "category": "tech",
-        "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
-        "dateAdded": "2026-10-02"
-    },
-    {
         "id": "5648777004",
         "title": "Account Executive : Field Sales - Delhi NCR",
         "company": "Devrev",
@@ -520,6 +520,51 @@
         "category": "tech",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/5831999004",
         "dateAdded": "2026-09-25"
+    },
+    {
+        "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
+        "title": "Agentic Engineer Level II/III",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "b4d9ce2b-479e-47f2-a9c0-52827e94e129",
+        "title": "Agentic Solution Engineer",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/b4d9ce2b-479e-47f2-a9c0-52827e94e129",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "02b45afd-5a49-41b2-a244-b0ca76306692",
+        "title": "Data Engineer I",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/02b45afd-5a49-41b2-a244-b0ca76306692",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "929d62de-1e00-4b54-ba38-3378cc440fb2",
+        "title": "Data Engineer II",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/929d62de-1e00-4b54-ba38-3378cc440fb2",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "fd6df307-38b8-4f0d-81e9-392216edcaa2",
+        "title": "Senior Data Scientist (Agentic Solutions)",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/fd6df307-38b8-4f0d-81e9-392216edcaa2",
+        "dateAdded": "2026-10-04"
     },
     {
         "id": "22665817",
@@ -897,51 +942,6 @@
         "location": "Remote / India",
         "category": "tech",
         "url": "https://news.ycombinator.com/item?id=22667004",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
-        "title": "Agentic Engineer Level II/III",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "b4d9ce2b-479e-47f2-a9c0-52827e94e129",
-        "title": "Agentic Solution Engineer",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/b4d9ce2b-479e-47f2-a9c0-52827e94e129",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "02b45afd-5a49-41b2-a244-b0ca76306692",
-        "title": "Data Engineer I",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/02b45afd-5a49-41b2-a244-b0ca76306692",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "929d62de-1e00-4b54-ba38-3378cc440fb2",
-        "title": "Data Engineer II",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/929d62de-1e00-4b54-ba38-3378cc440fb2",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "fd6df307-38b8-4f0d-81e9-392216edcaa2",
-        "title": "Senior Data Scientist (Agentic Solutions)",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/fd6df307-38b8-4f0d-81e9-392216edcaa2",
         "dateAdded": "2026-10-04"
     }
 ]
