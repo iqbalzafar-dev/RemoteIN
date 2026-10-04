@@ -15,7 +15,7 @@ CONFIG = {
     "COMPANIES_FILE": "companies.json",
     "JOBS_FILE": "jobs.json",
     "MAX_CONCURRENT_REQUESTS": 25,
-    "REQUEST_TIMEOUT_SECONDS": 14,
+    "REQUEST_TIMEOUT_SECONDS": 15,
     "CUTOFF_DAYS": 30,
     "USER_AGENT": "RemoteIN-Bot/2.0 (+https://github.com/iqbalzafar-dev/RemoteIN)",
     
@@ -29,8 +29,9 @@ CONFIG = {
         'site:jobs.ashbyhq.com "APAC" "Remote"'
     ],
 
-    # High-volume aggregator feeds
+    # High-volume feeds (Added Remotive for 500+ job scale)
     "BULK_FEEDS": [
+        {"url": "https://remotive.com/api/remote-jobs", "type": "remotive"},
         {"url": "https://jobicy.com/api/v2/remote-jobs?count=100", "type": "jobicy"},
         {"url": "https://www.arbeitnow.com/api/job-board-api", "type": "arbeitnow"}
     ],
@@ -124,27 +125,27 @@ def classify_role(title):
 def is_eligible_remote(title, location, extra=""):
     blob = f"{title} {location} {extra}".lower()
     
-    # 1. Strict Red Flags Check (Reject WFO / Hybrid)
+    # 1. Reject WFO / Hybrid
     if any(rf in blob for rf in CONFIG["RED_FLAGS"]):
         return False
         
-    # 2. Regional Lock Check
+    # 2. Reject Geo-Locks (unless India is explicitly mentioned)
     if any(gl in blob for gl in CONFIG["GEO_LOCKS"]) and "india" not in blob:
         return False
         
-    # 3. Mandatory Remote Signal Check (Zero WFO tolerance)
+    # 3. Mandatory Remote Signal
     has_remote = any(rs in blob for rs in CONFIG["REMOTE_SIGNALS"])
     if not has_remote:
         return False
 
-    # 4. Eligibility Check (India Tier-1, Tech Hubs, APAC & Global)
+    # 4. Location Eligibility Check
     if not location or any(place in blob for place in CONFIG["ELIGIBLE_LOCATIONS"]):
         return True
 
     return False
 
 # ==============================================================================
-# 3. COMPANY REGISTRY (COMPATIBLE WITH EXISTING 300+ COMPANIES DATABASE)
+# 3. COMPANY REGISTRY (COMPATIBLE WITH EXISTING 300+ COMPANIES)
 # ==============================================================================
 class CompanyRegistry:
     def __init__(self, filepath):
@@ -217,7 +218,7 @@ class CompanyRegistry:
 # 4. DISCOVERY VIA DUCKDUCKGO
 # ==============================================================================
 async def run_search_discovery(session, registry):
-    log.info("🔎 Searching for new companies via ATS Google/DDG indexing...")
+    log.info("🔎 Searching for new companies via ATS indexing...")
     ddgs = DDGS()
     discovered_urls = []
     for query in CONFIG["DISCOVERY_QUERIES"]:
@@ -234,7 +235,7 @@ async def run_search_discovery(session, registry):
             await registry.add_discovered_company(session, ats, slug)
 
 # ==============================================================================
-# 5. SCRAPING ENGINE (PUBLIC ATS APIS)
+# 5. SCRAPING ENGINE (PUBLIC ATS APIS + MASSIVE FEEDS)
 # ==============================================================================
 jobs_output = []
 seen_urls = set()
@@ -244,7 +245,6 @@ def record_job(job_id, title, company, location, category, url, dt_obj):
         return
     seen_urls.add(url)
     
-    # Store complete ISO timestamp string
     iso_date = dt_obj.isoformat()
     jobs_output.append({
         "id": str(job_id),
@@ -310,7 +310,7 @@ async def scrape_ashby(session, slug, sem):
             pass
 
 async def scrape_aggregators_and_discover(session, registry):
-    log.info("🌐 Ingesting partner feeds and discovering outbound ATS links...")
+    log.info("🌐 Ingesting partner feeds (Remotive, Jobicy, Arbeitnow)...")
     for feed in CONFIG["BULK_FEEDS"]:
         try:
             async with session.get(feed["url"], timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
@@ -318,7 +318,23 @@ async def scrape_aggregators_and_discover(session, registry):
                     continue
                 data = await resp.json()
                 
-                if feed["type"] == "jobicy":
+                # 1. Remotive (Massive feed)
+                if feed["type"] == "remotive":
+                    for j in data.get("jobs", []):
+                        title = j.get("title", "")
+                        loc = j.get("candidate_required_location", "Anywhere")
+                        url = j.get("url", "")
+                        comp_name = j.get("company_name", "Remote Company")
+                        dt = parse_iso_datetime(j.get("publication_date"))
+                        
+                        ats, slug = registry.extract_ats_from_url(url)
+                        if ats and slug:
+                            await registry.add_discovered_company(session, ats, slug)
+                        if is_eligible_remote(title, loc):
+                            record_job(j.get("id", url), title, comp_name, loc, classify_role(title), url, dt)
+
+                # 2. Jobicy
+                elif feed["type"] == "jobicy":
                     for j in data.get("jobs", []):
                         title = j.get("jobTitle", "")
                         loc = j.get("jobGeo", "")
@@ -332,6 +348,7 @@ async def scrape_aggregators_and_discover(session, registry):
                         if is_eligible_remote(title, loc):
                             record_job(j.get("id", url), title, comp_name, loc, classify_role(title), url, dt)
 
+                # 3. Arbeitnow
                 elif feed["type"] == "arbeitnow":
                     for j in data.get("data", []):
                         if not j.get("remote"):
@@ -347,8 +364,8 @@ async def scrape_aggregators_and_discover(session, registry):
                             await registry.add_discovered_company(session, ats, slug)
                         if is_eligible_remote(title, loc):
                             record_job(j.get("slug", url), title, comp_name, loc, classify_role(title), url, dt)
-        except Exception:
-            pass
+        except Exception as e:
+            log.warning(f"Error on feed {feed['url']}: {e}")
 
 # ==============================================================================
 # 6. MAIN ENGINE EXECUTION
