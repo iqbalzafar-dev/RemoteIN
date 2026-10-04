@@ -80,6 +80,16 @@
     "dateAdded": "2026-10-03T03:17:34-04:00"
   },
   {
+    "id": "1749306",
+    "title": "Freelance Copywriter",
+    "company": "Coalition Technologies ",
+    "location": "Worldwide",
+    "category": "Operations & Support",
+    "url": "https://remotive.com/remote-jobs/writing/freelance-copywriter-1749306",
+    "date": "2026-10-02T20:01:00+00:00",
+    "dateAdded": "2026-10-02T20:01:00+00:00"
+  },
+  {
     "id": "2a98187a-f3e2-43b5-bee9-2218751a53da",
     "title": "Head of Regional Marketing, APJ",
     "company": "Clickhouse",
@@ -120,22 +130,22 @@
     "dateAdded": "2026-10-02T17:56:38-04:00"
   },
   {
-    "id": "7996531003",
-    "title": "Global Technology Alliance Manager, Databricks",
-    "company": "Fivetran",
-    "location": "Remote, Texas, United States, AMER",
-    "category": "Tech & Engineering",
-    "url": "https://www.fivetran.com/careers/job?gh_jid=7996531003",
-    "date": "2026-10-02T17:56:38-04:00",
-    "dateAdded": "2026-10-02T17:56:38-04:00"
-  },
-  {
     "id": "7850882003",
     "title": "Global Technology Alliance Manager, Databricks",
     "company": "Fivetran",
     "location": "Remote, Any, United States, AMER",
     "category": "Tech & Engineering",
     "url": "https://www.fivetran.com/careers/job?gh_jid=7850882003",
+    "date": "2026-10-02T17:56:38-04:00",
+    "dateAdded": "2026-10-02T17:56:38-04:00"
+  },
+  {
+    "id": "7996531003",
+    "title": "Global Technology Alliance Manager, Databricks",
+    "company": "Fivetran",
+    "location": "Remote, Texas, United States, AMER",
+    "category": "Tech & Engineering",
+    "url": "https://www.fivetran.com/careers/job?gh_jid=7996531003",
     "date": "2026-10-02T17:56:38-04:00",
     "dateAdded": "2026-10-02T17:56:38-04:00"
   },
@@ -188,6 +198,16 @@
     "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
     "date": "2026-10-02T14:24:13-04:00",
     "dateAdded": "2026-10-02T14:24:13-04:00"
+  },
+  {
+    "id": "2091133",
+    "title": "Senior React Full-stack Developer",
+    "company": "Lemon.Io",
+    "location": "Europe, USA, Canada, APAC",
+    "category": "Tech & Engineering",
+    "url": "https://remotive.com/remote-jobs/software-development/senior-react-full-stack-developer-2091133",
+    "date": "2026-10-02T13:30:06+00:00",
+    "dateAdded": "2026-10-02T13:30:06+00:00"
   },
   {
     "id": "6001113004",
@@ -770,6 +790,26 @@
     "dateAdded": "2026-09-21T12:58:12.415000+00:00"
   },
   {
+    "id": "2091140",
+    "title": "Senior Shopify Developer",
+    "company": "Sanctuary Computer Inc",
+    "location": "Worldwide",
+    "category": "Tech & Engineering",
+    "url": "https://remotive.com/remote-jobs/software-development/senior-shopify-developer-2091140",
+    "date": "2026-09-18T15:10:28+00:00",
+    "dateAdded": "2026-09-18T15:10:28+00:00"
+  },
+  {
+    "id": "2091131",
+    "title": "Senior AI Engineer",
+    "company": "Lemon.Io",
+    "location": "Northern America, LATAM, Europe, APAC",
+    "category": "Tech & Engineering",
+    "url": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2091131",
+    "date": "2026-09-18T12:23:56+00:00",
+    "dateAdded": "2026-09-18T12:23:56+00:00"
+  },
+  {
     "id": "08a381ba-22fc-4890-8dd6-07220342101f",
     "title": "Director, Global Employee Experience",
     "company": "Clickhouse",
@@ -780,6 +820,16 @@
     "dateAdded": "2026-09-17T16:30:02.332000+00:00"
   },
   {
+    "id": "2091130",
+    "title": "Senior .NET Full-stack Developer",
+    "company": "Lemon.Io",
+    "location": "Northern America, LATAM, Europe, APAC",
+    "category": "Tech & Engineering",
+    "url": "https://remotive.com/remote-jobs/software-development/senior-net-full-stack-developer-2091130",
+    "date": "2026-09-17T13:22:05+00:00",
+    "dateAdded": "2026-09-17T13:22:05+00:00"
+  },
+  {
     "id": "8208317",
     "title": "Senior Manager, APJ Field & Channel Marketing",
     "company": "Dropbox",
@@ -788,6 +838,16 @@
     "url": "https://jobs.dropbox.com/listing/8208317?gh_jid=8208317",
     "date": "2026-09-17T10:06:54-04:00",
     "dateAdded": "2026-09-17T10:06:54-04:00"
+  },
+  {
+    "id": "2091129",
+    "title": "Senior Data Scientist",
+    "company": "Lemon.Io",
+    "location": "Northern America, LATAM, Europe, APAC",
+    "category": "Tech & Engineering",
+    "url": "https://remotive.com/remote-jobs/data/senior-data-scientist-2091129",
+    "date": "2026-09-16T12:35:28+00:00",
+    "dateAdded": "2026-09-16T12:35:28+00:00"
   },
   {
     "id": "63297214-0e27-4ef6-a87e-d62311030897",
@@ -898,5 +958,25 @@
     "url": "https://jobs.ashbyhq.com/clickhouse/a68db3e5-0ec3-472a-8597-8586f40d43a5",
     "date": "2026-09-09T14:37:33.728000+00:00",
     "dateAdded": "2026-09-09T14:37:33.728000+00:00"
+  },
+  {
+    "id": "2086540",
+    "title": "Inside Sales Contractor",
+    "company": "Credit Wellness, Llc",
+    "location": "Worldwide",
+    "category": "Operations & Support",
+    "url": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540",
+    "date": "2026-09-08T21:47:54+00:00",
+    "dateAdded": "2026-09-08T21:47:54+00:00"
+  },
+  {
+    "id": "2091045",
+    "title": "Tier III Service Desk Engineer",
+    "company": "Unio Digital",
+    "location": "Worldwide",
+    "category": "Tech & Engineering",
+    "url": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045",
+    "date": "2026-09-07T01:10:43+00:00",
+    "dateAdded": "2026-09-07T01:10:43+00:00"
   }
 ]
