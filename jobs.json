@@ -1,5 +1,41 @@
 [
     {
+        "id": "8139700",
+        "title": "Sales Development Representative, Singapore",
+        "company": "Cockroachlabs",
+        "location": "Remote, Singapore",
+        "category": "non-tech",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8139700",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "8106750",
+        "title": "Senior Staff Sales Engineer, Australia",
+        "company": "Cockroachlabs",
+        "location": "Remote, Australia",
+        "category": "tech",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8106750",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "8119500",
+        "title": "Senior Staff Sales Engineer, Singapore",
+        "company": "Cockroachlabs",
+        "location": "Remote, Singapore",
+        "category": "tech",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8119500",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "6001113004",
+        "title": "Customer Success Engineer ",
+        "company": "Algolia",
+        "location": "Remote - Australia",
+        "category": "tech",
+        "url": "https://job-boards.greenhouse.io/algolia/jobs/6001113004",
+        "dateAdded": "2026-10-02"
+    },
+    {
         "id": "8857611002",
         "title": "Associate Renewals Manager, India",
         "company": "Gitlab",
@@ -90,48 +126,66 @@
         "dateAdded": "2026-10-01"
     },
     {
-        "id": "8139700",
-        "title": "Sales Development Representative, Singapore",
-        "company": "Cockroachlabs",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8139700",
-        "dateAdded": "2026-09-15"
-    },
-    {
-        "id": "8106750",
-        "title": "Senior Staff Sales Engineer, Australia",
-        "company": "Cockroachlabs",
-        "location": "Remote, Australia",
-        "category": "tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8106750",
-        "dateAdded": "2026-09-15"
-    },
-    {
-        "id": "8119500",
-        "title": "Senior Staff Sales Engineer, Singapore",
-        "company": "Cockroachlabs",
-        "location": "Remote, Singapore",
-        "category": "tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8119500",
-        "dateAdded": "2026-09-15"
-    },
-    {
-        "id": "6001113004",
-        "title": "Customer Success Engineer ",
-        "company": "Algolia",
-        "location": "Remote - Australia",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/algolia/jobs/6001113004",
-        "dateAdded": "2026-10-02"
-    },
-    {
         "id": "8184179",
         "title": "Account Executive, Enterprise - Financial Services ",
         "company": "Braze",
         "location": "Remote - Australia",
         "category": "non-tech",
         "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
+        "dateAdded": "2026-09-24"
+    },
+    {
+        "id": "7790607003",
+        "title": "Manager, Customer Support Engineering",
+        "company": "Fivetran",
+        "location": "Remote, Australia, APAC",
+        "category": "tech",
+        "url": "https://www.fivetran.com/careers/job?gh_jid=7790607003",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "7818324003",
+        "title": "Manager, Software Engineering",
+        "company": "Fivetran",
+        "location": "Remote, India, APAC",
+        "category": "tech",
+        "url": "https://www.fivetran.com/careers/job?gh_jid=7818324003",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "7818344003",
+        "title": "Partner Sales Manager",
+        "company": "Fivetran",
+        "location": "Remote, Japan, APAC",
+        "category": "non-tech",
+        "url": "https://www.fivetran.com/careers/job?gh_jid=7818344003",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "7818382003",
+        "title": "Sales Director",
+        "company": "Fivetran",
+        "location": "Remote, Japan, APAC",
+        "category": "non-tech",
+        "url": "https://www.fivetran.com/careers/job?gh_jid=7818382003",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "8208317",
+        "title": "Senior Manager, APJ Field & Channel Marketing",
+        "company": "Dropbox",
+        "location": "Remote - Australia: Select locations",
+        "category": "non-tech",
+        "url": "https://jobs.dropbox.com/listing/8208317?gh_jid=8208317",
+        "dateAdded": "2026-09-17"
+    },
+    {
+        "id": "5995789004",
+        "title": "Senior Manager, Solutions Architect",
+        "company": "Vercel",
+        "location": "Remote - Australia",
+        "category": "non-tech",
+        "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
         "dateAdded": "2026-09-24"
     },
     {
@@ -189,60 +243,6 @@
         "dateAdded": "2026-09-21"
     },
     {
-        "id": "8208317",
-        "title": "Senior Manager, APJ Field & Channel Marketing",
-        "company": "Dropbox",
-        "location": "Remote - Australia: Select locations",
-        "category": "non-tech",
-        "url": "https://jobs.dropbox.com/listing/8208317?gh_jid=8208317",
-        "dateAdded": "2026-09-17"
-    },
-    {
-        "id": "7790607003",
-        "title": "Manager, Customer Support Engineering",
-        "company": "Fivetran",
-        "location": "Remote, Australia, APAC",
-        "category": "tech",
-        "url": "https://www.fivetran.com/careers/job?gh_jid=7790607003",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "7818324003",
-        "title": "Manager, Software Engineering",
-        "company": "Fivetran",
-        "location": "Remote, India, APAC",
-        "category": "tech",
-        "url": "https://www.fivetran.com/careers/job?gh_jid=7818324003",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "7818344003",
-        "title": "Partner Sales Manager",
-        "company": "Fivetran",
-        "location": "Remote, Japan, APAC",
-        "category": "non-tech",
-        "url": "https://www.fivetran.com/careers/job?gh_jid=7818344003",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "7818382003",
-        "title": "Sales Director",
-        "company": "Fivetran",
-        "location": "Remote, Japan, APAC",
-        "category": "non-tech",
-        "url": "https://www.fivetran.com/careers/job?gh_jid=7818382003",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "5995789004",
-        "title": "Senior Manager, Solutions Architect",
-        "company": "Vercel",
-        "location": "Remote - Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
-        "dateAdded": "2026-09-24"
-    },
-    {
         "id": "5217063007",
         "title": "Senior Software Engineer \u2014 Infra Agent Systems Remote India",
         "company": "Togetherai",
@@ -295,24 +295,6 @@
         "category": "non-tech",
         "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
         "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "7912473",
-        "title": "Threat Detection Analyst (Japanese & English speaking)",
-        "company": "Fastly",
-        "location": "Australia (Remote)",
-        "category": "non-tech",
-        "url": "https://www.fastly.com/about/jobs/apply?gh_jid=7912473",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "8020043",
-        "title": "Senior Manager, Customer Engineering, India",
-        "company": "Cloudflare",
-        "location": "Remote India",
-        "category": "tech",
-        "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
-        "dateAdded": "2026-10-02"
     },
     {
         "id": "8138860",
@@ -459,6 +441,24 @@
         "dateAdded": "2026-09-29"
     },
     {
+        "id": "8020043",
+        "title": "Senior Manager, Customer Engineering, India",
+        "company": "Cloudflare",
+        "location": "Remote India",
+        "category": "tech",
+        "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "7912473",
+        "title": "Threat Detection Analyst (Japanese & English speaking)",
+        "company": "Fastly",
+        "location": "Australia (Remote)",
+        "category": "non-tech",
+        "url": "https://www.fastly.com/about/jobs/apply?gh_jid=7912473",
+        "dateAdded": "2026-10-01"
+    },
+    {
         "id": "5648777004",
         "title": "Account Executive : Field Sales - Delhi NCR",
         "company": "Devrev",
@@ -520,51 +520,6 @@
         "category": "tech",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/5831999004",
         "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
-        "title": "Agentic Engineer Level II/III",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "b4d9ce2b-479e-47f2-a9c0-52827e94e129",
-        "title": "Agentic Solution Engineer",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/b4d9ce2b-479e-47f2-a9c0-52827e94e129",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "02b45afd-5a49-41b2-a244-b0ca76306692",
-        "title": "Data Engineer I",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/02b45afd-5a49-41b2-a244-b0ca76306692",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "929d62de-1e00-4b54-ba38-3378cc440fb2",
-        "title": "Data Engineer II",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/929d62de-1e00-4b54-ba38-3378cc440fb2",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "fd6df307-38b8-4f0d-81e9-392216edcaa2",
-        "title": "Senior Data Scientist (Agentic Solutions)",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/fd6df307-38b8-4f0d-81e9-392216edcaa2",
-        "dateAdded": "2026-10-04"
     },
     {
         "id": "22665817",
@@ -942,6 +897,51 @@
         "location": "Remote / India",
         "category": "tech",
         "url": "https://news.ycombinator.com/item?id=22667004",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
+        "title": "Agentic Engineer Level II/III",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "b4d9ce2b-479e-47f2-a9c0-52827e94e129",
+        "title": "Agentic Solution Engineer",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/b4d9ce2b-479e-47f2-a9c0-52827e94e129",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "02b45afd-5a49-41b2-a244-b0ca76306692",
+        "title": "Data Engineer I",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/02b45afd-5a49-41b2-a244-b0ca76306692",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "929d62de-1e00-4b54-ba38-3378cc440fb2",
+        "title": "Data Engineer II",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/929d62de-1e00-4b54-ba38-3378cc440fb2",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "fd6df307-38b8-4f0d-81e9-392216edcaa2",
+        "title": "Senior Data Scientist (Agentic Solutions)",
+        "company": "Netomi",
+        "location": "Remote - India",
+        "category": "tech",
+        "url": "https://jobs.lever.co/netomi/fd6df307-38b8-4f0d-81e9-392216edcaa2",
         "dateAdded": "2026-10-04"
     }
 ]
