@@ -252,24 +252,6 @@
         "dateAdded": "2026-09-30"
     },
     {
-        "id": "8755470002",
-        "title": "Manager, Field Engineering - Global Telecommunications ",
-        "company": "Databricks",
-        "location": "Remote - Texas",
-        "category": "Tech & Engineering",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755470002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8476403002",
-        "title": "Manager, Field Engineering - Global Telecommunications ",
-        "company": "Databricks",
-        "location": "Remote - Georgia",
-        "category": "Tech & Engineering",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
-        "dateAdded": "2026-09-29"
-    },
-    {
         "id": "8640151002",
         "title": "Enterprise Account Executive - Singapore ",
         "company": "Gitlab",
@@ -330,6 +312,24 @@
         "location": "Remote, Singapore",
         "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/gitlab/jobs/8627768002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8755470002",
+        "title": "Manager, Field Engineering - Global Telecommunications ",
+        "company": "Databricks",
+        "location": "Remote - Texas",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755470002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8476403002",
+        "title": "Manager, Field Engineering - Global Telecommunications ",
+        "company": "Databricks",
+        "location": "Remote - Georgia",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
         "dateAdded": "2026-09-29"
     },
     {
@@ -522,21 +522,21 @@
         "dateAdded": "2026-09-25"
     },
     {
-        "id": "8184179",
-        "title": "Account Executive, Enterprise - Financial Services ",
-        "company": "Braze",
-        "location": "Remote - Australia",
-        "category": "General Operations",
-        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
-        "dateAdded": "2026-09-24"
-    },
-    {
         "id": "5995789004",
         "title": "Senior Manager, Solutions Architect",
         "company": "Vercel",
         "location": "Remote - Australia",
         "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
+        "dateAdded": "2026-09-24"
+    },
+    {
+        "id": "8184179",
+        "title": "Account Executive, Enterprise - Financial Services ",
+        "company": "Braze",
+        "location": "Remote - Australia",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
         "dateAdded": "2026-09-24"
     },
     {
