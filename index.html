@@ -4,11 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>RemoteIN — Verified Remote Jobs for India & APAC</title>
-  
-  <meta name="description" content="Discover verified remote opportunities for India and APAC." />
-  <meta property="og:title" content="RemoteIN — Remote Jobs for India & APAC" />
-  <meta property="og:description" content="Curated remote openings across Tech, Operations, HR, and Finance." />
-  <meta property="og:type" content="website" />
 
   <style>
     :root {
@@ -39,291 +34,52 @@
       --input-bg: #f1f5f9;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: var(--surface); border-bottom: 1px solid var(--surface-border); position: sticky; top: 0; z-index: 50; }
+    
+    .nav-container { max-width: 900px; margin: 0 auto; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 8px; }
+    .brand h1 { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+    .count-indicator { font-size: 0.72rem; background: var(--surface-border); color: var(--text-muted); padding: 2px 8px; border-radius: 12px; font-weight: 600; }
+    .theme-toggle { background: transparent; border: 1px solid var(--surface-border); color: var(--text-main); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+    
+    main { max-width: 900px; margin: 0 auto; padding: 12px 16px; flex: 1; width: 100%; }
+    .controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .search-row { display: flex; gap: 8px; align-items: center; }
+    .search-box-wrapper { position: relative; flex: 1; }
+    .search-input { width: 100%; padding: 8px 30px 8px 12px; background: var(--input-bg); border: 1px solid var(--surface-border); border-radius: 6px; color: var(--text-main); font-size: 0.88rem; outline: none; }
+    .clear-search { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); font-size: 1.1rem; cursor: pointer; display: none; }
+    .sort-select { background: var(--input-bg); border: 1px solid var(--surface-border); color: var(--text-main); border-radius: 6px; padding: 8px 10px; font-size: 0.82rem; outline: none; }
+    
+    .filter-chips-container { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .chips-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { background: var(--surface); border: 1px solid var(--surface-border); color: var(--text-muted); padding: 5px 12px; border-radius: 14px; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
+    .chip.active { background: var(--primary); border-color: var(--primary); color: #0f172a; }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--surface-border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-
-    .nav-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .brand h1 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .count-indicator {
-      font-size: 0.72rem;
-      background: var(--surface-border);
-      color: var(--text-muted);
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-weight: 600;
-    }
-
-    .theme-toggle {
-      background: transparent;
-      border: 1px solid var(--surface-border);
-      color: var(--text-main);
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 12px 16px;
-      flex: 1;
-      width: 100%;
-    }
-
-    .controls {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .search-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .search-box-wrapper {
-      position: relative;
-      flex: 1;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 8px 30px 8px 12px;
-      background: var(--input-bg);
-      border: 1px solid var(--surface-border);
-      border-radius: 6px;
-      color: var(--text-main);
-      font-size: 0.88rem;
-      outline: none;
-    }
-
-    .clear-search {
-      position: absolute;
-      right: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: none;
-    }
-
-    .sort-select {
-      background: var(--input-bg);
-      border: 1px solid var(--surface-border);
-      color: var(--text-main);
-      border-radius: 6px;
-      padding: 8px 10px;
-      font-size: 0.82rem;
-      outline: none;
-    }
-
-    .filter-chips-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .chips-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .chip {
-      background: var(--surface);
-      border: 1px solid var(--surface-border);
-      color: var(--text-muted);
-      padding: 5px 12px;
-      border-radius: 14px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .chip.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #0f172a;
-    }
-
-    #jobs-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .job-card {
-      background: var(--card-bg);
-      border: 1px solid var(--surface-border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.1s ease, border-color 0.15s ease;
-    }
-
-    .job-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-1px);
-    }
-
-    .card-main {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .card-top {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 2px;
-    }
-
-    .job-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-main);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .company-name {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 0.7rem;
-      align-items: center;
-    }
-
-    .badge {
-      padding: 1px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .badge-tech {
-      background: rgba(14, 165, 233, 0.15);
-      color: var(--tag-tech);
-    }
-
-    .badge-nontech {
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--tag-nontech);
-    }
-
-    .badge-new {
-      background: var(--badge-new);
-      color: #ffffff;
-      font-size: 0.62rem;
-      padding: 1px 4px;
-      border-radius: 3px;
-      font-weight: bold;
-    }
-
-    .badge-location {
-      background: var(--surface-border);
-      color: var(--text-muted);
-    }
-
-    .badge-location.india {
-      border: 1px solid #f59e0b;
-      color: #f59e0b;
-    }
-
-    .badge-location.apac {
-      border: 1px solid #8b5cf6;
-      color: #8b5cf6;
-    }
-
-    .date-text {
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      margin-left: auto;
-    }
-
-    .date-text.recent {
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .apply-btn {
-      background: transparent;
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 40px 16px;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    @media (max-width: 600px) {
-      .apply-btn { display: none; }
-    }
+    #jobs-list { display: flex; flex-direction: column; gap: 8px; }
+    .job-card { background: var(--card-bg); border: 1px solid var(--surface-border); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .job-card:hover { border-color: var(--primary); }
+    .card-main { flex: 1; min-width: 0; }
+    .card-top { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+    .job-title { font-size: 0.92rem; font-weight: 600; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .company-name { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
+    
+    .meta-row { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.7rem; align-items: center; }
+    .badge { padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+    .badge-tech { background: rgba(14, 165, 233, 0.15); color: var(--tag-tech); }
+    .badge-nontech { background: rgba(16, 185, 129, 0.15); color: var(--tag-nontech); }
+    .badge-new { background: var(--badge-new); color: #ffffff; font-size: 0.62rem; padding: 1px 4px; border-radius: 3px; font-weight: bold; }
+    .badge-location { background: var(--surface-border); color: var(--text-muted); }
+    .badge-location.india { border: 1px solid #f59e0b; color: #f59e0b; }
+    .badge-location.apac { border: 1px solid #8b5cf6; color: #8b5cf6; }
+    
+    .date-text { color: var(--text-muted); font-size: 0.72rem; margin-left: auto; font-weight: 500; }
+    .date-text.recent { color: #38bdf8; font-weight: 700; }
+    
+    .apply-btn { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+    .empty-state { text-align: center; padding: 40px 16px; color: var(--text-muted); font-size: 0.88rem; }
+    @media (max-width: 600px) { .apply-btn { display: none; } }
   </style>
 </head>
 <body>
@@ -342,7 +98,7 @@
     <div class="controls">
       <div class="search-row">
         <div class="search-box-wrapper">
-          <input type="text" id="search-input" class="search-input" placeholder="Search by title or company..." />
+          <input type="text" id="search-input" class="search-input" placeholder="Search by role or company..." />
           <button id="clear-search" class="clear-search">&times;</button>
         </div>
         <select id="sort-select" class="sort-select">
@@ -377,28 +133,20 @@
     let searchQuery = "";
     let sortOrder = "latest";
 
-    const TECH_KEYWORDS = [
-      "engineer", "developer", "architect", "solutions", "data", "devops", 
-      "qa", "sre", "ml", "ai", "machine learning", "backend", "frontend", 
-      "fullstack", "cloud", "security", "sysadmin", "mobile", "ios", "android"
-    ];
-
-    const NON_TECH_KEYWORDS = [
-      "recruiter", "talent acquisition", "hr", "payroll", "sales", 
-      "marketing", "content", "finance", "accountant", "support", "operations"
-    ];
-
+    const TECH_KEYWORDS = ["engineer", "developer", "architect", "solutions", "data", "devops", "qa", "sre", "ml", "ai", "machine learning", "backend", "frontend", "fullstack", "cloud", "security", "sysadmin", "mobile", "ios", "android"];
+    const NON_TECH_KEYWORDS = ["recruiter", "talent acquisition", "hr", "payroll", "sales", "marketing", "content", "finance", "accountant", "support", "operations"];
     const APAC_KEYWORDS = ["india", "apac", "asia", "singapore", "australia", "japan", "philippines", "malaysia", "indonesia"];
 
-    function classifyCategory(title) {
+    function classifyCategory(title, origCat) {
+      if (origCat) {
+        const c = String(origCat).toLowerCase();
+        if (c.includes("tech")) return "Tech";
+        if (c.includes("hr") || c.includes("finance") || c.includes("payroll") || c.includes("operations")) return "Non-Tech";
+      }
       if (!title) return "Non-Tech";
       const t = String(title).toLowerCase();
-      for (let k of NON_TECH_KEYWORDS) {
-        if (t.includes(k)) return "Non-Tech";
-      }
-      for (let k of TECH_KEYWORDS) {
-        if (t.includes(k)) return "Tech";
-      }
+      for (let k of NON_TECH_KEYWORDS) { if (t.includes(k)) return "Non-Tech"; }
+      for (let k of TECH_KEYWORDS) { if (t.includes(k)) return "Tech"; }
       return "Non-Tech";
     }
 
@@ -406,32 +154,34 @@
       if (!loc) return "Global";
       const l = String(loc).toLowerCase();
       if (l.includes("india")) return "India";
-      for (let k of APAC_KEYWORDS) {
-        if (l.includes(k)) return "APAC";
-      }
+      for (let k of APAC_KEYWORDS) { if (l.includes(k)) return "APAC"; }
       return "Global";
     }
 
-    // 24-hour check & dynamic time display
-    function getDisplayDate(dateStr) {
-      if (!dateStr) return { text: "", isRecent: false };
-      const d = new Date(dateStr);
-      if (isNaN(d.getTime())) return { text: String(dateStr).slice(0, 10), isRecent: false };
+    // Precise Time & Date Formatter
+    function getDisplayDate(rawDate) {
+      if (!rawDate) return { text: "Recent", isRecent: false };
+      
+      const parsedDate = new Date(rawDate);
+      if (isNaN(parsedDate.getTime())) {
+        return { text: String(rawDate).slice(0, 10), isRecent: false };
+      }
 
-      const diffMs = Date.now() - d.getTime();
+      const diffMs = Date.now() - parsedDate.getTime();
       const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
 
+      // Under 24 hours: "4h ago", "12m ago"
       if (diffHours >= 0 && diffHours < 24) {
-        if (diffHours <= 0) {
+        if (diffHours === 0) {
           const diffMins = Math.max(1, Math.floor(diffMs / (1000 * 60)));
           return { text: `${diffMins}m ago`, isRecent: true };
         }
         return { text: `${diffHours}h ago`, isRecent: true };
       }
 
-      // 24 hours se purana hone par: "3 Oct"
+      // Older than 24 hours: "3 Oct", "28 Sep"
       return { 
-        text: d.toLocaleDateString("en-IN", { day: "numeric", month: "short" }), 
+        text: parsedDate.toLocaleDateString("en-IN", { day: "numeric", month: "short" }), 
         isRecent: false 
       };
     }
@@ -449,10 +199,7 @@
         const catOk = (activeCategory === "all") || (job._category.toLowerCase() === activeCategory);
         const locOk = (activeLocation === "all") || (job._locCategory.toLowerCase() === activeLocation);
         const q = searchQuery.toLowerCase().trim();
-        const searchOk = !q || 
-          job.title.toLowerCase().includes(q) || 
-          job.company.toLowerCase().includes(q);
-
+        const searchOk = !q || job.title.toLowerCase().includes(q) || job.company.toLowerCase().includes(q);
         return catOk && locOk && searchOk;
       });
 
@@ -465,7 +212,7 @@
       countEl.textContent = `${filtered.length} Jobs`;
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div class="empty-state"><p>No jobs found matching your criteria.</p></div>`;
+        container.innerHTML = `<div class="empty-state"><p>No jobs match your selected filters.</p></div>`;
         return;
       }
 
@@ -507,24 +254,30 @@
         let raw = await response.json();
         let items = Array.isArray(raw) ? raw : (raw.jobs || raw.data || []);
 
-        jobsData = items.map(item => ({
-          title: item.title || item.role || item.position || "Opening",
-          company: item.company || item.company_name || "Direct Employer",
-          url: item.url || item.apply_url || item.link || "#",
-          date: item.date || item.created_at || item.publication_date || "",
-          _category: classifyCategory(item.title || item.role),
-          _locCategory: classifyLocation(item.location || item.candidate_required_location)
-        }));
+        jobsData = items.map(item => {
+          // Read either date or dateAdded seamlessly
+          const dateVal = item.date || item.dateAdded || item.created_at || item.publication_date || "";
+          
+          return {
+            title: item.title || item.role || item.position || "Opening",
+            company: item.company || item.company_name || "Direct Employer",
+            url: item.url || item.apply_url || item.link || "#",
+            date: dateVal,
+            _category: classifyCategory(item.title, item.category),
+            _locCategory: classifyLocation(item.location || item.candidate_required_location)
+          };
+        });
 
         renderJobs();
       } catch (err) {
         console.error("Fetch failed:", err);
         countEl.textContent = "0 Jobs";
-        container.innerHTML = `<div class="empty-state"><p>Could not load jobs list.</p></div>`;
+        container.innerHTML = `<div class="empty-state"><p>Could not load jobs list. Please refresh.</p></div>`;
       }
     }
 
     window.addEventListener("DOMContentLoaded", () => {
+      // Theme Toggle
       const themeBtn = document.getElementById("theme-btn");
       themeBtn.addEventListener("click", () => {
         const isLight = document.documentElement.getAttribute("data-theme") === "light";
@@ -537,6 +290,7 @@
         }
       });
 
+      // Filters
       const catChips = document.querySelectorAll("#category-chips .chip");
       catChips.forEach(chip => {
         chip.addEventListener("click", function() {
@@ -557,6 +311,7 @@
         });
       });
 
+      // Search
       const searchBox = document.getElementById("search-input");
       const clearBtn = document.getElementById("clear-search");
       searchBox.addEventListener("input", (e) => {
