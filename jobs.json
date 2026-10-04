@@ -54,48 +54,12 @@
         "dateAdded": "2026-10-04"
     },
     {
-        "id": "152464",
-        "title": "Marketing Operations Specialist",
-        "company": "Levelup",
-        "location": "Philippines",
-        "category": "Operations & Support",
-        "url": "https://jobicy.com/jobs/152464-marketing-operations-specialist-2",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "152460",
-        "title": "L1 Hosting Tech Support Agent",
-        "company": "Levelup",
-        "location": "Philippines",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/152460-l1-hosting-tech-support-agent",
-        "dateAdded": "2026-10-04"
-    },
-    {
         "id": "152401",
         "title": "QA Tester (Future Roles)",
         "company": "Testlio",
         "location": "Anywhere",
         "category": "General Operations",
         "url": "https://jobicy.com/jobs/152401-qa-tester-future-roles",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "152485",
-        "title": "B2B SEO/AEO Expert",
-        "company": "Elevenlabs",
-        "location": "Argentina,  Australia,  Brazil,  Ireland,  Italy,  Japan,  Poland,  Spain,  UAE,  UK,  USA",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/152485-b2b-seo-aeo-expert",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "150102",
-        "title": "Senior Customer Success Architect - Singapore",
-        "company": "Gitlab",
-        "location": "Singapore",
-        "category": "Operations & Support",
-        "url": "https://jobicy.com/jobs/150102-senior-customer-success-architect-singapore",
         "dateAdded": "2026-10-04"
     },
     {
@@ -108,138 +72,12 @@
         "dateAdded": "2026-10-03"
     },
     {
-        "id": "154077",
-        "title": "Inbound Support Coordinator",
-        "company": "Homelight",
-        "location": "Philippines",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154077-inbound-support-coordinator",
-        "dateAdded": "2026-10-03"
-    },
-    {
         "id": "150052",
         "title": "1775 RPG/AS400 & JD Edwards EnterpriseOne Developer",
         "company": "Softgic",
         "location": "Anywhere",
         "category": "Tech & Engineering",
         "url": "https://jobicy.com/jobs/150052-1775-rpg-as400-jd-edwards-enterpriseone-developer",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "150064",
-        "title": "Client Full-Stack Engineer \u2014 IM Chat Platform, Android Focus",
-        "company": "Binance",
-        "location": "APAC",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/150064-client-full-stack-engineer-im-chat-platform-android-focus",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "152391",
-        "title": "Customer Success Engineer, Australia",
-        "company": "Extrahop",
-        "location": "Australia",
-        "category": "Operations & Support",
-        "url": "https://jobicy.com/jobs/152391-customer-success-engineer-australia",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149986",
-        "title": "Site Reliability Engineering Manager",
-        "company": "Canonical",
-        "location": "APAC,  EMEA",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/149986-site-reliability-engineering-manager",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149993",
-        "title": "Developer Relations Engineer",
-        "company": "Canonical",
-        "location": "APAC,  EMEA",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/149993-developer-relations-engineer",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149943",
-        "title": "Enterprise Customer Success Manager (Japanese speaker)",
-        "company": "Canonical",
-        "location": "APAC",
-        "category": "Operations & Support",
-        "url": "https://jobicy.com/jobs/149943-enterprise-customer-success-manager-japanese-speaker",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "150065",
-        "title": "Data/ Java Engineer (AI/LLM Chatbot, Customer Service)",
-        "company": "Binance",
-        "location": "APAC",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/150065-data-java-engineer-ai-llm-chatbot-customer-service",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149940",
-        "title": "Ubuntu Linux Kernel Engineer - BIOS/Firmware",
-        "company": "Canonical",
-        "location": "APAC",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/149940-ubuntu-linux-kernel-engineer-bios-firmware",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149965",
-        "title": "Senior Product Marketing Manager",
-        "company": "Revenuecat",
-        "location": "APAC,  EMEA,  LATAM,  Canada,  USA",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/149965-senior-product-marketing-manager-2",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149924",
-        "title": "Regional SDR Director",
-        "company": "Canonical",
-        "location": "APAC,  EMEA,  LATAM,  Canada,  USA",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/149924-regional-sdr-director",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149942",
-        "title": "Channel Partner Sales Executive, Japan",
-        "company": "Canonical",
-        "location": "APAC",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/149942-channel-partner-sales-executive-japan",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149941",
-        "title": "Marketing Associate",
-        "company": "Canonical",
-        "location": "APAC,  EMEA,  LATAM,  Canada,  USA",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/149941-marketing-associate",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149939",
-        "title": "GitOps Engineering Manager",
-        "company": "Canonical",
-        "location": "APAC,  EMEA",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/149939-gitops-engineering-manager",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "149933",
-        "title": "Legal Consultant - M&A (Part-time)",
-        "company": "Axiom",
-        "location": "APAC,  Singapore",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/149933-legal-consultant-ma-part-time",
         "dateAdded": "2026-10-03"
     },
     {
@@ -369,51 +207,6 @@
         "dateAdded": "2026-10-02"
     },
     {
-        "id": "154418",
-        "title": "IT Service Design Lead (12 Month Contract)",
-        "company": "Who gives a crap",
-        "location": "Philippines",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154418-it-service-design-lead-12-month-contract",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "154410",
-        "title": "Freelance Paid Search Strategist Japanese - English (Japan)",
-        "company": "Brafton",
-        "location": "Japan",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154410-freelance-paid-search-strategist-japanese-english-japan",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "152331",
-        "title": "Sr Supplier Quality Engineer I",
-        "company": "Axon",
-        "location": "Vietnam",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/152331-sr-supplier-quality-engineer-i",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "152312",
-        "title": "Binance Acceleration Program - Product Data Analyst",
-        "company": "Binance",
-        "location": "Hong Kong",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/152312-binance-acceleration-program-product-data-analyst",
-        "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "152307",
-        "title": "BAP - Data Analyst",
-        "company": "Binance",
-        "location": "Hong Kong",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/152307-bap-data-analyst",
-        "dateAdded": "2026-10-02"
-    },
-    {
         "id": "8859694002",
         "title": "Associate Revenue Operations Manager, India",
         "company": "Gitlab",
@@ -441,177 +234,6 @@
         "dateAdded": "2026-10-01"
     },
     {
-        "id": "154323",
-        "title": "Business Development Executive, Financial Institutions (APAC)",
-        "company": "Trm labs",
-        "location": "Singapore",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154323-business-development-executive-financial-institutions-apac",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "154320",
-        "title": "Senior All-Source Intelligence Analyst",
-        "company": "Trm labs",
-        "location": "APAC",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154320-senior-all-source-intelligence-analyst",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "154319",
-        "title": "Account Director, Government",
-        "company": "Openai",
-        "location": "Australia",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154319-account-director-government",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "154324",
-        "title": "Android Engineer (C++)",
-        "company": "Binance",
-        "location": "APAC",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/154324-android-engineer-c",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "154321",
-        "title": "Android Engineer",
-        "company": "Binance",
-        "location": "APAC",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/154321-android-engineer",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "154318",
-        "title": "AP/AR Lead",
-        "company": "Who gives a crap",
-        "location": "Philippines",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/154318-ap-ar-lead-2",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152649",
-        "title": "Customer Success Manager, Asia",
-        "company": "Instructure",
-        "location": "Philippines",
-        "category": "Operations & Support",
-        "url": "https://jobicy.com/jobs/152649-customer-success-manager-asia",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152251",
-        "title": "AI Security - Account Executive",
-        "company": "Zscaler",
-        "location": "Japan",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/152251-ai-security-account-executive",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152189",
-        "title": "Growth Marketing Manager, Foundry",
-        "company": "Instructure",
-        "location": "Australia,  Brazil,  China,  Germany,  Hong Kong,  Hungary,  Mexico,  Netherlands,  Norway,  Philippines,  Spain,  Sweden,  USA",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/152189-growth-marketing-manager-foundry",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152178",
-        "title": "Sales Engineer (Enterprise)",
-        "company": "Halter",
-        "location": "Australia,  New Zealand",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/152178-sales-engineer-enterprise",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152180",
-        "title": "Principal Supplier Quality Engineer",
-        "company": "Halter",
-        "location": "China",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/152180-principal-supplier-quality-engineer",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152174",
-        "title": "Lead Supplier Quality Engineer",
-        "company": "Halter",
-        "location": "China",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/152174-lead-supplier-quality-engineer",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "142189",
-        "title": "Customer Service Representative (Spanish Bilingual)",
-        "company": "Snapscale",
-        "location": "Philippines",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/142189-customer-service-representative-spanish-bilingual",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "142184",
-        "title": "Software Engineer (Multiple Levels)",
-        "company": "Upguard",
-        "location": "Australia",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/142184-software-engineer-multiple-levels",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "148936",
-        "title": "Customer Engineer - Auckland",
-        "company": "Ncr voyix",
-        "location": "New Zealand",
-        "category": "Tech & Engineering",
-        "url": "https://jobicy.com/jobs/148936-customer-engineer-auckland",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "142491",
-        "title": "Telehealth Doctor - Contractor (Tasmania)",
-        "company": "Montu",
-        "location": "Australia",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/142491-telehealth-doctor-contractor-tasmania",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152135",
-        "title": "Affiliate Operations - Greater China",
-        "company": "Binance",
-        "location": "China",
-        "category": "Operations & Support",
-        "url": "https://jobicy.com/jobs/152135-affiliate-operations-greater-china",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152134",
-        "title": "Mental Health Professional (Affiliate)",
-        "company": "Lyra health",
-        "location": "Singapore",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/152134-mental-health-professional-affiliate",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "152133",
-        "title": "Affiliate BD - Greater China",
-        "company": "Binance",
-        "location": "China,  Singapore",
-        "category": "General Operations",
-        "url": "https://jobicy.com/jobs/152133-affiliate-bd-greater-china",
-        "dateAdded": "2026-10-01"
-    },
-    {
         "id": "8857611002",
         "title": "Associate Renewals Manager, India",
         "company": "Gitlab",
@@ -628,6 +250,24 @@
         "category": "Tech & Engineering",
         "url": "https://jobs.ashbyhq.com/elevenlabs/85b7489f-5b0c-4f21-9c1c-7b76ed904c44",
         "dateAdded": "2026-09-30"
+    },
+    {
+        "id": "8755470002",
+        "title": "Manager, Field Engineering - Global Telecommunications ",
+        "company": "Databricks",
+        "location": "Remote - Texas",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755470002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8476403002",
+        "title": "Manager, Field Engineering - Global Telecommunications ",
+        "company": "Databricks",
+        "location": "Remote - Georgia",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
+        "dateAdded": "2026-09-29"
     },
     {
         "id": "8640151002",
@@ -690,24 +330,6 @@
         "location": "Remote, Singapore",
         "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/gitlab/jobs/8627768002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8755470002",
-        "title": "Manager, Field Engineering - Global Telecommunications ",
-        "company": "Databricks",
-        "location": "Remote - Texas",
-        "category": "Tech & Engineering",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755470002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8476403002",
-        "title": "Manager, Field Engineering - Global Telecommunications ",
-        "company": "Databricks",
-        "location": "Remote - Georgia",
-        "category": "Tech & Engineering",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
         "dateAdded": "2026-09-29"
     },
     {
