@@ -1,145 +1,262 @@
 [
     {
-        "id": "8139700",
-        "title": "Sales Development Representative, Singapore",
-        "company": "Cockroachlabs",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8139700",
-        "dateAdded": "2026-09-15"
+        "id": "154514",
+        "title": "Solutions Architect for Automotive",
+        "company": "Canonical",
+        "location": "Anywhere",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/154514-solutions-architect-for-automotive",
+        "dateAdded": "2026-10-04"
     },
     {
-        "id": "8106750",
-        "title": "Senior Staff Sales Engineer, Australia",
-        "company": "Cockroachlabs",
-        "location": "Remote, Australia",
-        "category": "tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8106750",
-        "dateAdded": "2026-09-15"
+        "id": "154497",
+        "title": "Large Enterprise Account Executive",
+        "company": "Dandy",
+        "location": "Anywhere",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154497-large-enterprise-account-executive",
+        "dateAdded": "2026-10-04"
     },
     {
-        "id": "8119500",
-        "title": "Senior Staff Sales Engineer, Singapore",
-        "company": "Cockroachlabs",
-        "location": "Remote, Singapore",
-        "category": "tech",
-        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8119500",
-        "dateAdded": "2026-09-15"
+        "id": "154506",
+        "title": "Open Source Enterprise Sales / Alliances",
+        "company": "Canonical",
+        "location": "Anywhere",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154506-open-source-enterprise-sales-alliances",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "154501",
+        "title": "Platform Engineer",
+        "company": "Catawiki",
+        "location": "Anywhere",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/154501-platform-engineer-2",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "154500",
+        "title": "Senior ML Operations (MLOps) Engineer",
+        "company": "Eight sleep",
+        "location": "Anywhere",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/154500-senior-ml-operations-mlops-engineer",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "154499",
+        "title": "3D & LiDAR Data Annotation Analyst",
+        "company": "Appen",
+        "location": "Anywhere",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/154499-3d-lidar-data-annotation-analyst",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "152464",
+        "title": "Marketing Operations Specialist",
+        "company": "Levelup",
+        "location": "Philippines",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/152464-marketing-operations-specialist-2",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "152460",
+        "title": "L1 Hosting Tech Support Agent",
+        "company": "Levelup",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152460-l1-hosting-tech-support-agent",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "152401",
+        "title": "QA Tester (Future Roles)",
+        "company": "Testlio",
+        "location": "Anywhere",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152401-qa-tester-future-roles",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "152485",
+        "title": "B2B SEO/AEO Expert",
+        "company": "Elevenlabs",
+        "location": "Argentina,  Australia,  Brazil,  Ireland,  Italy,  Japan,  Poland,  Spain,  UAE,  UK,  USA",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152485-b2b-seo-aeo-expert",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "150102",
+        "title": "Senior Customer Success Architect - Singapore",
+        "company": "Gitlab",
+        "location": "Singapore",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/150102-senior-customer-success-architect-singapore",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": "8185629",
+        "title": "Senior Strategic Account Executive - SEA",
+        "company": "Twilio",
+        "location": "Remote - Singapore",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/8185629",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "154077",
+        "title": "Inbound Support Coordinator",
+        "company": "Homelight",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154077-inbound-support-coordinator",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "150052",
+        "title": "1775 RPG/AS400 & JD Edwards EnterpriseOne Developer",
+        "company": "Softgic",
+        "location": "Anywhere",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/150052-1775-rpg-as400-jd-edwards-enterpriseone-developer",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "150064",
+        "title": "Client Full-Stack Engineer \u2014 IM Chat Platform, Android Focus",
+        "company": "Binance",
+        "location": "APAC",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/150064-client-full-stack-engineer-im-chat-platform-android-focus",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "152391",
+        "title": "Customer Success Engineer, Australia",
+        "company": "Extrahop",
+        "location": "Australia",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/152391-customer-success-engineer-australia",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149986",
+        "title": "Site Reliability Engineering Manager",
+        "company": "Canonical",
+        "location": "APAC,  EMEA",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/149986-site-reliability-engineering-manager",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149993",
+        "title": "Developer Relations Engineer",
+        "company": "Canonical",
+        "location": "APAC,  EMEA",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/149993-developer-relations-engineer",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149943",
+        "title": "Enterprise Customer Success Manager (Japanese speaker)",
+        "company": "Canonical",
+        "location": "APAC",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/149943-enterprise-customer-success-manager-japanese-speaker",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "150065",
+        "title": "Data/ Java Engineer (AI/LLM Chatbot, Customer Service)",
+        "company": "Binance",
+        "location": "APAC",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/150065-data-java-engineer-ai-llm-chatbot-customer-service",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149940",
+        "title": "Ubuntu Linux Kernel Engineer - BIOS/Firmware",
+        "company": "Canonical",
+        "location": "APAC",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/149940-ubuntu-linux-kernel-engineer-bios-firmware",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149965",
+        "title": "Senior Product Marketing Manager",
+        "company": "Revenuecat",
+        "location": "APAC,  EMEA,  LATAM,  Canada,  USA",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/149965-senior-product-marketing-manager-2",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149924",
+        "title": "Regional SDR Director",
+        "company": "Canonical",
+        "location": "APAC,  EMEA,  LATAM,  Canada,  USA",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/149924-regional-sdr-director",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149942",
+        "title": "Channel Partner Sales Executive, Japan",
+        "company": "Canonical",
+        "location": "APAC",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/149942-channel-partner-sales-executive-japan",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149941",
+        "title": "Marketing Associate",
+        "company": "Canonical",
+        "location": "APAC,  EMEA,  LATAM,  Canada,  USA",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/149941-marketing-associate",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149939",
+        "title": "GitOps Engineering Manager",
+        "company": "Canonical",
+        "location": "APAC,  EMEA",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/149939-gitops-engineering-manager",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": "149933",
+        "title": "Legal Consultant - M&A (Part-time)",
+        "company": "Axiom",
+        "location": "APAC,  Singapore",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/149933-legal-consultant-ma-part-time",
+        "dateAdded": "2026-10-03"
     },
     {
         "id": "6001113004",
         "title": "Customer Success Engineer ",
         "company": "Algolia",
         "location": "Remote - Australia",
-        "category": "tech",
+        "category": "Operations & Support",
         "url": "https://job-boards.greenhouse.io/algolia/jobs/6001113004",
         "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "8857611002",
-        "title": "Associate Renewals Manager, India",
-        "company": "Gitlab",
-        "location": "Remote, India",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8857611002",
-        "dateAdded": "2026-09-30"
-    },
-    {
-        "id": "8859694002",
-        "title": "Associate Revenue Operations Manager, India",
-        "company": "Gitlab",
-        "location": "Remote, India",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8859694002",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "8640151002",
-        "title": "Enterprise Account Executive - Singapore ",
-        "company": "Gitlab",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8640151002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8782306002",
-        "title": "Intermediate Security Engineer, Security Incident Response Team (SIRT)",
-        "company": "Gitlab",
-        "location": "Remote, Australia",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8782306002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8648304002",
-        "title": "Senior Customer Success Architect - Singapore",
-        "company": "Gitlab",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8648304002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8808524002",
-        "title": "Senior Ecosystem Sales Manager (ESM)- ASEAN",
-        "company": "Gitlab",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8808524002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8842171002",
-        "title": "Senior Manager of Success Architects",
-        "company": "Gitlab",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8842171002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8815229002",
-        "title": "Senior Security Engineer, Incident Response Team (Australia)",
-        "company": "Gitlab",
-        "location": "Remote, Australia",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8815229002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8627768002",
-        "title": "Senior Solutions Architect (Singapore) ",
-        "company": "Gitlab",
-        "location": "Remote, Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8627768002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8826637002",
-        "title": "Senior Solutions Architect- Sydney ",
-        "company": "Gitlab",
-        "location": "Remote, Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8826637002",
-        "dateAdded": "2026-10-01"
-    },
-    {
-        "id": "8184179",
-        "title": "Account Executive, Enterprise - Financial Services ",
-        "company": "Braze",
-        "location": "Remote - Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
-        "dateAdded": "2026-09-24"
     },
     {
         "id": "7790607003",
         "title": "Manager, Customer Support Engineering",
         "company": "Fivetran",
         "location": "Remote, Australia, APAC",
-        "category": "tech",
+        "category": "Operations & Support",
         "url": "https://www.fivetran.com/careers/job?gh_jid=7790607003",
         "dateAdded": "2026-10-02"
     },
@@ -148,7 +265,7 @@
         "title": "Manager, Software Engineering",
         "company": "Fivetran",
         "location": "Remote, India, APAC",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://www.fivetran.com/careers/job?gh_jid=7818324003",
         "dateAdded": "2026-10-02"
     },
@@ -157,7 +274,7 @@
         "title": "Partner Sales Manager",
         "company": "Fivetran",
         "location": "Remote, Japan, APAC",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://www.fivetran.com/careers/job?gh_jid=7818344003",
         "dateAdded": "2026-10-02"
     },
@@ -166,214 +283,34 @@
         "title": "Sales Director",
         "company": "Fivetran",
         "location": "Remote, Japan, APAC",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://www.fivetran.com/careers/job?gh_jid=7818382003",
         "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "8208317",
-        "title": "Senior Manager, APJ Field & Channel Marketing",
-        "company": "Dropbox",
-        "location": "Remote - Australia: Select locations",
-        "category": "non-tech",
-        "url": "https://jobs.dropbox.com/listing/8208317?gh_jid=8208317",
-        "dateAdded": "2026-09-17"
-    },
-    {
-        "id": "5995789004",
-        "title": "Senior Manager, Solutions Architect",
-        "company": "Vercel",
-        "location": "Remote - Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
-        "dateAdded": "2026-09-24"
-    },
-    {
-        "id": "8099751002",
-        "title": "AI Engineer - FDE (Forward Deployed Engineer)",
-        "company": "Databricks",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8099751002",
-        "dateAdded": "2026-09-28"
-    },
-    {
-        "id": "8637736002",
-        "title": "Deployment Strategist",
-        "company": "Databricks",
-        "location": "Remote - India",
-        "category": "non-tech",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8637736002",
-        "dateAdded": "2026-09-22"
-    },
-    {
-        "id": "8755470002",
-        "title": "Manager, Field Engineering - Global Telecommunications ",
-        "company": "Databricks",
-        "location": "Remote - Texas",
-        "category": "tech",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755470002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8476403002",
-        "title": "Manager, Field Engineering - Global Telecommunications ",
-        "company": "Databricks",
-        "location": "Remote - Georgia",
-        "category": "tech",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8503068002",
-        "title": "Manager, Forward Deployed Engineering",
-        "company": "Databricks",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8503068002",
-        "dateAdded": "2026-09-21"
-    },
-    {
-        "id": "8530855002",
-        "title": "Staff Forward Deployed Engineer",
-        "company": "Databricks",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530855002",
-        "dateAdded": "2026-09-21"
-    },
-    {
-        "id": "5217063007",
-        "title": "Senior Software Engineer \u2014 Infra Agent Systems Remote India",
-        "company": "Togetherai",
-        "location": "India",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/togetherai/jobs/5217063007",
-        "dateAdded": "2026-09-23"
-    },
-    {
-        "id": "5391999008",
-        "title": "Community Engagement Manager, Data Centres (Australia)",
-        "company": "Anthropic",
-        "location": "Sydney, Australia | Remote-Friendly, Australia",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/anthropic/jobs/5391999008",
-        "dateAdded": "2026-08-28"
-    },
-    {
-        "id": "6198592004",
-        "title": "Investigations Analyst",
-        "company": "Turing",
-        "location": "Global - Remote",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/turing/jobs/6198592004",
-        "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "6198600004",
-        "title": "Investigations Analyst",
-        "company": "Turing",
-        "location": "Global - Remote",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/turing/jobs/6198600004",
-        "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "6115701004",
-        "title": "Staff Software Engineer",
-        "company": "Turing",
-        "location": "India - Remote",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/turing/jobs/6115701004",
-        "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "6142224004",
-        "title": "Strategic Project Lead - Code",
-        "company": "Turing",
-        "location": "India - Remote",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
-        "dateAdded": "2026-09-25"
-    },
-    {
-        "id": "8138860",
-        "title": "Director, Global Campaigns",
-        "company": "Twilio",
-        "location": "Remote - United Kingdom",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/8138860",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8195222",
-        "title": "Director, Supplier Relations APAC",
-        "company": "Twilio",
-        "location": "Remote - Australia; Remote - Japan",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/8195222",
-        "dateAdded": "2026-09-29"
     },
     {
         "id": "8104438",
         "title": "Marketing Strategy and Analytics Manager",
         "company": "Twilio",
         "location": "Remote - India",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/8104438",
         "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "6372770",
-        "title": "New Business Account Executive ",
-        "company": "Twilio",
-        "location": "Remote - Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/6372770",
-        "dateAdded": "2026-09-29"
     },
     {
         "id": "8231571",
         "title": "Phone Numbers Operations Specialist L2",
         "company": "Twilio",
         "location": "Remote - India",
-        "category": "non-tech",
+        "category": "Operations & Support",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/8231571",
         "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "7996776",
-        "title": "Principal Engineer (L5)",
-        "company": "Twilio",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/7996776",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8001804",
-        "title": "Senior Engineering Manager (L5)",
-        "company": "Twilio",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/8001804",
-        "dateAdded": "2026-09-29"
-    },
-    {
-        "id": "8213826",
-        "title": "Senior Manager, Customer Success",
-        "company": "Twilio",
-        "location": "Remote - Australia",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/8213826",
-        "dateAdded": "2026-09-29"
     },
     {
         "id": "8138870",
         "title": "Senior Marketing Analyst",
         "company": "Twilio",
         "location": "Remote - India",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/8138870",
         "dateAdded": "2026-10-02"
     },
@@ -382,7 +319,7 @@
         "title": "Senior Network Engineer",
         "company": "Twilio",
         "location": "Remote - India",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/7657993",
         "dateAdded": "2026-10-02"
     },
@@ -391,34 +328,16 @@
         "title": "Senior/Staff Applied Research Software Engineer",
         "company": "Twilio",
         "location": "Remote - India",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/8007449",
         "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "8185629",
-        "title": "Senior Strategic Account Executive - SEA",
-        "company": "Twilio",
-        "location": "Remote - Singapore",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/8185629",
-        "dateAdded": "2026-10-03"
-    },
-    {
-        "id": "7825089",
-        "title": "Software Architect (L6)",
-        "company": "Twilio",
-        "location": "Remote - India",
-        "category": "non-tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/7825089",
-        "dateAdded": "2026-09-29"
     },
     {
         "id": "8114393",
         "title": "Solution Engineer",
         "company": "Twilio",
         "location": "Remote - Singapore",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/8114393",
         "dateAdded": "2026-10-02"
     },
@@ -427,43 +346,502 @@
         "title": "Strategic Account Executive",
         "company": "Twilio",
         "location": "Remote - Singapore",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/twilio/jobs/8178812",
         "dateAdded": "2026-10-02"
-    },
-    {
-        "id": "7966928",
-        "title": "Tech Lead /Sr. Principal Engineer (L6)",
-        "company": "Twilio",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://job-boards.greenhouse.io/twilio/jobs/7966928",
-        "dateAdded": "2026-09-29"
     },
     {
         "id": "8020043",
         "title": "Senior Manager, Customer Engineering, India",
         "company": "Cloudflare",
         "location": "Remote India",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://boards.greenhouse.io/cloudflare/jobs/8020043?gh_jid=8020043",
         "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "2a98187a-f3e2-43b5-bee9-2218751a53da",
+        "title": "Head of Regional Marketing, APJ",
+        "company": "Clickhouse",
+        "location": "Singapore",
+        "category": "General Operations",
+        "url": "https://jobs.ashbyhq.com/clickhouse/2a98187a-f3e2-43b5-bee9-2218751a53da",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "154418",
+        "title": "IT Service Design Lead (12 Month Contract)",
+        "company": "Who gives a crap",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154418-it-service-design-lead-12-month-contract",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "154410",
+        "title": "Freelance Paid Search Strategist Japanese - English (Japan)",
+        "company": "Brafton",
+        "location": "Japan",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154410-freelance-paid-search-strategist-japanese-english-japan",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "152331",
+        "title": "Sr Supplier Quality Engineer I",
+        "company": "Axon",
+        "location": "Vietnam",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/152331-sr-supplier-quality-engineer-i",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "152312",
+        "title": "Binance Acceleration Program - Product Data Analyst",
+        "company": "Binance",
+        "location": "Hong Kong",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/152312-binance-acceleration-program-product-data-analyst",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "152307",
+        "title": "BAP - Data Analyst",
+        "company": "Binance",
+        "location": "Hong Kong",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/152307-bap-data-analyst",
+        "dateAdded": "2026-10-02"
+    },
+    {
+        "id": "8859694002",
+        "title": "Associate Revenue Operations Manager, India",
+        "company": "Gitlab",
+        "location": "Remote, India",
+        "category": "Operations & Support",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8859694002",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "8826637002",
+        "title": "Senior Solutions Architect- Sydney ",
+        "company": "Gitlab",
+        "location": "Remote, Australia",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8826637002",
+        "dateAdded": "2026-10-01"
     },
     {
         "id": "7912473",
         "title": "Threat Detection Analyst (Japanese & English speaking)",
         "company": "Fastly",
         "location": "Australia (Remote)",
-        "category": "non-tech",
+        "category": "HR & People Ops",
         "url": "https://www.fastly.com/about/jobs/apply?gh_jid=7912473",
         "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "154323",
+        "title": "Business Development Executive, Financial Institutions (APAC)",
+        "company": "Trm labs",
+        "location": "Singapore",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154323-business-development-executive-financial-institutions-apac",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "154320",
+        "title": "Senior All-Source Intelligence Analyst",
+        "company": "Trm labs",
+        "location": "APAC",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154320-senior-all-source-intelligence-analyst",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "154319",
+        "title": "Account Director, Government",
+        "company": "Openai",
+        "location": "Australia",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154319-account-director-government",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "154324",
+        "title": "Android Engineer (C++)",
+        "company": "Binance",
+        "location": "APAC",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/154324-android-engineer-c",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "154321",
+        "title": "Android Engineer",
+        "company": "Binance",
+        "location": "APAC",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/154321-android-engineer",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "154318",
+        "title": "AP/AR Lead",
+        "company": "Who gives a crap",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/154318-ap-ar-lead-2",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152649",
+        "title": "Customer Success Manager, Asia",
+        "company": "Instructure",
+        "location": "Philippines",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/152649-customer-success-manager-asia",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152251",
+        "title": "AI Security - Account Executive",
+        "company": "Zscaler",
+        "location": "Japan",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152251-ai-security-account-executive",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152189",
+        "title": "Growth Marketing Manager, Foundry",
+        "company": "Instructure",
+        "location": "Australia,  Brazil,  China,  Germany,  Hong Kong,  Hungary,  Mexico,  Netherlands,  Norway,  Philippines,  Spain,  Sweden,  USA",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152189-growth-marketing-manager-foundry",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152178",
+        "title": "Sales Engineer (Enterprise)",
+        "company": "Halter",
+        "location": "Australia,  New Zealand",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/152178-sales-engineer-enterprise",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152180",
+        "title": "Principal Supplier Quality Engineer",
+        "company": "Halter",
+        "location": "China",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/152180-principal-supplier-quality-engineer",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152174",
+        "title": "Lead Supplier Quality Engineer",
+        "company": "Halter",
+        "location": "China",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/152174-lead-supplier-quality-engineer",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "142189",
+        "title": "Customer Service Representative (Spanish Bilingual)",
+        "company": "Snapscale",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/142189-customer-service-representative-spanish-bilingual",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "142184",
+        "title": "Software Engineer (Multiple Levels)",
+        "company": "Upguard",
+        "location": "Australia",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/142184-software-engineer-multiple-levels",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "148936",
+        "title": "Customer Engineer - Auckland",
+        "company": "Ncr voyix",
+        "location": "New Zealand",
+        "category": "Tech & Engineering",
+        "url": "https://jobicy.com/jobs/148936-customer-engineer-auckland",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "142491",
+        "title": "Telehealth Doctor - Contractor (Tasmania)",
+        "company": "Montu",
+        "location": "Australia",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/142491-telehealth-doctor-contractor-tasmania",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152135",
+        "title": "Affiliate Operations - Greater China",
+        "company": "Binance",
+        "location": "China",
+        "category": "Operations & Support",
+        "url": "https://jobicy.com/jobs/152135-affiliate-operations-greater-china",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152134",
+        "title": "Mental Health Professional (Affiliate)",
+        "company": "Lyra health",
+        "location": "Singapore",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152134-mental-health-professional-affiliate",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "152133",
+        "title": "Affiliate BD - Greater China",
+        "company": "Binance",
+        "location": "China,  Singapore",
+        "category": "General Operations",
+        "url": "https://jobicy.com/jobs/152133-affiliate-bd-greater-china",
+        "dateAdded": "2026-10-01"
+    },
+    {
+        "id": "8857611002",
+        "title": "Associate Renewals Manager, India",
+        "company": "Gitlab",
+        "location": "Remote, India",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8857611002",
+        "dateAdded": "2026-09-30"
+    },
+    {
+        "id": "85b7489f-5b0c-4f21-9c1c-7b76ed904c44",
+        "title": "Enterprise Solutions Engineer - Singapore",
+        "company": "Elevenlabs",
+        "location": "Singapore",
+        "category": "Tech & Engineering",
+        "url": "https://jobs.ashbyhq.com/elevenlabs/85b7489f-5b0c-4f21-9c1c-7b76ed904c44",
+        "dateAdded": "2026-09-30"
+    },
+    {
+        "id": "8640151002",
+        "title": "Enterprise Account Executive - Singapore ",
+        "company": "Gitlab",
+        "location": "Remote, Singapore",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8640151002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8782306002",
+        "title": "Intermediate Security Engineer, Security Incident Response Team (SIRT)",
+        "company": "Gitlab",
+        "location": "Remote, Australia",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8782306002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8648304002",
+        "title": "Senior Customer Success Architect - Singapore",
+        "company": "Gitlab",
+        "location": "Remote, Singapore",
+        "category": "Operations & Support",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8648304002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8808524002",
+        "title": "Senior Ecosystem Sales Manager (ESM)- ASEAN",
+        "company": "Gitlab",
+        "location": "Remote, Singapore",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8808524002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8842171002",
+        "title": "Senior Manager of Success Architects",
+        "company": "Gitlab",
+        "location": "Remote, Singapore",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8842171002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8815229002",
+        "title": "Senior Security Engineer, Incident Response Team (Australia)",
+        "company": "Gitlab",
+        "location": "Remote, Australia",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8815229002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8627768002",
+        "title": "Senior Solutions Architect (Singapore) ",
+        "company": "Gitlab",
+        "location": "Remote, Singapore",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/gitlab/jobs/8627768002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8755470002",
+        "title": "Manager, Field Engineering - Global Telecommunications ",
+        "company": "Databricks",
+        "location": "Remote - Texas",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8755470002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8476403002",
+        "title": "Manager, Field Engineering - Global Telecommunications ",
+        "company": "Databricks",
+        "location": "Remote - Georgia",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8476403002",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8138860",
+        "title": "Director, Global Campaigns",
+        "company": "Twilio",
+        "location": "Remote - United Kingdom",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/8138860",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8195222",
+        "title": "Director, Supplier Relations APAC",
+        "company": "Twilio",
+        "location": "Remote - Australia; Remote - Japan",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/8195222",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "6372770",
+        "title": "New Business Account Executive ",
+        "company": "Twilio",
+        "location": "Remote - Singapore",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/6372770",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "7996776",
+        "title": "Principal Engineer (L5)",
+        "company": "Twilio",
+        "location": "Remote - India",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/7996776",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8001804",
+        "title": "Senior Engineering Manager (L5)",
+        "company": "Twilio",
+        "location": "Remote - India",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/8001804",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8213826",
+        "title": "Senior Manager, Customer Success",
+        "company": "Twilio",
+        "location": "Remote - Australia",
+        "category": "Operations & Support",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/8213826",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "7825089",
+        "title": "Software Architect (L6)",
+        "company": "Twilio",
+        "location": "Remote - India",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/7825089",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "7966928",
+        "title": "Tech Lead /Sr. Principal Engineer (L6)",
+        "company": "Twilio",
+        "location": "Remote - India",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/twilio/jobs/7966928",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "b14a26ad-26e6-4d8b-be1a-b00517da3b41",
+        "title": "Senior Technical Customer Support Engineer - Singapore",
+        "company": "Clickhouse",
+        "location": "Singapore",
+        "category": "Operations & Support",
+        "url": "https://jobs.ashbyhq.com/clickhouse/b14a26ad-26e6-4d8b-be1a-b00517da3b41",
+        "dateAdded": "2026-09-29"
+    },
+    {
+        "id": "8099751002",
+        "title": "AI Engineer - FDE (Forward Deployed Engineer)",
+        "company": "Databricks",
+        "location": "Remote - India",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8099751002",
+        "dateAdded": "2026-09-28"
+    },
+    {
+        "id": "6198592004",
+        "title": "Investigations Analyst",
+        "company": "Turing",
+        "location": "Global - Remote",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/turing/jobs/6198592004",
+        "dateAdded": "2026-09-25"
+    },
+    {
+        "id": "6198600004",
+        "title": "Investigations Analyst",
+        "company": "Turing",
+        "location": "Global - Remote",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/turing/jobs/6198600004",
+        "dateAdded": "2026-09-25"
+    },
+    {
+        "id": "6115701004",
+        "title": "Staff Software Engineer",
+        "company": "Turing",
+        "location": "India - Remote",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/turing/jobs/6115701004",
+        "dateAdded": "2026-09-25"
+    },
+    {
+        "id": "6142224004",
+        "title": "Strategic Project Lead - Code",
+        "company": "Turing",
+        "location": "India - Remote",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
+        "dateAdded": "2026-09-25"
     },
     {
         "id": "5648777004",
         "title": "Account Executive : Field Sales - Delhi NCR",
         "company": "Devrev",
         "location": "India Remote",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/5648777004",
         "dateAdded": "2026-09-25"
     },
@@ -472,7 +850,7 @@
         "title": "Forward Deployed Engineer",
         "company": "Devrev",
         "location": "India Remote",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/6180279004",
         "dateAdded": "2026-09-25"
     },
@@ -481,7 +859,7 @@
         "title": "Member of Applied AI - Architect { Noida} ",
         "company": "Devrev",
         "location": "India Remote",
-        "category": "non-tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/6196804004",
         "dateAdded": "2026-09-25"
     },
@@ -490,7 +868,7 @@
         "title": "Member of Applied AI - Strategist {Noida}",
         "company": "Devrev",
         "location": "India Remote",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/6196806004",
         "dateAdded": "2026-09-25"
     },
@@ -499,7 +877,7 @@
         "title": "Senior Technical Specialist, AI Solutions : Delhi",
         "company": "Devrev",
         "location": "India Remote",
-        "category": "non-tech",
+        "category": "General Operations",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/6139491004",
         "dateAdded": "2026-09-25"
     },
@@ -508,7 +886,7 @@
         "title": "Software Engineer - Applied AI ",
         "company": "Devrev",
         "location": "Philippines Remote",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/5722574004",
         "dateAdded": "2026-09-25"
     },
@@ -517,431 +895,197 @@
         "title": "Solution Engineer : Delhi",
         "company": "Devrev",
         "location": "India Remote",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://job-boards.greenhouse.io/devrev/jobs/5831999004",
         "dateAdded": "2026-09-25"
     },
     {
-        "id": "22665817",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665817",
-        "dateAdded": "2026-10-04"
+        "id": "8184179",
+        "title": "Account Executive, Enterprise - Financial Services ",
+        "company": "Braze",
+        "location": "Remote - Australia",
+        "category": "General Operations",
+        "url": "https://job-boards.greenhouse.io/braze/jobs/8184179",
+        "dateAdded": "2026-09-24"
     },
     {
-        "id": "22666751",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666751",
-        "dateAdded": "2026-10-04"
+        "id": "5995789004",
+        "title": "Senior Manager, Solutions Architect",
+        "company": "Vercel",
+        "location": "Remote - Australia",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/vercel/jobs/5995789004",
+        "dateAdded": "2026-09-24"
     },
     {
-        "id": "22672546",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22672546",
-        "dateAdded": "2026-10-04"
+        "id": "5217063007",
+        "title": "Senior Software Engineer \u2014 Infra Agent Systems Remote India",
+        "company": "Togetherai",
+        "location": "India",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/togetherai/jobs/5217063007",
+        "dateAdded": "2026-09-23"
     },
     {
-        "id": "22667973",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667973",
-        "dateAdded": "2026-10-04"
+        "id": "5226095007",
+        "title": "Staff Engineer, Distributed Storage and HPC & AI Infrastructure",
+        "company": "Togetherai",
+        "location": "Bangalore India",
+        "category": "Tech & Engineering",
+        "url": "https://job-boards.greenhouse.io/togetherai/jobs/5226095007",
+        "dateAdded": "2026-09-23"
     },
     {
-        "id": "22667099",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667099",
-        "dateAdded": "2026-10-04"
+        "id": "2deb8b5c-fcea-48f0-8b15-2d2d95b50d72",
+        "title": "Partner Marketing Programs Manager, Global",
+        "company": "Vanta",
+        "location": "Remote U.S.",
+        "category": "General Operations",
+        "url": "https://jobs.ashbyhq.com/vanta/2deb8b5c-fcea-48f0-8b15-2d2d95b50d72",
+        "dateAdded": "2026-09-23"
     },
     {
-        "id": "22668891",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22668891",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22675364",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22675364",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665806",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665806",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22668884",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22668884",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22668688",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22668688",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665560",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665560",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665701",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665701",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666193",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666193",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22667903",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667903",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666357",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666357",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666178",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666178",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22668700",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22668700",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666568",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666568",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666279",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666279",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665705",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665705",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665812",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665812",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666437",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666437",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666328",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666328",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666721",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666721",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22667021",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667021",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665572",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665572",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22675565",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22675565",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22667711",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667711",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22665955",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22665955",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22674950",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22674950",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666810",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666810",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22672483",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22672483",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22677510",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22677510",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22670460",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22670460",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22666059",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22666059",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22670703",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22670703",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22667010",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667010",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22680231",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22680231",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22669788",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22669788",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22668400",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22668400",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22668255",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22668255",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "22667004",
-        "title": "HN Startup Role (Direct Founder Post)",
-        "company": "Hacker News Startup",
-        "location": "Remote / India",
-        "category": "tech",
-        "url": "https://news.ycombinator.com/item?id=22667004",
-        "dateAdded": "2026-10-04"
-    },
-    {
-        "id": "0e6b7355-330a-4d10-b8d5-c235bd555622",
-        "title": "Agentic Engineer Level II/III",
-        "company": "Netomi",
+        "id": "8637736002",
+        "title": "Deployment Strategist",
+        "company": "Databricks",
         "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
-        "dateAdded": "2026-10-04"
+        "category": "General Operations",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8637736002",
+        "dateAdded": "2026-09-22"
     },
     {
-        "id": "b4d9ce2b-479e-47f2-a9c0-52827e94e129",
-        "title": "Agentic Solution Engineer",
-        "company": "Netomi",
+        "id": "f2bf078d-d104-4a7b-96fd-5187a550f4a0",
+        "title": "Technical Customer Support Specialist",
+        "company": "Elevenlabs",
+        "location": "Australia",
+        "category": "Operations & Support",
+        "url": "https://jobs.ashbyhq.com/elevenlabs/f2bf078d-d104-4a7b-96fd-5187a550f4a0",
+        "dateAdded": "2026-09-22"
+    },
+    {
+        "id": "8503068002",
+        "title": "Manager, Forward Deployed Engineering",
+        "company": "Databricks",
         "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/b4d9ce2b-479e-47f2-a9c0-52827e94e129",
-        "dateAdded": "2026-10-04"
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8503068002",
+        "dateAdded": "2026-09-21"
+    },
+    {
+        "id": "8530855002",
+        "title": "Staff Forward Deployed Engineer",
+        "company": "Databricks",
+        "location": "Remote - India",
+        "category": "Tech & Engineering",
+        "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8530855002",
+        "dateAdded": "2026-09-21"
     },
     {
         "id": "02b45afd-5a49-41b2-a244-b0ca76306692",
         "title": "Data Engineer I",
         "company": "Netomi",
         "location": "Remote - India",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://jobs.lever.co/netomi/02b45afd-5a49-41b2-a244-b0ca76306692",
-        "dateAdded": "2026-10-04"
+        "dateAdded": "2026-09-21"
     },
     {
         "id": "929d62de-1e00-4b54-ba38-3378cc440fb2",
         "title": "Data Engineer II",
         "company": "Netomi",
         "location": "Remote - India",
-        "category": "tech",
+        "category": "Tech & Engineering",
         "url": "https://jobs.lever.co/netomi/929d62de-1e00-4b54-ba38-3378cc440fb2",
-        "dateAdded": "2026-10-04"
+        "dateAdded": "2026-09-21"
     },
     {
-        "id": "fd6df307-38b8-4f0d-81e9-392216edcaa2",
-        "title": "Senior Data Scientist (Agentic Solutions)",
-        "company": "Netomi",
-        "location": "Remote - India",
-        "category": "tech",
-        "url": "https://jobs.lever.co/netomi/fd6df307-38b8-4f0d-81e9-392216edcaa2",
-        "dateAdded": "2026-10-04"
+        "id": "8208317",
+        "title": "Senior Manager, APJ Field & Channel Marketing",
+        "company": "Dropbox",
+        "location": "Remote - Australia: Select locations",
+        "category": "General Operations",
+        "url": "https://jobs.dropbox.com/listing/8208317?gh_jid=8208317",
+        "dateAdded": "2026-09-17"
+    },
+    {
+        "id": "08a381ba-22fc-4890-8dd6-07220342101f",
+        "title": "Director, Global Employee Experience",
+        "company": "Clickhouse",
+        "location": "United Kingdom",
+        "category": "General Operations",
+        "url": "https://jobs.ashbyhq.com/clickhouse/08a381ba-22fc-4890-8dd6-07220342101f",
+        "dateAdded": "2026-09-17"
+    },
+    {
+        "id": "8139700",
+        "title": "Sales Development Representative, Singapore",
+        "company": "Cockroachlabs",
+        "location": "Remote, Singapore",
+        "category": "General Operations",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8139700",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "8106750",
+        "title": "Senior Staff Sales Engineer, Australia",
+        "company": "Cockroachlabs",
+        "location": "Remote, Australia",
+        "category": "Tech & Engineering",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8106750",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "8119500",
+        "title": "Senior Staff Sales Engineer, Singapore",
+        "company": "Cockroachlabs",
+        "location": "Remote, Singapore",
+        "category": "Tech & Engineering",
+        "url": "https://www.cockroachlabs.com/careers/job/?gh_jid=8119500",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "4aad97a0-e313-4725-887c-053e6c18ec8a",
+        "title": "Senior People Operations Partner, APJ",
+        "company": "Clickhouse",
+        "location": "Singapore",
+        "category": "Operations & Support",
+        "url": "https://jobs.ashbyhq.com/clickhouse/4aad97a0-e313-4725-887c-053e6c18ec8a",
+        "dateAdded": "2026-09-15"
+    },
+    {
+        "id": "4b5cd1ca-7d7d-4985-ba77-a9870fbd3d1a",
+        "title": "Solutions Architect - APAC",
+        "company": "Drata",
+        "location": "Remote - APAC",
+        "category": "Tech & Engineering",
+        "url": "https://jobs.ashbyhq.com/drata/4b5cd1ca-7d7d-4985-ba77-a9870fbd3d1a",
+        "dateAdded": "2026-09-14"
+    },
+    {
+        "id": "a68db3e5-0ec3-472a-8597-8586f40d43a5",
+        "title": "Release Engineer - Data Plane Internal Tooling and Productivity",
+        "company": "Clickhouse",
+        "location": "Singapore",
+        "category": "Tech & Engineering",
+        "url": "https://jobs.ashbyhq.com/clickhouse/a68db3e5-0ec3-472a-8597-8586f40d43a5",
+        "dateAdded": "2026-09-09"
+    },
+    {
+        "id": "095fdff6-c00e-4635-92a6-fa3ec99288d5",
+        "title": "Release Engineer - Data Plane Internal Tooling and Productivity",
+        "company": "Clickhouse",
+        "location": "Australia",
+        "category": "Tech & Engineering",
+        "url": "https://jobs.ashbyhq.com/clickhouse/095fdff6-c00e-4635-92a6-fa3ec99288d5",
+        "dateAdded": "2026-09-09"
+    },
+    {
+        "id": "ab43991e-fc10-487c-83ab-0e056e6312f6",
+        "title": "Buyer Support Team Lead",
+        "company": "Paddle",
+        "location": "Philippines",
+        "category": "General Operations",
+        "url": "https://jobs.ashbyhq.com/paddle/ab43991e-fc10-487c-83ab-0e056e6312f6",
+        "dateAdded": "2026-09-09"
     }
 ]
