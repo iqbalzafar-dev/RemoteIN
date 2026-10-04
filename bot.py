@@ -17,7 +17,7 @@ CONFIG = {
     "MAX_CONCURRENT_REQUESTS": 25,
     "REQUEST_TIMEOUT_SECONDS": 15,
     "CUTOFF_DAYS": 30,
-    "USER_AGENT": "RemoteIN-Bot/2.0 (+https://github.com/iqbalzafar-dev/RemoteIN)",
+    "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     
     # Auto-discovery queries across target ATS platforms
     "DISCOVERY_QUERIES": [
@@ -27,13 +27,6 @@ CONFIG = {
         'site:jobs.lever.co "APAC" "Remote"',
         'site:jobs.ashbyhq.com "India" "Remote"',
         'site:jobs.ashbyhq.com "APAC" "Remote"'
-    ],
-
-    # High-volume feeds (Added Remotive for 500+ job scale)
-    "BULK_FEEDS": [
-        {"url": "https://remotive.com/api/remote-jobs", "type": "remotive"},
-        {"url": "https://jobicy.com/api/v2/remote-jobs?count=100", "type": "jobicy"},
-        {"url": "https://www.arbeitnow.com/api/job-board-api", "type": "arbeitnow"}
     ],
 
     # Smart Category Mapping
@@ -55,7 +48,7 @@ CONFIG = {
     "GEO_LOCKS": [
         "us only", "uk only", "emea only", "europe only", 
         "canada only", "latam only", "remote - us", "remote (us)",
-        "remote - uk", "remote - europe", "remote - north america"
+        "remote - uk", "remote - europe", "remote - north america", "germany only"
     ],
 
     # Mandatory Remote Signals
@@ -74,6 +67,12 @@ CONFIG = {
         "singapore", "australia", "philippines", "malaysia", "indonesia", 
         "worldwide", "global", "anywhere"
     ]
+}
+
+BROWSER_HEADERS = {
+    "User-Agent": CONFIG["USER_AGENT"],
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9"
 }
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s", datefmt="%H:%M:%S")
@@ -310,62 +309,75 @@ async def scrape_ashby(session, slug, sem):
             pass
 
 async def scrape_aggregators_and_discover(session, registry):
-    log.info("🌐 Ingesting partner feeds (Remotive, Jobicy, Arbeitnow)...")
-    for feed in CONFIG["BULK_FEEDS"]:
-        try:
-            async with session.get(feed["url"], timeout=CONFIG["REQUEST_TIMEOUT_SECONDS"]) as resp:
-                if resp.status != 200:
-                    continue
+    log.info("🌐 Fetching bulk verified remote feeds...")
+
+    # 1. Remotive (Cloudflare Safe + Worldwide/India Open Filter)
+    try:
+        async with session.get("https://remotive.com/api/remote-jobs", headers=BROWSER_HEADERS, timeout=20) as resp:
+            if resp.status == 200:
                 data = await resp.json()
-                
-                # 1. Remotive (Massive feed)
-                if feed["type"] == "remotive":
-                    for j in data.get("jobs", []):
-                        title = j.get("title", "")
-                        loc = j.get("candidate_required_location", "Anywhere")
-                        url = j.get("url", "")
-                        comp_name = j.get("company_name", "Remote Company")
-                        dt = parse_iso_datetime(j.get("publication_date"))
-                        
-                        ats, slug = registry.extract_ats_from_url(url)
-                        if ats and slug:
-                            await registry.add_discovered_company(session, ats, slug)
-                        if is_eligible_remote(title, loc):
-                            record_job(j.get("id", url), title, comp_name, loc, classify_role(title), url, dt)
+                remotive_jobs = data.get("jobs", [])
+                log.info(f"Remotive responded with {len(remotive_jobs)} raw jobs.")
+                for j in remotive_jobs:
+                    title = j.get("title", "")
+                    loc = (j.get("candidate_required_location") or "Worldwide").strip()
+                    loc_lower = loc.lower()
+                    url = j.get("url", "")
+                    comp_name = j.get("company_name", "Global Remote")
+                    dt = parse_iso_datetime(j.get("publication_date"))
 
-                # 2. Jobicy
-                elif feed["type"] == "jobicy":
-                    for j in data.get("jobs", []):
-                        title = j.get("jobTitle", "")
-                        loc = j.get("jobGeo", "")
-                        url = j.get("url", "")
-                        comp_name = j.get("companyName", "Direct Employer")
-                        dt = parse_iso_datetime(j.get("pubDate"))
-                        
-                        ats, slug = registry.extract_ats_from_url(url)
-                        if ats and slug:
-                            await registry.add_discovered_company(session, ats, slug)
-                        if is_eligible_remote(title, loc):
-                            record_job(j.get("id", url), title, comp_name, loc, classify_role(title), url, dt)
+                    # Discovery check
+                    ats, slug = registry.extract_ats_from_url(url)
+                    if ats and slug:
+                        await registry.add_discovered_company(session, ats, slug)
 
-                # 3. Arbeitnow
-                elif feed["type"] == "arbeitnow":
-                    for j in data.get("data", []):
-                        if not j.get("remote"):
-                            continue
+                    # Remotive is 100% remote: verify it is open to India/APAC/Worldwide
+                    if not any(gl in loc_lower for gl in CONFIG["GEO_LOCKS"]):
+                        if any(k in loc_lower for k in ["worldwide", "anywhere", "india", "apac", "asia", "global"]) or loc_lower == "":
+                            cat = classify_role(title)
+                            record_job(j.get("id", url), title, comp_name, loc if loc else "Worldwide (Remote)", cat, url, dt)
+    except Exception as e:
+        log.warning(f"Remotive feed error: {e}")
+
+    # 2. Jobicy
+    try:
+        async with session.get("https://jobicy.com/api/v2/remote-jobs?count=100", headers=BROWSER_HEADERS, timeout=15) as resp:
+            if resp.status == 200:
+                data = await resp.json()
+                for j in data.get("jobs", []):
+                    title = j.get("jobTitle", "")
+                    loc = (j.get("jobGeo") or "Anywhere").strip()
+                    loc_lower = loc.lower()
+                    url = j.get("url", "")
+                    comp = j.get("companyName", "Direct Company")
+                    dt = parse_iso_datetime(j.get("pubDate"))
+                    
+                    ats, slug = registry.extract_ats_from_url(url)
+                    if ats and slug:
+                        await registry.add_discovered_company(session, ats, slug)
+
+                    if not any(gl in loc_lower for gl in CONFIG["GEO_LOCKS"]):
+                        if any(k in loc_lower for k in ["worldwide", "anywhere", "india", "apac", "asia", "global"]) or loc_lower == "":
+                            record_job(j.get("id", url), title, comp, loc, classify_role(title), url, dt)
+    except Exception as e:
+        log.warning(f"Jobicy error: {e}")
+
+    # 3. Arbeitnow
+    try:
+        async with session.get("https://www.arbeitnow.com/api/job-board-api", headers=BROWSER_HEADERS, timeout=15) as resp:
+            if resp.status == 200:
+                data = await resp.json()
+                for j in data.get("data", []):
+                    if j.get("remote"):
                         title = j.get("title", "")
                         loc = j.get("location", "Remote")
                         url = j.get("url", "")
-                        comp_name = j.get("company_name", "Direct Employer")
+                        comp = j.get("company_name", "Tech Startup")
                         dt = parse_iso_datetime(j.get("created_at"))
-                        
-                        ats, slug = registry.extract_ats_from_url(url)
-                        if ats and slug:
-                            await registry.add_discovered_company(session, ats, slug)
                         if is_eligible_remote(title, loc):
-                            record_job(j.get("slug", url), title, comp_name, loc, classify_role(title), url, dt)
-        except Exception as e:
-            log.warning(f"Error on feed {feed['url']}: {e}")
+                            record_job(j.get("slug", url), title, comp, loc, classify_role(title), url, dt)
+    except Exception as e:
+        pass
 
 # ==============================================================================
 # 6. MAIN ENGINE EXECUTION
@@ -373,10 +385,9 @@ async def scrape_aggregators_and_discover(session, registry):
 async def main():
     start = datetime.now()
     registry = CompanyRegistry(CONFIG["COMPANIES_FILE"])
-    headers = {"User-Agent": CONFIG["USER_AGENT"]}
     sem = asyncio.Semaphore(CONFIG["MAX_CONCURRENT_REQUESTS"])
 
-    async with aiohttp.ClientSession(headers=headers) as session:
+    async with aiohttp.ClientSession(headers=BROWSER_HEADERS) as session:
         # Step 1: Auto-discover new companies and update companies.json
         await run_search_discovery(session, registry)
         await scrape_aggregators_and_discover(session, registry)
