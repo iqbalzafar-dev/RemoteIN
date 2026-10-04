@@ -24,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install aiohttp requests
+          pip install aiohttp requests duckduckgo_search urllib3
 
       - name: Run Job Bot
         run: python bot.py
