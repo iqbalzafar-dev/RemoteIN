@@ -5,7 +5,7 @@ import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 
-print("🚀 INITIATING ULTIMATE SUPERCHARGED BOT: Multi-ATS + High Volume Streams...\n")
+print("🚀 INITIATING STRICT FRESHNESS BOT: Eliminating Zombie Jobs...\n")
 
 # --- LOAD DATABASE ---
 COMPANIES_FILE = 'companies.json'
@@ -22,28 +22,56 @@ except FileNotFoundError:
 filtered_jobs = []
 seen_job_urls = set()
 
-# --- FRESHNESS WINDOW (30 DAYS CUTOFF) ---
-# Sirf pichle 30 din ke andar post hui active jobs hi accept hongi
+# --- STRICT 30-DAY FRESHNESS WINDOW ---
 CUTOFF_DATE = datetime.now(timezone.utc) - timedelta(days=30)
 
-def parse_iso_date(date_str):
-    if not date_str:
+def parse_any_date(raw_val):
+    """Multiple date formats ko safely datetime object me convert karta hai"""
+    if not raw_val:
         return None
-    try:
-        clean_str = date_str.replace("Z", "+00:00")
-        dt = datetime.fromisoformat(clean_str)
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        return dt
-    except Exception:
+        
+    # Case 1: Millisecond integer / epoch timestamp (Lever & HackerNews)
+    if isinstance(raw_val, (int, float)):
         try:
-            return datetime.strptime(date_str.split('T')[0], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            # Agar milliseconds me hai (> 10 digits)
+            ts = raw_val / 1000 if raw_val > 10000000000 else raw_val
+            return datetime.fromtimestamp(ts, tz=timezone.utc)
         except Exception:
             return None
+            
+    # Case 2: ISO string (Greenhouse / Ashby)
+    if isinstance(raw_val, str):
+        raw_val = raw_val.strip()
+        try:
+            clean_str = raw_val.replace("Z", "+00:00")
+            dt = datetime.fromisoformat(clean_str)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt
+        except Exception:
+            pass
+            
+        # Case 3: RFC 2822 format (Jobicy / RSS: "Sun, 04 Oct 2026 12:00:00 +0000")
+        for fmt in (
+            "%a, %d %b %Y %H:%M:%S %z",
+            "%a, %d %b %Y %H:%M:%S %Z",
+            "%Y-%m-%dT%H:%M:%S.%f%z",
+            "%Y-%m-%d"
+        ):
+            try:
+                dt = datetime.strptime(raw_val, fmt)
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=timezone.utc)
+                return dt
+            except Exception:
+                continue
+                
+    return None
 
-def is_recent_enough(dt_obj):
+def is_recent(dt_obj):
+    """Agar date missing hai ya 30 din se purani hai toh STRICTLY REJECT"""
     if not dt_obj:
-        return True # agar date mention nahi hai toh skip na karein
+        return False
     return dt_obj >= CUTOFF_DATE
 
 # --- SMART CATEGORY CLASSIFIER ---
@@ -84,11 +112,13 @@ def is_strictly_remote_apac(title, location, commitment=""):
     return True 
 
 def add_job_record(job_id, title, company, location, category, url, dt_obj):
+    if not is_recent(dt_obj):
+        return  # Strictly block any expired job from entering
+        
     if url in seen_job_urls:
         return
     seen_job_urls.add(url)
     
-    formatted_date = dt_obj.strftime("%Y-%m-%d") if dt_obj else datetime.now().strftime("%Y-%m-%d")
     filtered_jobs.append({
         "id": str(job_id),
         "title": title,
@@ -96,7 +126,7 @@ def add_job_record(job_id, title, company, location, category, url, dt_obj):
         "location": location if location else "Remote (India/Global)",
         "category": category,
         "url": url,
-        "dateAdded": formatted_date
+        "dateAdded": dt_obj.strftime("%Y-%m-%d")
     })
 
 # --- ASYNC ATS FETCHERS ---
@@ -110,14 +140,9 @@ async def fetch_greenhouse(session, company, semaphore):
                     for job in data.get('jobs', []):
                         title = job.get('title', '')
                         loc = job.get('location', {}).get('name', '')
-                        updated_at = job.get('updated_at')
-                        dt_obj = parse_iso_date(updated_at)
+                        dt_obj = parse_any_date(job.get('updated_at'))
                         
-                        # 30 din se purani jobs ko drop karein
-                        if not is_recent_enough(dt_obj):
-                            continue
-                            
-                        if is_strictly_remote_apac(title, loc):
+                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc):
                             cat = classify_role(title)
                             add_job_record(job['id'], title, company, loc, cat, job['absolute_url'], dt_obj)
         except Exception:
@@ -134,15 +159,9 @@ async def fetch_lever(session, company, semaphore):
                         title = job.get('text', '')
                         loc = job.get('categories', {}).get('location', '')
                         commit = job.get('categories', {}).get('commitment', '')
+                        dt_obj = parse_any_date(job.get('createdAt'))
                         
-                        # Lever createdAt is Unix timestamp (milliseconds)
-                        created_at_ms = job.get('createdAt')
-                        dt_obj = datetime.fromtimestamp(created_at_ms / 1000, tz=timezone.utc) if created_at_ms else None
-                        
-                        if not is_recent_enough(dt_obj):
-                            continue
-                            
-                        if is_strictly_remote_apac(title, loc, commit):
+                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc, commit):
                             cat = classify_role(title)
                             add_job_record(job['id'], title, company, loc, cat, job.get('hostedUrl', ''), dt_obj)
         except Exception:
@@ -150,7 +169,6 @@ async def fetch_lever(session, company, semaphore):
 
 async def fetch_ashby(session, company, semaphore):
     async with semaphore:
-        # First try official public API endpoint (supports Deel, Multiplier etc directly)
         api_url = f"https://api.ashbyhq.com/posting-api/job-board/{company}"
         try:
             async with session.get(api_url, timeout=12) as response:
@@ -161,25 +179,20 @@ async def fetch_ashby(session, company, semaphore):
                         title = job.get('title', '')
                         loc = job.get('location', '')
                         is_remote = job.get('isRemote', False)
-                        published_at = job.get('publishedAt')
-                        dt_obj = parse_iso_date(published_at)
+                        dt_obj = parse_any_date(job.get('publishedAt'))
                         
-                        if not is_recent_enough(dt_obj):
-                            continue
-                            
                         check_str = f"{title} {loc} {'remote' if is_remote else ''}"
-                        if is_strictly_remote_apac(title, loc, check_str):
+                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc, check_str):
                             cat = classify_role(title)
                             add_job_record(job['id'], title, company, loc, cat, job.get('jobUrl', ''), dt_obj)
-                    return
         except Exception:
             pass
 
-# --- BULK VOLUME ENGINE (Free High-Yield Verified Feeds) ---
+# --- BULK VOLUME ENGINE ---
 async def fetch_bulk_remote_feeds(session):
-    print("🌐 Pulling high-volume verified feeds (Jobicy & Arbeitnow)...")
+    print("🌐 Pulling high-volume verified feeds...")
     
-    # 1. Jobicy Feed (HR, Finance, Support, Tech)
+    # 1. Jobicy
     jobicy_url = "https://jobicy.com/api/v2/remote-jobs?count=50&geo=apac"
     try:
         async with session.get(jobicy_url, timeout=12) as resp:
@@ -188,15 +201,14 @@ async def fetch_bulk_remote_feeds(session):
                 for job in data.get('jobs', []):
                     title = job.get('jobTitle', '')
                     loc = job.get('jobGeo', '')
-                    pub_date = job.get('pubDate')
-                    dt_obj = parse_iso_date(pub_date)
-                    if is_recent_enough(dt_obj):
+                    dt_obj = parse_any_date(job.get('pubDate'))
+                    if is_recent(dt_obj) and is_strictly_remote_apac(title, loc):
                         cat = classify_role(title)
                         add_job_record(job.get('id', title), title, job.get('companyName', 'Global Remote'), loc, cat, job.get('url'), dt_obj)
     except Exception:
         pass
 
-    # 2. Arbeitnow API
+    # 2. Arbeitnow
     arbeit_url = "https://www.arbeitnow.com/api/job-board-api"
     try:
         async with session.get(arbeit_url, timeout=12) as resp:
@@ -206,10 +218,10 @@ async def fetch_bulk_remote_feeds(session):
                     if job.get('remote') is True:
                         title = job.get('title', '')
                         loc = job.get('location', 'Remote')
-                        created_at = datetime.fromtimestamp(job.get('created_at', 0), tz=timezone.utc)
-                        if is_recent_enough(created_at) and is_strictly_remote_apac(title, loc):
+                        dt_obj = parse_any_date(job.get('created_at'))
+                        if is_recent(dt_obj) and is_strictly_remote_apac(title, loc):
                             cat = classify_role(title)
-                            add_job_record(job.get('slug', title), title, job.get('company_name', 'Tech Co'), loc, cat, job.get('url'), created_at)
+                            add_job_record(job.get('slug', title), title, job.get('company_name', 'Tech Co'), loc, cat, job.get('url'), dt_obj)
     except Exception:
         pass
 
@@ -238,10 +250,9 @@ async def fetch_hackernews(session):
                                 if not isinstance(cres, Exception) and cres.status == 200:
                                     c_data = await cres.json()
                                     text = c_data.get('text', '')
-                                    c_time = c_data.get('time')
-                                    dt_obj = datetime.fromtimestamp(c_time, tz=timezone.utc) if c_time else None
+                                    dt_obj = parse_any_date(c_data.get('time'))
                                     
-                                    if is_recent_enough(dt_obj) and text and any(w in text.lower() for w in ['india', 'apac', 'remote']):
+                                    if is_recent(dt_obj) and text and any(w in text.lower() for w in ['india', 'apac', 'remote']):
                                         cat = classify_role(text[:100])
                                         add_job_record(c_data.get('id'), "Direct Founder Role (HN Startup)", "Hacker News Startup", "Remote / India", cat, f"https://news.ycombinator.com/item?id={c_data.get('id')}", dt_obj)
                             except:
@@ -249,69 +260,35 @@ async def fetch_hackernews(session):
     except Exception:
         pass
 
-# --- MONEY TRACKER: AUTO-INJECT NEWLY FUNDED COMPANIES ---
-async def fetch_funding_and_expand_database(session):
-    print("💰 Scanning startup funding news to auto-expand company list...")
-    rss_url = "https://inc42.com/feed/"
-    new_slugs_added = 0
-    try:
-        async with session.get(rss_url, timeout=10) as resp:
-            if resp.status == 200:
-                xml_content = await resp.text()
-                root = ET.fromstring(xml_content)
-                
-                for item in root.findall('.//item')[:20]:
-                    title = item.find('title').text if item.find('title') is not None else ""
-                    if any(word in title.lower() for word in ['raises', 'funding', 'seed', 'series', 'million']):
-                        words = title.split()
-                        if words:
-                            potential_slug = words[0].lower().strip(",.-")
-                            if len(potential_slug) > 3 and potential_slug not in ats_slugs.get('greenhouse', []):
-                                ats_slugs.setdefault('greenhouse', []).append(potential_slug)
-                                new_slugs_added += 1
-                                
-        if new_slugs_added > 0:
-            with open(COMPANIES_FILE, 'w') as f:
-                json.dump(ats_slugs, f, indent=4)
-            print(f"✅ Auto-expanded database: Added {new_slugs_added} newly funded startups!")
-    except Exception as e:
-        print(f"Funding tracker note: {e}")
-
 # --- THE MAIN ASYNC ENGINE ---
 async def main():
     start_time = datetime.now()
     semaphore = asyncio.Semaphore(50) 
     
     async with aiohttp.ClientSession() as session:
-        await fetch_funding_and_expand_database(session)
-        
         tasks = []
-        # Greenhouse
         for company in ats_slugs.get('greenhouse', []):
             tasks.append(fetch_greenhouse(session, company, semaphore))
-        # Lever
         for company in ats_slugs.get('lever', []):
             tasks.append(fetch_lever(session, company, semaphore))
-        # Ashby (Includes Deel, Multiplier, etc.)
         for company in ats_slugs.get('ashby', []):
             tasks.append(fetch_ashby(session, company, semaphore))
             
-        # Additional Bulk & Community Feeds
         tasks.append(fetch_bulk_remote_feeds(session))
         tasks.append(fetch_hackernews(session))
             
         await asyncio.gather(*tasks)
 
-    # Date ke mutabiq descending sort karein (Newest first)
+    # Sort descending by date (Most recent first)
     filtered_jobs.sort(key=lambda x: x.get('dateAdded', ''), reverse=True)
 
-    # Save Clean Results
+    # Save Results
     with open('jobs.json', 'w') as f:
         json.dump(filtered_jobs, f, indent=4)
 
     duration = datetime.now() - start_time
-    print(f"\n🔥 SCAN COMPLETE in {duration.total_seconds():.2f} seconds.")
-    print(f"🎯 Total verified fresh remote jobs found: {len(filtered_jobs)}")
+    print(f"\n🔥 STRICT SCAN COMPLETE in {duration.total_seconds():.2f} seconds.")
+    print(f"🎯 Total 100% VERIFIED FRESH (Last 30 Days) Jobs found: {len(filtered_jobs)}")
 
 if __name__ == "__main__":
     import sys
