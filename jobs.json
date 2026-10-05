@@ -1,5 +1,16 @@
 [
  {
+  "id": "ab-elevenlabs-e5cca48b-1f34-48fe-9ebf-3c6ff526f9ba",
+  "title": "Commercial Counsel - India",
+  "company": "Elevenlabs",
+  "location": "India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/elevenlabs/e5cca48b-1f34-48fe-9ebf-3c6ff526f9ba",
+  "date": "2026-10-05T14:22:25+00:00",
+  "dateAdded": "2026-10-05T14:22:25+00:00"
+ },
+ {
   "id": "gh-twilio-8239751",
   "title": "Technical Support Engineer 2",
   "company": "Twilio",
@@ -6625,7 +6636,7 @@
  },
  {
   "id": "gh-devrev-6196804004",
-  "title": "Member of Applied AI - Architect { Noida}",
+  "title": "Forward Deployed Architect { Noida}",
   "company": "Devrev",
   "location": "India Remote",
   "category": "Tech",
@@ -6718,17 +6729,6 @@
   "sourceUrl": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
   "date": "2026-09-11T20:16:48+00:00",
   "dateAdded": "2026-09-11T20:16:48+00:00"
- },
- {
-  "id": "gh-togetherai-5226095007",
-  "title": "Staff Engineer, Distributed Storage and HPC & AI Infrastructure",
-  "company": "Togetherai",
-  "location": "Bangalore India; Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5226095007",
-  "date": "2026-09-11T07:09:12+00:00",
-  "dateAdded": "2026-09-11T07:09:12+00:00"
  },
  {
   "id": "gh-togetherai-5233125007",
@@ -7565,7 +7565,7 @@
   "id": "ab-elevenlabs-b92059ea-d71f-4eef-a184-8510265752fb",
   "title": "Systems Architect",
   "company": "Elevenlabs",
-  "location": "San Francisco; Australia; United States; Singapore; India; UAE",
+  "location": "Singapore; Australia; India; San Francisco",
   "category": "Tech",
   "remoteType": "confirmed",
   "url": "https://jobs.ashbyhq.com/elevenlabs/b92059ea-d71f-4eef-a184-8510265752fb",
