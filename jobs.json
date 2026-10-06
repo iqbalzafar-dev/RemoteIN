@@ -11,17 +11,6 @@
   "dateAdded": "2026-10-06T05:23:32+00:00"
  },
  {
-  "id": "gh-twilio-8247112",
-  "title": "Software Engineer (L2)",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8247112",
-  "date": "2026-10-06T05:17:08+00:00",
-  "dateAdded": "2026-10-06T05:17:08+00:00"
- },
- {
   "id": "ab-clickhouse-6c74387f-2330-4005-b711-f622925bc1f2",
   "title": "Partner Sales Director-India/ASEAN",
   "company": "Clickhouse",
@@ -586,6 +575,19 @@
   "sourceUrl": "https://himalayas.app/companies/supersub/jobs/data-scientist-remote",
   "date": "2026-10-05T05:44:36+00:00",
   "dateAdded": "2026-10-05T05:44:36+00:00"
+ },
+ {
+  "id": "rm-2091149",
+  "title": "Software Engineer / AI Code Trainer (Python, Web, Full Stack)",
+  "company": "CodeForAI",
+  "location": "USA, UK, India, Australia, Ireland, New Zealand, Philippines, Pakistan, Singapore, Mexico",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-code-trainer-python-web-full-stack-2091149",
+  "source": "Remotive",
+  "sourceUrl": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-code-trainer-python-web-full-stack-2091149",
+  "date": "2026-10-05T05:15:43+00:00",
+  "dateAdded": "2026-10-05T05:15:43+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/juara-it-solutions/jobs/cloud-security-engineer",
@@ -7140,17 +7142,6 @@
   "dateAdded": "2026-06-29T02:22:13+00:00"
  },
  {
-  "id": "gh-twilio-8007449",
-  "title": "Senior/Staff Applied Research Software Engineer",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8007449",
-  "date": "2026-06-16T13:01:03+00:00",
-  "dateAdded": "2026-06-16T13:01:03+00:00"
- },
- {
   "id": "gh-twilio-7966928",
   "title": "Tech Lead /Sr. Principal Engineer (L6)",
   "company": "Twilio",
@@ -7404,17 +7395,6 @@
   "dateAdded": "2026-02-17T03:28:29+00:00"
  },
  {
-  "id": "ab-elevenlabs-bd230a18-2ff4-493c-8555-8476bf7de0e4",
-  "title": "Translator/Linguist (Freelance)",
-  "company": "Elevenlabs",
-  "location": "United Kingdom; Spain; Germany; Brazil; Portugal; Mexico; France; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/bd230a18-2ff4-493c-8555-8476bf7de0e4",
-  "date": "2026-02-12T20:14:58+00:00",
-  "dateAdded": "2026-02-12T20:14:58+00:00"
- },
- {
   "id": "gh-elastic-7447246",
   "title": "Consulting Architect - Observability",
   "company": "Elastic",
@@ -7437,17 +7417,6 @@
   "dateAdded": "2025-12-05T13:33:04+00:00"
  },
  {
-  "id": "ab-elevenlabs-356d08ba-6119-4c76-93ad-362ca7283569",
-  "title": "Audiobook Specialists (Freelance)",
-  "company": "Elevenlabs",
-  "location": "United Kingdom; Spain; Germany; Brazil; Portugal; Mexico; France; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/356d08ba-6119-4c76-93ad-362ca7283569",
-  "date": "2025-09-24T16:14:44+00:00",
-  "dateAdded": "2025-09-24T16:14:44+00:00"
- },
- {
   "id": "gh-devrev-5648777004",
   "title": "Account Executive : Field Sales - Delhi NCR",
   "company": "Devrev",
@@ -7468,28 +7437,6 @@
   "url": "https://job-boards.greenhouse.io/togetherai/jobs/4840844007",
   "date": "2025-08-29T01:59:02+00:00",
   "dateAdded": "2025-08-29T01:59:02+00:00"
- },
- {
-  "id": "ab-elevenlabs-1713bfd7-a63b-4dd4-b6e7-b0b8b8560a4a",
-  "title": "Dubbing Specialist (Freelance)",
-  "company": "Elevenlabs",
-  "location": "United Kingdom; Spain; Germany; Brazil; Portugal; Mexico; France; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/1713bfd7-a63b-4dd4-b6e7-b0b8b8560a4a",
-  "date": "2025-07-01T13:39:48+00:00",
-  "dateAdded": "2025-07-01T13:39:48+00:00"
- },
- {
-  "id": "ab-elevenlabs-ef0a1e14-40ee-43d2-aab9-59fc9f6a4b8c",
-  "title": "Transcription / Subtitling Specialist (Freelance)",
-  "company": "Elevenlabs",
-  "location": "Germany; Tokyo; Spain; Korea; United States; Japan; Brazil; Denmark; Portugal; Mexico; Sweden; Poland; United Kingdom; Netherlands; France; India; Bulgaria",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/ef0a1e14-40ee-43d2-aab9-59fc9f6a4b8c",
-  "date": "2025-04-24T15:56:14+00:00",
-  "dateAdded": "2025-04-24T15:56:14+00:00"
  },
  {
   "id": "gh-mongodb-6381035",
