@@ -1,5 +1,27 @@
 [
  {
+  "id": "gh-twilio-8236865",
+  "title": "Staff Software Engineer (L4)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8236865",
+  "date": "2026-10-06T05:23:32+00:00",
+  "dateAdded": "2026-10-06T05:23:32+00:00"
+ },
+ {
+  "id": "gh-twilio-8247112",
+  "title": "Software Engineer (L2)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8247112",
+  "date": "2026-10-06T05:17:08+00:00",
+  "dateAdded": "2026-10-06T05:17:08+00:00"
+ },
+ {
   "id": "ab-clickhouse-6c74387f-2330-4005-b711-f622925bc1f2",
   "title": "Partner Sales Director-India/ASEAN",
   "company": "Clickhouse",
@@ -6500,6 +6522,17 @@
   "dateAdded": "2026-09-08T12:45:26+00:00"
  },
  {
+  "id": "gh-twilio-8176810",
+  "title": "Digital Marketing Manager",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8176810",
+  "date": "2026-09-07T09:44:34+00:00",
+  "dateAdded": "2026-09-07T09:44:34+00:00"
+ },
+ {
   "id": "gh-buildkite-5417553008",
   "title": "Senior DevOps Support Engineer",
   "company": "Buildkite",
@@ -6876,28 +6909,6 @@
   "dateAdded": "2026-08-05T21:22:48+00:00"
  },
  {
-  "id": "gh-fivetran-7818324003",
-  "title": "Manager, Software Engineering",
-  "company": "Fivetran",
-  "location": "Remote, India, APAC; IND - Bengaluru",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.fivetran.com/careers/job?gh_jid=7818324003",
-  "date": "2026-08-05T16:24:23+00:00",
-  "dateAdded": "2026-08-05T16:24:23+00:00"
- },
- {
-  "id": "gh-fivetran-7818352003",
-  "title": "Staff Software Engineer-dbt core",
-  "company": "Fivetran",
-  "location": "Bangalore, India; IND - Bengaluru",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.fivetran.com/careers/job?gh_jid=7818352003",
-  "date": "2026-08-05T16:00:40+00:00",
-  "dateAdded": "2026-08-05T16:00:40+00:00"
- },
- {
   "id": "gh-databricks-8637736002",
   "title": "Deployment Strategist",
   "company": "Databricks",
@@ -6918,6 +6929,17 @@
   "url": "https://jobs.ashbyhq.com/neon/244b2337-7b43-4be7-9ef1-f7659ba7b0af",
   "date": "2026-07-29T16:09:27+00:00",
   "dateAdded": "2026-07-29T16:09:27+00:00"
+ },
+ {
+  "id": "gh-twilio-8079801",
+  "title": "Software Engineer L3",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8079801",
+  "date": "2026-07-29T12:24:00+00:00",
+  "dateAdded": "2026-07-29T12:24:00+00:00"
  },
  {
   "id": "lv-netomi-fd6df307-38b8-4f0d-81e9-392216edcaa2",
@@ -7083,6 +7105,17 @@
   "url": "https://www.fivetran.com/careers/job?gh_jid=7787879003",
   "date": "2026-06-30T19:42:49+00:00",
   "dateAdded": "2026-06-30T19:42:49+00:00"
+ },
+ {
+  "id": "gh-twilio-7781659",
+  "title": "Applications Engineer 2",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/7781659",
+  "date": "2026-06-30T05:16:56+00:00",
+  "dateAdded": "2026-06-30T05:16:56+00:00"
  },
  {
   "id": "gh-udemy-6103360004",
