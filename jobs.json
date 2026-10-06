@@ -1,5 +1,49 @@
 [
  {
+  "id": "ab-elevenlabs-ef0a1e14-40ee-43d2-aab9-59fc9f6a4b8c",
+  "title": "Transcription / Subtitling Specialist (Freelance)",
+  "company": "Elevenlabs",
+  "location": "Germany; Tokyo; Spain; Korea; United States; Japan; Brazil; Denmark; Portugal; Mexico; Sweden; Poland; United Kingdom; Netherlands; France; India; Bulgaria",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/elevenlabs/ef0a1e14-40ee-43d2-aab9-59fc9f6a4b8c",
+  "date": "2026-10-06T13:19:58+00:00",
+  "dateAdded": "2026-10-06T13:19:58+00:00"
+ },
+ {
+  "id": "ab-elevenlabs-bd230a18-2ff4-493c-8555-8476bf7de0e4",
+  "title": "Translator/Linguist (Freelance)",
+  "company": "Elevenlabs",
+  "location": "United Kingdom; Spain; Germany; Brazil; Portugal; Mexico; France; India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/elevenlabs/bd230a18-2ff4-493c-8555-8476bf7de0e4",
+  "date": "2026-10-06T13:11:57+00:00",
+  "dateAdded": "2026-10-06T13:11:57+00:00"
+ },
+ {
+  "id": "ab-elevenlabs-1713bfd7-a63b-4dd4-b6e7-b0b8b8560a4a",
+  "title": "Dubbing Specialist (Freelance)",
+  "company": "Elevenlabs",
+  "location": "United Kingdom; Spain; Germany; Brazil; Portugal; Mexico; France; India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/elevenlabs/1713bfd7-a63b-4dd4-b6e7-b0b8b8560a4a",
+  "date": "2026-10-06T13:11:41+00:00",
+  "dateAdded": "2026-10-06T13:11:41+00:00"
+ },
+ {
+  "id": "ab-elevenlabs-356d08ba-6119-4c76-93ad-362ca7283569",
+  "title": "Audiobook Specialists (Freelance)",
+  "company": "Elevenlabs",
+  "location": "United Kingdom; Spain; Germany; Brazil; Portugal; Mexico; France; India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/elevenlabs/356d08ba-6119-4c76-93ad-362ca7283569",
+  "date": "2026-10-06T13:11:30+00:00",
+  "dateAdded": "2026-10-06T13:11:30+00:00"
+ },
+ {
   "id": "gh-twilio-8236865",
   "title": "Staff Software Engineer (L4)",
   "company": "Twilio",
@@ -6768,15 +6812,15 @@
   "dateAdded": "2026-08-18T23:20:17+00:00"
  },
  {
-  "id": "gh-bitwarden-7896465003",
+  "id": "gh-bitwarden-7896696003",
   "title": "Senior Software Engineer - Rust",
   "company": "Bitwarden",
   "location": "Noida, Delhi NCR; Noida",
   "category": "Tech",
   "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
-  "date": "2026-08-18T22:46:00+00:00",
-  "dateAdded": "2026-08-18T22:46:00+00:00"
+  "url": "https://bitwarden.com/careers/7896696003/?gh_jid=7896696003",
+  "date": "2026-08-18T23:10:27+00:00",
+  "dateAdded": "2026-08-18T23:10:27+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
@@ -6832,17 +6876,6 @@
   "url": "https://jobs.ashbyhq.com/sardine/5c619e9b-3d11-45a4-be7d-574f4265cafe",
   "date": "2026-08-11T19:53:50+00:00",
   "dateAdded": "2026-08-11T19:53:50+00:00"
- },
- {
-  "id": "ab-elevenlabs-222122a3-24e9-4dd6-908a-5c9cd91f7e27",
-  "title": "APAC Communications",
-  "company": "Elevenlabs",
-  "location": "Singapore; Australia; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/222122a3-24e9-4dd6-908a-5c9cd91f7e27",
-  "date": "2026-08-10T22:44:14+00:00",
-  "dateAdded": "2026-08-10T22:44:14+00:00"
  },
  {
   "id": "ab-clickhouse-68a6a77c-f289-474f-987c-42bea4faca40",
@@ -7272,17 +7305,6 @@
   "url": "https://jobs.ashbyhq.com/clickhouse/c3a55a5b-479c-409c-b5c5-8e0eec6b25f2",
   "date": "2026-04-09T16:51:52+00:00",
   "dateAdded": "2026-04-09T16:51:52+00:00"
- },
- {
-  "id": "ab-elevenlabs-b92059ea-d71f-4eef-a184-8510265752fb",
-  "title": "Systems Architect",
-  "company": "Elevenlabs",
-  "location": "Singapore; Australia; India; San Francisco",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/b92059ea-d71f-4eef-a184-8510265752fb",
-  "date": "2026-04-08T17:47:10+00:00",
-  "dateAdded": "2026-04-08T17:47:10+00:00"
  },
  {
   "id": "lv-netomi-cc7c0f28-0eac-4924-8294-91369e38c1c2",
