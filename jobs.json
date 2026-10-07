@@ -4781,6 +4781,17 @@
   "dateAdded": "2026-10-04T02:31:19+00:00"
  },
  {
+  "id": "ab-scribe-32e61aa7-38c3-4687-98af-143b21996159",
+  "title": "Engineering Manager, QA",
+  "company": "Scribe",
+  "location": "Remote - Worldwide",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/scribe/32e61aa7-38c3-4687-98af-143b21996159",
+  "date": "2026-10-04T02:29:08+00:00",
+  "dateAdded": "2026-10-04T02:29:08+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/jobskeyconsultancy/jobs/sap-mdg-s-4hana-consultant",
   "title": "SAP MDG S/4HANA Consultant",
   "company": "Jobskey Consultancy",
@@ -6234,6 +6245,17 @@
   "dateAdded": "2026-09-24T05:24:21+00:00"
  },
  {
+  "id": "gh-twilio-8213730",
+  "title": "Personalized Support Engineer",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8213730",
+  "date": "2026-09-23T13:59:26+00:00",
+  "dateAdded": "2026-09-23T13:59:26+00:00"
+ },
+ {
   "id": "gh-devrev-6196806004",
   "title": "Forward Deployed Strategist {Noida}",
   "company": "Devrev",
@@ -6289,15 +6311,15 @@
   "dateAdded": "2026-09-18T20:13:13+00:00"
  },
  {
-  "id": "gh-turing-6198592004",
+  "id": "gh-turing-6198600004",
   "title": "Investigations Analyst",
   "company": "Turing",
   "location": "Global - Remote",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/turing/jobs/6198592004",
-  "date": "2026-09-18T18:09:19+00:00",
-  "dateAdded": "2026-09-18T18:09:19+00:00"
+  "url": "https://job-boards.greenhouse.io/turing/jobs/6198600004",
+  "date": "2026-09-18T18:09:41+00:00",
+  "dateAdded": "2026-09-18T18:09:41+00:00"
  },
  {
   "id": "rm-2091140",
@@ -6939,17 +6961,6 @@
   "url": "https://job-boards.greenhouse.io/togetherai/jobs/5180155007",
   "date": "2026-07-13T16:32:15+00:00",
   "dateAdded": "2026-07-13T16:32:15+00:00"
- },
- {
-  "id": "ab-elevenlabs-0bbf2519-4f28-4de3-836a-aabc302050d7",
-  "title": "Revenue Strategy & Operations - APAC",
-  "company": "Elevenlabs",
-  "location": "Singapore; Australia; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/0bbf2519-4f28-4de3-836a-aabc302050d7",
-  "date": "2026-07-08T20:04:06+00:00",
-  "dateAdded": "2026-07-08T20:04:06+00:00"
  },
  {
   "id": "ab-elevenlabs-55b21715-6e89-456e-af07-0b17b1e455e8",
