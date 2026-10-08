@@ -1,5 +1,49 @@
 [
  {
+  "id": "gh-gitlab-8869167002",
+  "title": "Recruiter, R&D",
+  "company": "Gitlab",
+  "location": "Remote Ireland; Remote, Australia; Remote, Canada; Remote, India; Remote, Mexico; Remote, Poland; Remote, United Kingdom; Remote, United States",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8869167002",
+  "date": "2026-10-08T14:40:23+00:00",
+  "dateAdded": "2026-10-08T14:40:23+00:00"
+ },
+ {
+  "id": "gh-gitlab-8869149002",
+  "title": "Recruiter,  GTM",
+  "company": "Gitlab",
+  "location": "Remote Ireland; Remote, Australia; Remote, Canada; Remote, India; Remote, Mexico; Remote, Poland; Remote, United Kingdom; Remote, United States",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8869149002",
+  "date": "2026-10-08T14:39:54+00:00",
+  "dateAdded": "2026-10-08T14:39:54+00:00"
+ },
+ {
+  "id": "gh-twilio-8258593",
+  "title": "Staff Machine Learning Engineer (L4)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8258593",
+  "date": "2026-10-08T13:04:14+00:00",
+  "dateAdded": "2026-10-08T13:04:14+00:00"
+ },
+ {
+  "id": "gh-twilio-8258597",
+  "title": "Principal, Machine Learning Engineer (L5)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8258597",
+  "date": "2026-10-08T13:03:28+00:00",
+  "dateAdded": "2026-10-08T13:03:28+00:00"
+ },
+ {
   "id": "gh-twilio-8258587",
   "title": "Machine Learning Engineer (L3)",
   "company": "Twilio",
@@ -25,7 +69,7 @@
   "id": "lv-outreach-16657196-aa36-4b6c-9349-ff052cca047a",
   "title": "Senior Forward Deployed Engineer,  Managed Services",
   "company": "Outreach",
-  "location": "India",
+  "location": "Hyderabad; India",
   "category": "Tech",
   "remoteType": "confirmed",
   "url": "https://jobs.lever.co/outreach/16657196-aa36-4b6c-9349-ff052cca047a",
@@ -6272,17 +6316,6 @@
   "dateAdded": "2026-10-05T14:22:25+00:00"
  },
  {
-  "id": "gh-twilio-8239751",
-  "title": "Technical Support Engineer 2",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8239751",
-  "date": "2026-10-05T07:21:41+00:00",
-  "dateAdded": "2026-10-05T07:21:41+00:00"
- },
- {
   "id": "rm-2091149",
   "title": "Software Engineer / AI Code Trainer (Python, Web, Full Stack)",
   "company": "CodeForAI",
@@ -6492,7 +6525,7 @@
   "id": "lv-outreach-13e953ce-8527-436c-be6c-55d3b659dd60",
   "title": "Forward Deployed Engineer, Managed Services",
   "company": "Outreach",
-  "location": "India",
+  "location": "Hyderabad; India",
   "category": "Tech",
   "remoteType": "confirmed",
   "url": "https://jobs.lever.co/outreach/13e953ce-8527-436c-be6c-55d3b659dd60",
@@ -6965,17 +6998,6 @@
   "dateAdded": "2026-08-14T03:33:48+00:00"
  },
  {
-  "id": "ab-elevenlabs-af017d44-96d3-4ee7-9684-b414376a71b9",
-  "title": "Public Sector Partnerships Lead - India",
-  "company": "Elevenlabs",
-  "location": "India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/af017d44-96d3-4ee7-9684-b414376a71b9",
-  "date": "2026-08-12T17:02:06+00:00",
-  "dateAdded": "2026-08-12T17:02:06+00:00"
- },
- {
   "id": "ab-clickhouse-68a6a77c-f289-474f-987c-42bea4faca40",
   "title": "Technical Account Manager Architect - India",
   "company": "Clickhouse",
@@ -7306,6 +7328,17 @@
   "dateAdded": "2026-06-03T20:06:54+00:00"
  },
  {
+  "id": "gh-twilio-7917665",
+  "title": "Technical Support Engineer 2",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/7917665",
+  "date": "2026-06-03T16:38:35+00:00",
+  "dateAdded": "2026-06-03T16:38:35+00:00"
+ },
+ {
   "id": "lv-netomi-6dace09f-ba98-46d2-9184-050851bace22",
   "title": "Senior Data Analyst",
   "company": "Netomi",
@@ -7480,17 +7513,6 @@
   "url": "https://jobs.ashbyhq.com/ashby/033ce772-ed08-4a59-bb52-4ff0eaac9bcd",
   "date": "2026-02-20T17:24:56+00:00",
   "dateAdded": "2026-02-20T17:24:56+00:00"
- },
- {
-  "id": "gh-buildkite-5122275008",
-  "title": "Head of Developer Relations",
-  "company": "Buildkite",
-  "location": "Remote - Worldwide",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/buildkite/jobs/5122275008",
-  "date": "2026-02-17T03:28:29+00:00",
-  "dateAdded": "2026-02-17T03:28:29+00:00"
  },
  {
   "id": "gh-elastic-7447246",
