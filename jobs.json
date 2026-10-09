@@ -1,5 +1,16 @@
 [
  {
+  "id": "gh-databricks-8771566002",
+  "title": "Forward Deployed Engineer",
+  "company": "Databricks",
+  "location": "Remote - India; Karnataka, India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8771566002",
+  "date": "2026-10-09T05:44:06+00:00",
+  "dateAdded": "2026-10-09T05:44:06+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/pontoonglobal/jobs/sap-clean-core-extensibility-architect",
   "title": "SAP Clean Core & Extensibility Architect",
   "company": "Pontoonglobal",
@@ -6554,17 +6565,6 @@
   "dateAdded": "2026-09-23T13:59:26+00:00"
  },
  {
-  "id": "gh-devrev-6196806004",
-  "title": "Forward Deployed Strategist {Noida}",
-  "company": "Devrev",
-  "location": "India Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/devrev/jobs/6196806004",
-  "date": "2026-09-22T09:18:31+00:00",
-  "dateAdded": "2026-09-22T09:18:31+00:00"
- },
- {
   "id": "lv-netomi-929d62de-1e00-4b54-ba38-3378cc440fb2",
   "title": "Data Engineer II",
   "company": "Netomi",
@@ -6644,17 +6644,6 @@
   "sourceUrl": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2091131",
   "date": "2026-09-18T12:23:56+00:00",
   "dateAdded": "2026-09-18T12:23:56+00:00"
- },
- {
-  "id": "gh-devrev-6196804004",
-  "title": "Forward Deployed Architect { Noida}",
-  "company": "Devrev",
-  "location": "India Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/devrev/jobs/6196804004",
-  "date": "2026-09-17T13:29:31+00:00",
-  "dateAdded": "2026-09-17T13:29:31+00:00"
  },
  {
   "id": "rm-2091130",
@@ -6841,17 +6830,6 @@
   "url": "https://bitwarden.com/careers/7872214003/?gh_jid=7872214003",
   "date": "2026-09-07T06:08:48+00:00",
   "dateAdded": "2026-09-07T06:08:48+00:00"
- },
- {
-  "id": "gh-devrev-6180279004",
-  "title": "Forward Deployed Engineer",
-  "company": "Devrev",
-  "location": "Delhi, NCR; India Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/devrev/jobs/6180279004",
-  "date": "2026-09-03T06:30:34+00:00",
-  "dateAdded": "2026-09-03T06:30:34+00:00"
  },
  {
   "id": "gh-gitlab-8775507002",
@@ -7138,6 +7116,17 @@
   "url": "https://job-boards.greenhouse.io/webflow/jobs/8110010",
   "date": "2026-08-05T21:22:48+00:00",
   "dateAdded": "2026-08-05T21:22:48+00:00"
+ },
+ {
+  "id": "gh-fivetran-7818352003",
+  "title": "Staff Software Engineer-dbt core",
+  "company": "Fivetran",
+  "location": "Bangalore, India; IND - Bengaluru",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://www.fivetran.com/careers/job?gh_jid=7818352003",
+  "date": "2026-08-05T16:00:40+00:00",
+  "dateAdded": "2026-08-05T16:00:40+00:00"
  },
  {
   "id": "gh-databricks-8637736002",
@@ -7556,6 +7545,17 @@
   "url": "https://jobs.lever.co/netomi/f24c0390-c103-4609-b8e4-abab0aca928c",
   "date": "2026-03-02T15:47:17+00:00",
   "dateAdded": "2026-03-02T15:47:17+00:00"
+ },
+ {
+  "id": "gh-datadog-7650688",
+  "title": "Enterprise Customer Success Manager",
+  "company": "Datadog",
+  "location": "Delhi, India; Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://careers.datadoghq.com/detail/7650688/?gh_jid=7650688",
+  "date": "2026-02-25T05:58:46+00:00",
+  "dateAdded": "2026-02-25T05:58:46+00:00"
  },
  {
   "id": "ab-ashby-55078a90-f1f0-4190-9d2a-c14d1cbc5486",
