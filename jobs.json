@@ -2655,6 +2655,19 @@
   "dateAdded": "2026-10-11T20:21:12+00:00"
  },
  {
+  "id": "rm-1680495",
+  "title": "Remote Office Assistant",
+  "company": "Coalition Technologies ",
+  "location": "Worldwide",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
+  "source": "Remotive",
+  "sourceUrl": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
+  "date": "2026-10-11T20:17:27+00:00",
+  "dateAdded": "2026-10-11T20:17:27+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/technopals-pte-ltd/jobs/ai-governance-program-director-the-strategist",
   "title": "AI Governance Program Director (The Strategist)",
   "company": "Technopals Pte.Ltd.",
@@ -6257,6 +6270,17 @@
   "dateAdded": "2026-10-05T14:22:25+00:00"
  },
  {
+  "id": "gh-twilio-8239751",
+  "title": "Technical Support Engineer 2",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8239751",
+  "date": "2026-10-05T07:21:41+00:00",
+  "dateAdded": "2026-10-05T07:21:41+00:00"
+ },
+ {
   "id": "rm-2091149",
   "title": "Software Engineer / AI Code Trainer (Python, Web, Full Stack)",
   "company": "CodeForAI",
@@ -6614,6 +6638,17 @@
   "url": "https://jobs.ashbyhq.com/sardine/7b1fa71e-4de6-4d45-bbcb-7ffc5f9297b6",
   "date": "2026-09-10T19:14:24+00:00",
   "dateAdded": "2026-09-10T19:14:24+00:00"
+ },
+ {
+  "id": "gh-bitwarden-7871969003",
+  "title": "Software Engineer (Privileged Access Management - PAM)",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/7871969003/?gh_jid=7871969003",
+  "date": "2026-09-09T19:57:49+00:00",
+  "dateAdded": "2026-09-09T19:57:49+00:00"
  },
  {
   "id": "gh-buildkite-5419114008",
@@ -7034,17 +7069,6 @@
   "dateAdded": "2026-07-15T16:26:19+00:00"
  },
  {
-  "id": "gh-togetherai-5180155007",
-  "title": "AI Infrastructure System Engineer Bangalore",
-  "company": "Togetherai",
-  "location": "Bangalore, India; Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5180155007",
-  "date": "2026-07-13T16:32:15+00:00",
-  "dateAdded": "2026-07-13T16:32:15+00:00"
- },
- {
   "id": "gh-databricks-8530855002",
   "title": "Staff Forward Deployed Engineer",
   "company": "Databricks",
@@ -7175,17 +7199,6 @@
   "url": "https://jobs.ashbyhq.com/ashby/cf34cf62-5348-4bd5-bd8c-22a77467162d",
   "date": "2026-06-03T20:06:54+00:00",
   "dateAdded": "2026-06-03T20:06:54+00:00"
- },
- {
-  "id": "gh-twilio-7917665",
-  "title": "Technical Support Engineer 2",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/7917665",
-  "date": "2026-06-03T16:38:35+00:00",
-  "dateAdded": "2026-06-03T16:38:35+00:00"
  },
  {
   "id": "lv-netomi-cdeaeaff-68e0-4889-8bb6-a3b5e4a0819b",
