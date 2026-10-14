@@ -1,5 +1,27 @@
 [
  {
+  "id": "ab-sardine-2524d206-42cb-4202-8d85-59e47c72d704",
+  "title": "Software Engineer - Backend",
+  "company": "Sardine",
+  "location": "India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/sardine/2524d206-42cb-4202-8d85-59e47c72d704",
+  "date": "2026-10-14T17:55:01+00:00",
+  "dateAdded": "2026-10-14T17:55:01+00:00"
+ },
+ {
+  "id": "ab-sardine-92da1cab-a832-4a34-b8fc-18a5b0a675d9",
+  "title": "Strategic Account Manager",
+  "company": "Sardine",
+  "location": "Remote - Worldwide",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/sardine/92da1cab-a832-4a34-b8fc-18a5b0a675d9",
+  "date": "2026-10-14T17:43:13+00:00",
+  "dateAdded": "2026-10-14T17:43:13+00:00"
+ },
+ {
   "id": "lv-outreach-8698b1b3-c634-47d7-84da-7bcb722743dc",
   "title": "Director of Applied Science and Engineering - Knowledge Graphs & AI",
   "company": "Outreach",
@@ -6902,17 +6924,6 @@
   "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
   "date": "2026-08-26T16:35:54+00:00",
   "dateAdded": "2026-08-26T16:35:54+00:00"
- },
- {
-  "id": "gh-togetherai-5217063007",
-  "title": "Senior Software Engineer — Infra Agent Systems Remote India",
-  "company": "Togetherai",
-  "location": "India; Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5217063007",
-  "date": "2026-08-25T07:02:36+00:00",
-  "dateAdded": "2026-08-25T07:02:36+00:00"
  },
  {
   "id": "ab-clickhouse-ea8b2aff-ba34-4435-81c8-7dafab2b87a1",
