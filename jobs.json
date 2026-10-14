@@ -1,5 +1,16 @@
 [
  {
+  "id": "lv-outreach-8698b1b3-c634-47d7-84da-7bcb722743dc",
+  "title": "Director of Applied Science and Engineering - Knowledge Graphs & AI",
+  "company": "Outreach",
+  "location": "Hyderabad; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.lever.co/outreach/8698b1b3-c634-47d7-84da-7bcb722743dc",
+  "date": "2026-10-14T11:59:33+00:00",
+  "dateAdded": "2026-10-14T11:59:33+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/micro1/jobs/bilingual-spanish-benefits-counselor",
   "title": "Bilingual (Spanish) Benefits Counselor",
   "company": "micro1",
@@ -6992,17 +7003,6 @@
   "dateAdded": "2026-08-19T17:50:17+00:00"
  },
  {
-  "id": "gh-togetherai-5213325007",
-  "title": "Junior/Senior or Staff Software Engineer, Inference / Compute Infrastructure Engineering",
-  "company": "Togetherai",
-  "location": "India; Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5213325007",
-  "date": "2026-08-19T16:15:34+00:00",
-  "dateAdded": "2026-08-19T16:15:34+00:00"
- },
- {
   "id": "gh-bitwarden-7896737003",
   "title": "Senior Software Engineer - Quality",
   "company": "Bitwarden",
@@ -7353,17 +7353,6 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/7825089",
   "date": "2026-05-04T04:45:33+00:00",
   "dateAdded": "2026-05-04T04:45:33+00:00"
- },
- {
-  "id": "lv-outreach-dc29c7f1-d7ef-431f-a35a-173dac2a4138",
-  "title": "Director of Applied Science and Engineering - Knowledge Graphs & AI",
-  "company": "Outreach",
-  "location": "Hyderabad; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.lever.co/outreach/dc29c7f1-d7ef-431f-a35a-173dac2a4138",
-  "date": "2026-04-15T10:12:47+00:00",
-  "dateAdded": "2026-04-15T10:12:47+00:00"
  },
  {
   "id": "gh-webflow-7813157",
