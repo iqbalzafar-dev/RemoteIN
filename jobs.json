@@ -1430,17 +1430,6 @@
   "dateAdded": "2026-10-13T07:46:09+00:00"
  },
  {
-  "id": "gh-bitwarden-8008706003",
-  "title": "Senior Software Engineer - Rust",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/8008706003/?gh_jid=8008706003",
-  "date": "2026-10-13T07:15:10+00:00",
-  "dateAdded": "2026-10-13T07:15:10+00:00"
- },
- {
   "id": "hm-https://himalayas.app/companies/snezzi/jobs/social-media-marketing-intern",
   "title": "Social Media Marketing Intern",
   "company": "Snezzi",
@@ -6437,17 +6426,6 @@
   "dateAdded": "2026-10-05T14:22:25+00:00"
  },
  {
-  "id": "gh-twilio-8239751",
-  "title": "Technical Support Engineer 2",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8239751",
-  "date": "2026-10-05T07:21:41+00:00",
-  "dateAdded": "2026-10-05T07:21:41+00:00"
- },
- {
   "id": "rm-2091149",
   "title": "Software Engineer / AI Code Trainer (Python, Web, Full Stack)",
   "company": "CodeForAI",
@@ -7049,6 +7027,17 @@
   "dateAdded": "2026-08-18T23:20:17+00:00"
  },
  {
+  "id": "gh-bitwarden-7896465003",
+  "title": "Senior Software Engineer - Rust",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
+  "date": "2026-08-18T22:46:00+00:00",
+  "dateAdded": "2026-08-18T22:46:00+00:00"
+ },
+ {
   "id": "gh-bitwarden-7872037003",
   "title": "Lead Software Engineer (Secrets Manager & AI Identity)",
   "company": "Bitwarden",
@@ -7357,6 +7346,17 @@
   "dateAdded": "2026-06-03T20:06:54+00:00"
  },
  {
+  "id": "gh-twilio-7917665",
+  "title": "Technical Support Engineer 2",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/7917665",
+  "date": "2026-06-03T16:38:35+00:00",
+  "dateAdded": "2026-06-03T16:38:35+00:00"
+ },
+ {
   "id": "lv-netomi-cdeaeaff-68e0-4889-8bb6-a3b5e4a0819b",
   "title": "SDE I - Frontend",
   "company": "Netomi",
@@ -7498,17 +7498,6 @@
   "url": "https://jobs.lever.co/netomi/f24c0390-c103-4609-b8e4-abab0aca928c",
   "date": "2026-03-02T15:47:17+00:00",
   "dateAdded": "2026-03-02T15:47:17+00:00"
- },
- {
-  "id": "gh-datadog-7650688",
-  "title": "Enterprise Customer Success Manager",
-  "company": "Datadog",
-  "location": "Delhi, India; Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://careers.datadoghq.com/detail/7650688/?gh_jid=7650688",
-  "date": "2026-02-25T05:58:46+00:00",
-  "dateAdded": "2026-02-25T05:58:46+00:00"
  },
  {
   "id": "ab-ashby-55078a90-f1f0-4190-9d2a-c14d1cbc5486",
