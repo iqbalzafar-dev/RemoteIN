@@ -1430,6 +1430,17 @@
   "dateAdded": "2026-10-13T07:46:09+00:00"
  },
  {
+  "id": "gh-bitwarden-8008706003",
+  "title": "Senior Software Engineer - Rust",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/8008706003/?gh_jid=8008706003",
+  "date": "2026-10-13T07:15:10+00:00",
+  "dateAdded": "2026-10-13T07:15:10+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/snezzi/jobs/social-media-marketing-intern",
   "title": "Social Media Marketing Intern",
   "company": "Snezzi",
@@ -3318,17 +3329,6 @@
   "sourceUrl": "https://himalayas.app/companies/vrinda-international/jobs/salesforce-fsc-solution-architect-banking-102202056",
   "date": "2026-10-12T07:24:06+00:00",
   "dateAdded": "2026-10-12T07:24:06+00:00"
- },
- {
-  "id": "gh-databricks-8516112002",
-  "title": "Sr. AI Engineer, AI FDE",
-  "company": "Databricks",
-  "location": "Remote - India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8516112002",
-  "date": "2026-10-12T07:17:33+00:00",
-  "dateAdded": "2026-10-12T07:17:33+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/vivantify-technology-solutions-india-pvt-ltd/jobs/senior-specialist-architecture-java-spring-boot",
@@ -7025,17 +7025,6 @@
   "url": "https://bitwarden.com/careers/7896737003/?gh_jid=7896737003",
   "date": "2026-08-18T23:20:17+00:00",
   "dateAdded": "2026-08-18T23:20:17+00:00"
- },
- {
-  "id": "gh-bitwarden-7896465003",
-  "title": "Senior Software Engineer - Rust",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
-  "date": "2026-08-18T22:46:00+00:00",
-  "dateAdded": "2026-08-18T22:46:00+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
