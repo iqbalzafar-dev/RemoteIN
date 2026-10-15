@@ -1,5 +1,16 @@
 [
  {
+  "id": "lv-outreach-c28d1f19-501d-465d-8828-4b5215b51745",
+  "title": "Staff Product Designer",
+  "company": "Outreach",
+  "location": "Hyderabad; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.lever.co/outreach/c28d1f19-501d-465d-8828-4b5215b51745",
+  "date": "2026-10-15T13:29:20+00:00",
+  "dateAdded": "2026-10-15T13:29:20+00:00"
+ },
+ {
   "id": "lv-netomi-946847b5-c634-4808-9076-79e49f041ddb",
   "title": "Senior Technical PM, Applied AI",
   "company": "Netomi",
@@ -6304,17 +6315,6 @@
   "dateAdded": "2026-10-08T12:35:31+00:00"
  },
  {
-  "id": "gh-twilio-8261279",
-  "title": "Onboarding Operations Specialist 1",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8261279",
-  "date": "2026-10-08T09:44:17+00:00",
-  "dateAdded": "2026-10-08T09:44:17+00:00"
- },
- {
   "id": "lv-outreach-16657196-aa36-4b6c-9349-ff052cca047a",
   "title": "Senior Forward Deployed Engineer,  Managed Services",
   "company": "Outreach",
@@ -6381,17 +6381,6 @@
   "url": "https://jobs.ashbyhq.com/elevenlabs/356d08ba-6119-4c76-93ad-362ca7283569",
   "date": "2026-10-06T13:11:30+00:00",
   "dateAdded": "2026-10-06T13:11:30+00:00"
- },
- {
-  "id": "gh-twilio-8236865",
-  "title": "Staff Software Engineer (L4)",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8236865",
-  "date": "2026-10-06T05:23:32+00:00",
-  "dateAdded": "2026-10-06T05:23:32+00:00"
  },
  {
   "id": "ab-clickhouse-6c74387f-2330-4005-b711-f622925bc1f2",
@@ -6541,17 +6530,6 @@
   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8826920002",
   "date": "2026-09-24T05:24:21+00:00",
   "dateAdded": "2026-09-24T05:24:21+00:00"
- },
- {
-  "id": "gh-twilio-8213730",
-  "title": "Personalized Support Engineer",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8213730",
-  "date": "2026-09-23T13:59:26+00:00",
-  "dateAdded": "2026-09-23T13:59:26+00:00"
  },
  {
   "id": "lv-netomi-929d62de-1e00-4b54-ba38-3378cc440fb2",
