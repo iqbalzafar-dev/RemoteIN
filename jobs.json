@@ -1,5 +1,16 @@
 [
  {
+  "id": "ab-clickhouse-87d3538a-99db-4751-b220-a2474dec514b",
+  "title": "Regional Field Marketing, India",
+  "company": "Clickhouse",
+  "location": "India; Bangalore; Mumbai; Delhi",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/87d3538a-99db-4751-b220-a2474dec514b",
+  "date": "2026-10-15T20:57:40+00:00",
+  "dateAdded": "2026-10-15T20:57:40+00:00"
+ },
+ {
   "id": "gh-turing-6225397004",
   "title": "Compliance Analyst",
   "company": "Turing",
@@ -3522,17 +3533,6 @@
   "dateAdded": "2026-10-13T07:46:09+00:00"
  },
  {
-  "id": "gh-bitwarden-8008706003",
-  "title": "Senior Software Engineer - Rust",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/8008706003/?gh_jid=8008706003",
-  "date": "2026-10-13T07:15:10+00:00",
-  "dateAdded": "2026-10-13T07:15:10+00:00"
- },
- {
   "id": "hm-https://himalayas.app/companies/snezzi/jobs/social-media-marketing-intern",
   "title": "Social Media Marketing Intern",
   "company": "Snezzi",
@@ -6565,17 +6565,6 @@
   "dateAdded": "2026-09-21T12:58:12+00:00"
  },
  {
-  "id": "gh-webflow-8212475",
-  "title": "Lead Solutions Engineer - Central / East",
-  "company": "Webflow",
-  "location": "CA Remote (BC & ON only); U.S. Remote; CA Remote (BC & ON only); International Remote; U.S. Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/webflow/jobs/8212475",
-  "date": "2026-09-18T22:41:16+00:00",
-  "dateAdded": "2026-09-18T22:41:16+00:00"
- },
- {
   "id": "lv-outreach-13e953ce-8527-436c-be6c-55d3b659dd60",
   "title": "Forward Deployed Engineer, Managed Services",
   "company": "Outreach",
@@ -6947,6 +6936,17 @@
   "url": "https://bitwarden.com/careers/7896737003/?gh_jid=7896737003",
   "date": "2026-08-18T23:20:17+00:00",
   "dateAdded": "2026-08-18T23:20:17+00:00"
+ },
+ {
+  "id": "gh-bitwarden-7896465003",
+  "title": "Senior Software Engineer - Rust",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
+  "date": "2026-08-18T22:46:00+00:00",
+  "dateAdded": "2026-08-18T22:46:00+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
