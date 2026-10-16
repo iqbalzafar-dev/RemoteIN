@@ -4976,17 +4976,6 @@
   "dateAdded": "2026-10-13T07:46:09+00:00"
  },
  {
-  "id": "gh-bitwarden-8008706003",
-  "title": "Senior Software Engineer - Rust",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/8008706003/?gh_jid=8008706003",
-  "date": "2026-10-13T07:15:10+00:00",
-  "dateAdded": "2026-10-13T07:15:10+00:00"
- },
- {
   "id": "hm-https://himalayas.app/companies/snezzi/jobs/social-media-marketing-intern",
   "title": "Social Media Marketing Intern",
   "company": "Snezzi",
@@ -6297,17 +6286,6 @@
   "dateAdded": "2026-10-09T16:00:36+00:00"
  },
  {
-  "id": "gh-webflow-8265958",
-  "title": "Senior Manager, AI Customer Success",
-  "company": "Webflow",
-  "location": "U.S. Remote; CA Remote (BC & ON only); International Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/webflow/jobs/8265958",
-  "date": "2026-10-09T14:32:24+00:00",
-  "dateAdded": "2026-10-09T14:32:24+00:00"
- },
- {
   "id": "gh-databricks-8771566002",
   "title": "Forward Deployed Engineer",
   "company": "Databricks",
@@ -6975,6 +6953,17 @@
   "dateAdded": "2026-08-18T23:20:17+00:00"
  },
  {
+  "id": "gh-bitwarden-7896465003",
+  "title": "Senior Software Engineer - Rust",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
+  "date": "2026-08-18T22:46:00+00:00",
+  "dateAdded": "2026-08-18T22:46:00+00:00"
+ },
+ {
   "id": "gh-bitwarden-7872037003",
   "title": "Lead Software Engineer (Secrets Manager & AI Identity)",
   "company": "Bitwarden",
@@ -7061,17 +7050,6 @@
   "url": "https://www.fivetran.com/careers/job?gh_jid=7818344003",
   "date": "2026-08-07T17:31:42+00:00",
   "dateAdded": "2026-08-07T17:31:42+00:00"
- },
- {
-  "id": "gh-webflow-8110010",
-  "title": "Senior Manager, Corporate Sales - West",
-  "company": "Webflow",
-  "location": "CA Remote (BC & ON only); U.S. Remote; CA Remote (BC & ON only); International Remote; U.S. Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/webflow/jobs/8110010",
-  "date": "2026-08-05T21:22:48+00:00",
-  "dateAdded": "2026-08-05T21:22:48+00:00"
  },
  {
   "id": "gh-fivetran-7818352003",
@@ -7281,17 +7259,6 @@
   "url": "https://jobs.lever.co/netomi/cdeaeaff-68e0-4889-8bb6-a3b5e4a0819b",
   "date": "2026-05-14T05:21:10+00:00",
   "dateAdded": "2026-05-14T05:21:10+00:00"
- },
- {
-  "id": "gh-twilio-7825089",
-  "title": "Software Architect (L6)",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/7825089",
-  "date": "2026-05-04T04:45:33+00:00",
-  "dateAdded": "2026-05-04T04:45:33+00:00"
  },
  {
   "id": "gh-webflow-7813157",
