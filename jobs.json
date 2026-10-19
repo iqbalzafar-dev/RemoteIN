@@ -5910,17 +5910,6 @@
   "dateAdded": "2026-10-14T11:59:33+00:00"
  },
  {
-  "id": "gh-bitwarden-8008706003",
-  "title": "Senior Software Engineer - Rust",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/8008706003/?gh_jid=8008706003",
-  "date": "2026-10-13T07:15:10+00:00",
-  "dateAdded": "2026-10-13T07:15:10+00:00"
- },
- {
   "id": "lv-netomi-bd9d56b2-4ba4-4454-9e91-ab7ab63c110f",
   "title": "Product Support Engineer (AI Platform)",
   "company": "Netomi",
@@ -6178,17 +6167,6 @@
   "url": "https://jobs.ashbyhq.com/clickhouse/6c74387f-2330-4005-b711-f622925bc1f2",
   "date": "2026-10-06T03:22:13+00:00",
   "dateAdded": "2026-10-06T03:22:13+00:00"
- },
- {
-  "id": "ab-elevenlabs-e5cca48b-1f34-48fe-9ebf-3c6ff526f9ba",
-  "title": "Commercial Counsel - India",
-  "company": "Elevenlabs",
-  "location": "India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/e5cca48b-1f34-48fe-9ebf-3c6ff526f9ba",
-  "date": "2026-10-05T14:22:25+00:00",
-  "dateAdded": "2026-10-05T14:22:25+00:00"
  },
  {
   "id": "rm-1185979",
@@ -6652,6 +6630,17 @@
   "url": "https://bitwarden.com/careers/7896737003/?gh_jid=7896737003",
   "date": "2026-08-18T23:20:17+00:00",
   "dateAdded": "2026-08-18T23:20:17+00:00"
+ },
+ {
+  "id": "gh-bitwarden-7896465003",
+  "title": "Senior Software Engineer - Rust",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
+  "date": "2026-08-18T22:46:00+00:00",
+  "dateAdded": "2026-08-18T22:46:00+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
