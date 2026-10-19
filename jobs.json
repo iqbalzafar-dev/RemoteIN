@@ -1,5 +1,16 @@
 [
  {
+  "id": "ab-elevenlabs-90873fda-95c3-4d21-bae8-c5a30f5b7ac8",
+  "title": "Account Executive, Mid Market - India",
+  "company": "Elevenlabs",
+  "location": "India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/elevenlabs/90873fda-95c3-4d21-bae8-c5a30f5b7ac8",
+  "date": "2026-10-19T05:45:35+00:00",
+  "dateAdded": "2026-10-19T05:45:35+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/wing-assistant/jobs/product-manager-ai-9019654549",
   "title": "Product Manager  - AI",
   "company": "Wing Assistant",
@@ -5779,17 +5790,6 @@
   "dateAdded": "2026-10-16T19:39:49+00:00"
  },
  {
-  "id": "ab-elevenlabs-c4e0d704-c7eb-4d6d-b71b-23bfd86fe463",
-  "title": "Executive Assistant - India & Middle East",
-  "company": "Elevenlabs",
-  "location": "India; UAE",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/c4e0d704-c7eb-4d6d-b71b-23bfd86fe463",
-  "date": "2026-10-16T05:40:33+00:00",
-  "dateAdded": "2026-10-16T05:40:33+00:00"
- },
- {
   "id": "ab-clickhouse-87d3538a-99db-4751-b220-a2474dec514b",
   "title": "Regional Field Marketing, India",
   "company": "Clickhouse",
@@ -5865,6 +5865,17 @@
   "url": "https://jobs.lever.co/outreach/8698b1b3-c634-47d7-84da-7bcb722743dc",
   "date": "2026-10-14T11:59:33+00:00",
   "dateAdded": "2026-10-14T11:59:33+00:00"
+ },
+ {
+  "id": "gh-bitwarden-8008706003",
+  "title": "Senior Software Engineer - Rust",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/8008706003/?gh_jid=8008706003",
+  "date": "2026-10-13T07:15:10+00:00",
+  "dateAdded": "2026-10-13T07:15:10+00:00"
  },
  {
   "id": "lv-netomi-bd9d56b2-4ba4-4454-9e91-ab7ab63c110f",
@@ -6231,17 +6242,6 @@
   "dateAdded": "2026-09-29T23:25:43+00:00"
  },
  {
-  "id": "gh-gitlab-8781299002",
-  "title": "Staff Software Engineer - NLP",
-  "company": "Gitlab",
-  "location": "Bangalore, India; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8781299002",
-  "date": "2026-09-24T06:04:48+00:00",
-  "dateAdded": "2026-09-24T06:04:48+00:00"
- },
- {
   "id": "gh-gitlab-8826920002",
   "title": "Senior Frontend Engineer",
   "company": "Gitlab",
@@ -6576,17 +6576,6 @@
   "url": "https://bitwarden.com/careers/7896737003/?gh_jid=7896737003",
   "date": "2026-08-18T23:20:17+00:00",
   "dateAdded": "2026-08-18T23:20:17+00:00"
- },
- {
-  "id": "gh-bitwarden-7896465003",
-  "title": "Senior Software Engineer - Rust",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
-  "date": "2026-08-18T22:46:00+00:00",
-  "dateAdded": "2026-08-18T22:46:00+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
