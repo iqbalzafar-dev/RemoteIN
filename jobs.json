@@ -1,5 +1,27 @@
 [
  {
+  "id": "gh-airbnb-8312713",
+  "title": "Systems Engineer, Tech Foundations (Jira cloud)",
+  "company": "Airbnb",
+  "location": "Bangalore, India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://careers.airbnb.com/positions/8312713?gh_jid=8312713",
+  "date": "2026-10-22T15:01:04+00:00",
+  "dateAdded": "2026-10-22T15:01:04+00:00"
+ },
+ {
+  "id": "ab-clickhouse-7cc3bb05-168b-47e3-ad0e-606cf7e64b8b",
+  "title": "Senior Technical Customer Support Engineer - India",
+  "company": "Clickhouse",
+  "location": "India; Bangalore; Delhi",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/7cc3bb05-168b-47e3-ad0e-606cf7e64b8b",
+  "date": "2026-10-22T14:36:09+00:00",
+  "dateAdded": "2026-10-22T14:36:09+00:00"
+ },
+ {
   "id": "gh-bitwarden-8015111003",
   "title": "Senior Software Engineer (Secrets Manager)",
   "company": "Bitwarden",
@@ -7161,17 +7183,6 @@
   "dateAdded": "2026-08-20T00:10:41+00:00"
  },
  {
-  "id": "gh-twilio-8138870",
-  "title": "Senior Marketing Analyst",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8138870",
-  "date": "2026-08-19T17:50:17+00:00",
-  "dateAdded": "2026-08-19T17:50:17+00:00"
- },
- {
   "id": "gh-bitwarden-7896737003",
   "title": "Senior Software Engineer - Quality",
   "company": "Bitwarden",
@@ -7214,17 +7225,6 @@
   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8716143002",
   "date": "2026-08-14T18:14:15+00:00",
   "dateAdded": "2026-08-14T18:14:15+00:00"
- },
- {
-  "id": "gh-cloudflare-8127204",
-  "title": "Senior Named Account Executive (Majors), Adelaide",
-  "company": "Cloudflare",
-  "location": "Remote - APAC",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://boards.greenhouse.io/cloudflare/jobs/8127204?gh_jid=8127204",
-  "date": "2026-08-14T03:33:48+00:00",
-  "dateAdded": "2026-08-14T03:33:48+00:00"
  },
  {
   "id": "ab-clickhouse-68a6a77c-f289-474f-987c-42bea4faca40",
@@ -7337,15 +7337,26 @@
   "dateAdded": "2026-07-21T12:38:25+00:00"
  },
  {
-  "id": "gh-turing-6115701004",
-  "title": "Staff Software Engineer",
+  "id": "gh-turing-6115695004",
+  "title": "Software Engineer",
   "company": "Turing",
-  "location": "India - Remote",
+  "location": "Bengaluru, Karnataka, India; India - Remote",
   "category": "Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/turing/jobs/6115701004",
-  "date": "2026-07-15T16:26:19+00:00",
-  "dateAdded": "2026-07-15T16:26:19+00:00"
+  "url": "https://job-boards.greenhouse.io/turing/jobs/6115695004",
+  "date": "2026-07-15T17:20:07+00:00",
+  "dateAdded": "2026-07-15T17:20:07+00:00"
+ },
+ {
+  "id": "gh-togetherai-5180155007",
+  "title": "AI Infrastructure System Engineer Bangalore",
+  "company": "Togetherai",
+  "location": "Bangalore, India; Remote",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5180155007",
+  "date": "2026-07-13T16:32:15+00:00",
+  "dateAdded": "2026-07-13T16:32:15+00:00"
  },
  {
   "id": "gh-databricks-8530855002",
