@@ -1,5 +1,16 @@
 [
  {
+  "id": "gh-bitwarden-8015111003",
+  "title": "Senior Software Engineer (Secrets Manager)",
+  "company": "Bitwarden",
+  "location": "Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/8015111003/?gh_jid=8015111003",
+  "date": "2026-10-22T11:51:56+00:00",
+  "dateAdded": "2026-10-22T11:51:56+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/powerprozesse/jobs/fullstack-developer-100-remote-5284154856",
   "title": "Fullstack-Developer (100% Remote)",
   "company": "Powerprozesse",
@@ -1272,17 +1283,6 @@
   "sourceUrl": "https://himalayas.app/companies/danaher/jobs/system-architect-pds?utm_source=api",
   "date": "2026-10-21T16:33:05+00:00",
   "dateAdded": "2026-10-21T16:33:05+00:00"
- },
- {
-  "id": "gh-okta-8305392",
-  "title": "CSP Cloud Desk Support Desk",
-  "company": "Okta",
-  "location": "Bengaluru, India; India Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.okta.com/company/careers/opportunity/8305392?gh_jid=8305392",
-  "date": "2026-10-21T16:07:56+00:00",
-  "dateAdded": "2026-10-21T16:07:56+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/grantek/jobs/systems-designer",
@@ -7183,15 +7183,15 @@
   "dateAdded": "2026-08-18T23:20:17+00:00"
  },
  {
-  "id": "gh-bitwarden-7896465003",
+  "id": "gh-bitwarden-7896696003",
   "title": "Senior Software Engineer - Rust",
   "company": "Bitwarden",
   "location": "Noida, Delhi NCR; Noida",
   "category": "Tech",
   "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
-  "date": "2026-08-18T22:46:00+00:00",
-  "dateAdded": "2026-08-18T22:46:00+00:00"
+  "url": "https://bitwarden.com/careers/7896696003/?gh_jid=7896696003",
+  "date": "2026-08-18T23:10:27+00:00",
+  "dateAdded": "2026-08-18T23:10:27+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
