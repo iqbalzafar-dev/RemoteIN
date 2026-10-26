@@ -6300,17 +6300,6 @@
   "dateAdded": "2026-10-19T05:45:35+00:00"
  },
  {
-  "id": "gh-databricks-8876613002",
-  "title": "Forward Deployed Engineer, FDE (L4)",
-  "company": "Databricks",
-  "location": "Remote - India; Karnataka, India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8876613002",
-  "date": "2026-10-19T04:41:09+00:00",
-  "dateAdded": "2026-10-19T04:41:09+00:00"
- },
- {
   "id": "gh-databricks-8876680002",
   "title": "Senior Forward Deployed Engineer, Sr FDE (L5)",
   "company": "Databricks",
@@ -6524,17 +6513,6 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/8267554",
   "date": "2026-10-09T16:00:36+00:00",
   "dateAdded": "2026-10-09T16:00:36+00:00"
- },
- {
-  "id": "gh-databricks-8771566002",
-  "title": "Forward Deployed Engineer",
-  "company": "Databricks",
-  "location": "Remote - India; Karnataka, India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8771566002",
-  "date": "2026-10-09T05:44:06+00:00",
-  "dateAdded": "2026-10-09T05:44:06+00:00"
  },
  {
   "id": "rm-2086540",
@@ -7452,7 +7430,7 @@
   "id": "gh-devrev-5648777004",
   "title": "Account Executive : Field Sales - Delhi NCR",
   "company": "Devrev",
-  "location": "India Remote",
+  "location": "India Remote; Delhi, NCR",
   "category": "Non-Tech",
   "remoteType": "confirmed",
   "url": "https://job-boards.greenhouse.io/devrev/jobs/5648777004",
