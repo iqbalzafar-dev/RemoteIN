@@ -6741,6 +6741,17 @@
   "dateAdded": "2026-09-24T05:24:21+00:00"
  },
  {
+  "id": "gh-twilio-8213730",
+  "title": "Personalized Support Engineer",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8213730",
+  "date": "2026-09-23T13:59:26+00:00",
+  "dateAdded": "2026-09-23T13:59:26+00:00"
+ },
+ {
   "id": "lv-netomi-929d62de-1e00-4b54-ba38-3378cc440fb2",
   "title": "Data Engineer II",
   "company": "Netomi",
@@ -6783,17 +6794,6 @@
   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8784185002",
   "date": "2026-09-16T04:25:42+00:00",
   "dateAdded": "2026-09-16T04:25:42+00:00"
- },
- {
-  "id": "gh-gitlab-8755524002",
-  "title": "Senior Engineering Manager - Continuous Deployment",
-  "company": "Gitlab",
-  "location": "Bangalore, India; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8755524002",
-  "date": "2026-09-15T06:59:05+00:00",
-  "dateAdded": "2026-09-15T06:59:05+00:00"
  },
  {
   "id": "ab-drata-4b5cd1ca-7d7d-4985-ba77-a9870fbd3d1a",
@@ -6961,15 +6961,15 @@
   "dateAdded": "2026-08-18T23:20:17+00:00"
  },
  {
-  "id": "gh-bitwarden-7896696003",
+  "id": "gh-bitwarden-7896465003",
   "title": "Senior Software Engineer - Rust",
   "company": "Bitwarden",
   "location": "Noida, Delhi NCR; Noida",
   "category": "Tech",
   "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/7896696003/?gh_jid=7896696003",
-  "date": "2026-08-18T23:10:27+00:00",
-  "dateAdded": "2026-08-18T23:10:27+00:00"
+  "url": "https://bitwarden.com/careers/7896465003/?gh_jid=7896465003",
+  "date": "2026-08-18T22:46:00+00:00",
+  "dateAdded": "2026-08-18T22:46:00+00:00"
  },
  {
   "id": "gh-bitwarden-7872037003",
@@ -7283,7 +7283,7 @@
   "id": "gh-gitlab-8478405002",
   "title": "Engineering Manager, SSCS: Supply Chain",
   "company": "Gitlab",
-  "location": "Bangalore, India; Remote, Canada; Remote, Israel; Remote, Poland; Remote, United Kingdom; Remote, United States; India",
+  "location": "Bangalore, India; Remote Ireland; Remote, Canada; Remote, Israel; Remote, Poland; Remote, United Kingdom; Remote, United States; India",
   "category": "Tech",
   "remoteType": "confirmed",
   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8478405002",
