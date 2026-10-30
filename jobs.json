@@ -1,5 +1,27 @@
 [
  {
+  "id": "gh-turing-6218247004",
+  "title": "Senior DevOps & Infrastructure Engineer",
+  "company": "Turing",
+  "location": "Global - Remote",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/turing/jobs/6218247004",
+  "date": "2026-10-29T23:43:29+00:00",
+  "dateAdded": "2026-10-29T23:43:29+00:00"
+ },
+ {
+  "id": "gh-gitlab-8922872002",
+  "title": "Manager, Sales Recruiting (APJ)",
+  "company": "Gitlab",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8922872002",
+  "date": "2026-10-29T21:53:29+00:00",
+  "dateAdded": "2026-10-29T21:53:29+00:00"
+ },
+ {
   "id": "ab-elevenlabs-258de005-ab84-4cc7-9a59-1df0c74a12b8",
   "title": "B2B Marketing - India",
   "company": "Elevenlabs",
@@ -2386,17 +2408,6 @@
   "sourceUrl": "https://himalayas.app/companies/digital-nest/jobs/video-editor-freelance?utm_source=api",
   "date": "2026-10-26T23:20:33+00:00",
   "dateAdded": "2026-10-26T23:20:33+00:00"
- },
- {
-  "id": "ab-sardine-ed4eb772-6485-4125-895b-f3dca08cbcdd",
-  "title": "Solutions Architect, Integrations - Public Sector (US/CA)",
-  "company": "Sardine",
-  "location": "Remote - Worldwide",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/sardine/ed4eb772-6485-4125-895b-f3dca08cbcdd",
-  "date": "2026-10-26T21:50:02+00:00",
-  "dateAdded": "2026-10-26T21:50:02+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/aon/jobs/lead-recruiter-3rd-party-whitefield",
@@ -6816,17 +6827,6 @@
   "url": "https://job-boards.greenhouse.io/buildkite/jobs/5419114008",
   "date": "2026-09-09T05:11:47+00:00",
   "dateAdded": "2026-09-09T05:11:47+00:00"
- },
- {
-  "id": "gh-fastly-8184616",
-  "title": "Strategic Sales Account Manager",
-  "company": "Fastly",
-  "location": "Pune, India; Pune,  India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.fastly.com/about/jobs/apply?gh_jid=8184616",
-  "date": "2026-09-08T12:45:26+00:00",
-  "dateAdded": "2026-09-08T12:45:26+00:00"
  },
  {
   "id": "gh-twilio-8176810",
