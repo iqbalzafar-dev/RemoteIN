@@ -7049,6 +7049,17 @@
   "dateAdded": "2026-09-10T19:14:24+00:00"
  },
  {
+  "id": "ab-clickhouse-a68db3e5-0ec3-472a-8597-8586f40d43a5",
+  "title": "Release Engineer - Data Plane Internal Tooling and Productivity",
+  "company": "Clickhouse",
+  "location": "Singapore; Japan; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/a68db3e5-0ec3-472a-8597-8586f40d43a5",
+  "date": "2026-09-09T14:37:33+00:00",
+  "dateAdded": "2026-09-09T14:37:33+00:00"
+ },
+ {
   "id": "gh-buildkite-5419114008",
   "title": "Cloud Efficiency Engineer (AWS/FinOps)",
   "company": "Buildkite",
@@ -7630,16 +7641,5 @@
   "url": "https://job-boards.greenhouse.io/togetherai/jobs/4840844007",
   "date": "2025-08-29T01:59:02+00:00",
   "dateAdded": "2025-08-29T01:59:02+00:00"
- },
- {
-  "id": "gh-mongodb-6381035",
-  "title": "Principal Technologist / Field CTO",
-  "company": "Mongodb",
-  "location": "India; Remote India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.mongodb.com/careers/job/?gh_jid=6381035",
-  "date": "2024-11-26T19:45:19+00:00",
-  "dateAdded": "2024-11-26T19:45:19+00:00"
  }
 ]
