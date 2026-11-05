@@ -1,5 +1,38 @@
 [
  {
+  "id": "gh-twilio-8346263",
+  "title": "Phone Number specialist 1",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
+  "date": "2026-11-05T15:03:53+00:00",
+  "dateAdded": "2026-11-05T15:03:53+00:00"
+ },
+ {
+  "id": "gh-twilio-8028473",
+  "title": "Technical Support Engineer 2",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8028473",
+  "date": "2026-11-05T14:57:26+00:00",
+  "dateAdded": "2026-11-05T14:57:26+00:00"
+ },
+ {
+  "id": "gh-bitwarden-8076045003",
+  "title": "Senior Software Engineer  (TypeScript/Electron)- Desktop Native",
+  "company": "Bitwarden",
+  "location": "Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/8076045003/?gh_jid=8076045003",
+  "date": "2026-11-05T14:33:12+00:00",
+  "dateAdded": "2026-11-05T14:33:12+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/international-service-for-human-rights-ishr/jobs/it-application-support-manager-senior-analyst",
   "title": "IT Application Support Manager/Senior Analyst",
   "company": "International Service for Human Rights (ISHR)",
@@ -625,7 +658,7 @@
  },
  {
   "id": "gh-turing-6241966004",
-  "title": "Strategy and Operations Associate (Platform - Nishad)",
+  "title": "Strategy and Operations Associate",
   "company": "Turing",
   "location": "India - Remote",
   "category": "Non-Tech",
@@ -6505,17 +6538,6 @@
   "url": "https://jobs.lever.co/outreach/88257b0f-9915-4e5f-96bf-d37b183b6cf6",
   "date": "2026-10-21T11:34:17+00:00",
   "dateAdded": "2026-10-21T11:34:17+00:00"
- },
- {
-  "id": "ab-elevenlabs-277de6ad-3db5-4b96-afb5-cec3d797e788",
-  "title": "Enterprise Account Executive - India",
-  "company": "Elevenlabs",
-  "location": "India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/elevenlabs/277de6ad-3db5-4b96-afb5-cec3d797e788",
-  "date": "2026-10-21T09:15:02+00:00",
-  "dateAdded": "2026-10-21T09:15:02+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/jlv-construction/jobs/paid-ads-specialist",
