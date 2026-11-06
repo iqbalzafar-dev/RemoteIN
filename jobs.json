@@ -1095,6 +1095,19 @@
   "dateAdded": "2026-11-04T23:43:48+00:00"
  },
  {
+  "id": "rm-1185979",
+  "title": "Freelance Writer",
+  "company": "IAPWE",
+  "location": "Worldwide",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979",
+  "source": "Remotive",
+  "sourceUrl": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979",
+  "date": "2026-11-04T16:53:35+00:00",
+  "dateAdded": "2026-11-04T16:53:35+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/international-service-for-human-rights-ishr/jobs/it-application-support-manager-senior-analyst",
   "title": "IT Application Support Manager/Senior Analyst",
   "company": "International Service for Human Rights (ISHR)",
@@ -2721,6 +2734,28 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/8319388",
   "date": "2026-11-02T10:16:46+00:00",
   "dateAdded": "2026-11-02T10:16:46+00:00"
+ },
+ {
+  "id": "gh-twilio-8319386",
+  "title": "Software Engineer (L3)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8319386",
+  "date": "2026-11-02T09:49:58+00:00",
+  "dateAdded": "2026-11-02T09:49:58+00:00"
+ },
+ {
+  "id": "gh-twilio-8319434",
+  "title": "Staff, Software Engineer (L4)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8319434",
+  "date": "2026-11-02T09:44:40+00:00",
+  "dateAdded": "2026-11-02T09:44:40+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/kognitiv-inc/jobs/workday-payroll-senior-consultant",
@@ -6108,17 +6143,6 @@
   "sourceUrl": "https://himalayas.app/companies/askable/jobs/software-engineer-ai-coding-tasks-contract?utm_source=api",
   "date": "2026-10-17T00:52:16+00:00",
   "dateAdded": "2026-10-17T00:52:16+00:00"
- },
- {
-  "id": "gh-turing-6227621004",
-  "title": "Product Manager",
-  "company": "Turing",
-  "location": "India - Remote",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/turing/jobs/6227621004",
-  "date": "2026-10-16T23:27:19+00:00",
-  "dateAdded": "2026-10-16T23:27:19+00:00"
  },
  {
   "id": "ab-clickhouse-87d3538a-99db-4751-b220-a2474dec514b",
