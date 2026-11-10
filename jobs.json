@@ -1,5 +1,27 @@
 [
  {
+  "id": "gh-turing-6241507004",
+  "title": "Technical Delivery Lead, Emerging",
+  "company": "Turing",
+  "location": "India - Remote",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/turing/jobs/6241507004",
+  "date": "2026-11-10T18:31:18+00:00",
+  "dateAdded": "2026-11-10T18:31:18+00:00"
+ },
+ {
+  "id": "gh-togetherai-5281341007",
+  "title": "Strategic Account Executive Inference India",
+  "company": "Togetherai",
+  "location": "India; Remote",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5281341007",
+  "date": "2026-11-10T14:04:27+00:00",
+  "dateAdded": "2026-11-10T14:04:27+00:00"
+ },
+ {
   "id": "ab-elevenlabs-3d698491-7814-43f0-b35f-5b289688539b",
   "title": "SMB Lead - APAC",
   "company": "Elevenlabs",
@@ -6098,15 +6120,15 @@
   "dateAdded": "2026-11-05T22:22:57+00:00"
  },
  {
-  "id": "gh-twilio-8346263",
+  "id": "gh-twilio-8334053",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
-  "date": "2026-11-05T15:03:53+00:00",
-  "dateAdded": "2026-11-05T15:03:53+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
+  "date": "2026-11-05T15:01:06+00:00",
+  "dateAdded": "2026-11-05T15:01:06+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -6653,7 +6675,7 @@
   "id": "gh-gitlab-8869167002",
   "title": "Recruiter, R&D",
   "company": "Gitlab",
-  "location": "Remote Ireland; Remote, Australia; Remote, Canada; Remote, India; Remote, Mexico; Remote, Poland; Remote, United Kingdom; Remote, United States",
+  "location": "Remote, Canada; Remote, India; Remote, Poland; Remote, United Kingdom; Remote, United States",
   "category": "Non-Tech",
   "remoteType": "confirmed",
   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8869167002",
