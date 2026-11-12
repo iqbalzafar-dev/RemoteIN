@@ -221,17 +221,6 @@
   "dateAdded": "2026-11-11T06:20:44+00:00"
  },
  {
-  "id": "lv-crypto-45f2e51a-19d5-4112-a036-fb199d74fa9c",
-  "title": "Client Services Analyst",
-  "company": "Crypto",
-  "location": "Bangalore; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.lever.co/crypto/45f2e51a-19d5-4112-a036-fb199d74fa9c",
-  "date": "2026-11-11T05:55:06+00:00",
-  "dateAdded": "2026-11-11T05:55:06+00:00"
- },
- {
   "id": "hm-https://himalayas.app/companies/micro1/jobs/equal-employment-specialist",
   "title": "Equal Employment  Specialist",
   "company": "micro1",
@@ -449,6 +438,19 @@
   "sourceUrl": "https://himalayas.app/companies/micro1/jobs/codeforces-problem-setter?utm_source=api",
   "date": "2026-11-10T16:47:46+00:00",
   "dateAdded": "2026-11-10T16:47:46+00:00"
+ },
+ {
+  "id": "rm-2091136",
+  "title": "Senior React Full-stack Developer",
+  "company": "Lemon.io",
+  "location": "LATAM, Europe, USA, Canada, APAC",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://remotive.com/remote-jobs/software-development/senior-react-full-stack-developer-2091136",
+  "source": "Remotive",
+  "sourceUrl": "https://remotive.com/remote-jobs/software-development/senior-react-full-stack-developer-2091136",
+  "date": "2026-11-10T14:25:05+00:00",
+  "dateAdded": "2026-11-10T14:25:05+00:00"
  },
  {
   "id": "gh-togetherai-5281341007",
@@ -6235,15 +6237,15 @@
   "dateAdded": "2026-11-06T00:19:40+00:00"
  },
  {
-  "id": "gh-twilio-8346263",
+  "id": "gh-twilio-8334053",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
-  "date": "2026-11-05T15:03:53+00:00",
-  "dateAdded": "2026-11-05T15:03:53+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
+  "date": "2026-11-05T15:01:06+00:00",
+  "dateAdded": "2026-11-05T15:01:06+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -6765,17 +6767,6 @@
   "dateAdded": "2026-10-09T18:58:22+00:00"
  },
  {
-  "id": "gh-twilio-8256431",
-  "title": "HR Partner",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8256431",
-  "date": "2026-10-09T16:46:45+00:00",
-  "dateAdded": "2026-10-09T16:46:45+00:00"
- },
- {
   "id": "gh-gitlab-8869167002",
   "title": "Recruiter, R&D",
   "company": "Gitlab",
@@ -6796,17 +6787,6 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/8258597",
   "date": "2026-10-08T13:03:28+00:00",
   "dateAdded": "2026-10-08T13:03:28+00:00"
- },
- {
-  "id": "lv-outreach-16657196-aa36-4b6c-9349-ff052cca047a",
-  "title": "Senior Forward Deployed Engineer,  Managed Services",
-  "company": "Outreach",
-  "location": "Hyderabad; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.lever.co/outreach/16657196-aa36-4b6c-9349-ff052cca047a",
-  "date": "2026-10-08T09:39:35+00:00",
-  "dateAdded": "2026-10-08T09:39:35+00:00"
  },
  {
   "id": "ab-clickhouse-8d7ef0a5-5a0a-4598-b39d-c4c0ac011547",
