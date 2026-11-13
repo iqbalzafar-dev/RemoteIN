@@ -1,5 +1,16 @@
 [
  {
+  "id": "gh-bitwarden-8005304003",
+  "title": "Senior Software Engineer (Provider/Business Unit Portals)",
+  "company": "Bitwarden",
+  "location": "Noida, Delhi NCR; Noida",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://bitwarden.com/careers/8005304003/?gh_jid=8005304003",
+  "date": "2026-11-13T09:53:32+00:00",
+  "dateAdded": "2026-11-13T09:53:32+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/description-ciklum/jobs/senior-automation-qa-engineer-5927650515",
   "title": "Senior Automation QA Engineer",
   "company": "Description Ciklum",
@@ -2561,6 +2572,19 @@
   "dateAdded": "2026-11-11T20:18:22+00:00"
  },
  {
+  "id": "rm-1680495",
+  "title": "Remote Office Assistant",
+  "company": "Coalition Technologies ",
+  "location": "Worldwide",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
+  "source": "Remotive",
+  "sourceUrl": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
+  "date": "2026-11-11T20:17:48+00:00",
+  "dateAdded": "2026-11-11T20:17:48+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/trb-executive-search-limited/jobs/senior-react-native-developer-remote-europe-or-apac-trading",
   "title": "Senior React Native Developer - Remote - Europe or APAC - Trading",
   "company": "TRB Executive Search Limited",
@@ -2689,6 +2713,19 @@
   "sourceUrl": "https://himalayas.app/companies/xperteez-technology/jobs/hardware-expert-msc-or-phd-remote-contract?utm_source=api",
   "date": "2026-11-11T18:44:30+00:00",
   "dateAdded": "2026-11-11T18:44:30+00:00"
+ },
+ {
+  "id": "rm-2091137",
+  "title": "Senior Data Engineer",
+  "company": "Lemon.io",
+  "location": "LATAM, Europe, USA, Canada, APAC",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://remotive.com/remote-jobs/data/senior-data-engineer-2091137",
+  "source": "Remotive",
+  "sourceUrl": "https://remotive.com/remote-jobs/data/senior-data-engineer-2091137",
+  "date": "2026-11-11T18:39:59+00:00",
+  "dateAdded": "2026-11-11T18:39:59+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/tufin/jobs/assistant-controller",
@@ -6406,15 +6443,15 @@
   "dateAdded": "2026-11-06T07:39:58+00:00"
  },
  {
-  "id": "gh-twilio-8334053",
+  "id": "gh-twilio-8346263",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
-  "date": "2026-11-05T15:01:06+00:00",
-  "dateAdded": "2026-11-05T15:01:06+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
+  "date": "2026-11-05T15:03:53+00:00",
+  "dateAdded": "2026-11-05T15:03:53+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -6651,6 +6688,17 @@
   "dateAdded": "2026-10-26T12:20:09+00:00"
  },
  {
+  "id": "gh-airbnb-8300382",
+  "title": "Support Specialist, R1",
+  "company": "Airbnb",
+  "location": "Gurugram, India",
+  "category": "Non-Tech",
+  "remoteType": "after-training",
+  "url": "https://careers.airbnb.com/positions/8300382?gh_jid=8300382",
+  "date": "2026-10-26T09:10:37+00:00",
+  "dateAdded": "2026-10-26T09:10:37+00:00"
+ },
+ {
   "id": "rm-2091161",
   "title": "AI Trainer - Video Annotation",
   "company": "iMerit Technology",
@@ -6730,17 +6778,6 @@
   "url": "https://job-boards.greenhouse.io/gitlab/jobs/8884627002",
   "date": "2026-10-19T21:55:25+00:00",
   "dateAdded": "2026-10-19T21:55:25+00:00"
- },
- {
-  "id": "gh-turing-6228299004",
-  "title": "Compliance Analyst",
-  "company": "Turing",
-  "location": "Brazil; India - Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/turing/jobs/6228299004",
-  "date": "2026-10-19T15:21:20+00:00",
-  "dateAdded": "2026-10-19T15:21:20+00:00"
  },
  {
   "id": "lv-outreach-75b437e3-8c71-4df7-905b-fddf7c68fd19",
@@ -7284,6 +7321,17 @@
   "url": "https://job-boards.greenhouse.io/buildkite/jobs/5399250008",
   "date": "2026-08-24T00:40:00+00:00",
   "dateAdded": "2026-08-24T00:40:00+00:00"
+ },
+ {
+  "id": "ab-elevenlabs-e2bc0a9f-15b5-49a1-a796-2dc9b2f5b7ac",
+  "title": "Offline Media Buyer",
+  "company": "Elevenlabs",
+  "location": "United States; Ireland; Croatia; Japan; Mexico; Italy; Poland; Singapore; United Kingdom; India; UAE; Canada",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/ElevenLabs/e2bc0a9f-15b5-49a1-a796-2dc9b2f5b7ac",
+  "date": "2026-08-20T08:59:17+00:00",
+  "dateAdded": "2026-08-20T08:59:17+00:00"
  },
  {
   "id": "gh-togetherai-5213325007",
