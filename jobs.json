@@ -6406,17 +6406,6 @@
   "dateAdded": "2026-11-06T07:39:58+00:00"
  },
  {
-  "id": "gh-twilio-8355804",
-  "title": "Onboarding Operations Specialist 1",
-  "company": "Twilio",
-  "location": "Remote - India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8355804",
-  "date": "2026-11-06T07:30:27+00:00",
-  "dateAdded": "2026-11-06T07:30:27+00:00"
- },
- {
   "id": "gh-twilio-8334053",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
@@ -7154,10 +7143,21 @@
   "dateAdded": "2026-09-09T14:37:33+00:00"
  },
  {
+  "id": "gh-buildkite-5419114008",
+  "title": "Cloud Efficiency Engineer (AWS/FinOps)",
+  "company": "Buildkite",
+  "location": "Remote - Worldwide",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/buildkite/jobs/5419114008",
+  "date": "2026-09-09T05:11:47+00:00",
+  "dateAdded": "2026-09-09T05:11:47+00:00"
+ },
+ {
   "id": "gh-fastly-8184616",
   "title": "Strategic Sales Account Manager",
   "company": "Fastly",
-  "location": "Pune, India",
+  "location": "India (Remote); Pune, India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
   "url": "https://www.fastly.com/about/jobs/apply?gh_jid=8184616",
