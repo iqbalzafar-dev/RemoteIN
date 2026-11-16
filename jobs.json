@@ -1,5 +1,38 @@
 [
  {
+  "id": "ab-elevenlabs-6b5a902d-49ea-4fa9-ab67-d6e88c361695",
+  "title": "Deployment Strategist Lead - India",
+  "company": "Elevenlabs",
+  "location": "India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/ElevenLabs/6b5a902d-49ea-4fa9-ab67-d6e88c361695",
+  "date": "2026-11-16T17:22:45+00:00",
+  "dateAdded": "2026-11-16T17:22:45+00:00"
+ },
+ {
+  "id": "ab-elevenlabs-258de005-ab84-4cc7-9a59-1df0c74a12b8",
+  "title": "B2B Marketing - India",
+  "company": "Elevenlabs",
+  "location": "Remote; India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/ElevenLabs/258de005-ab84-4cc7-9a59-1df0c74a12b8",
+  "date": "2026-11-16T11:23:43+00:00",
+  "dateAdded": "2026-11-16T11:23:43+00:00"
+ },
+ {
+  "id": "gh-gitlab-8926443002",
+  "title": "Customer Success Engineer, India",
+  "company": "Gitlab",
+  "location": "Remote, India; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8926443002",
+  "date": "2026-11-16T05:59:50+00:00",
+  "dateAdded": "2026-11-16T05:59:50+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/xperteez-technology/jobs/ai-trainer-mathematics-statistics-remote-contract",
   "title": "🌍 AI Trainer (Mathematics & Statistics), Remote- Contract",
   "company": "Xperteez Technology",
@@ -6344,7 +6377,7 @@
  },
  {
   "id": "gh-turing-6252155004",
-  "title": "Growth Analyst (Paid Acquisition)",
+  "title": "Growth Strategy and Operations",
   "company": "Turing",
   "location": "Bengaluru, Karnataka, India; Bengaluru - Remote; Chennai - Remote",
   "category": "Non-Tech",
@@ -6501,17 +6534,6 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/8319434",
   "date": "2026-11-02T09:44:40+00:00",
   "dateAdded": "2026-11-02T09:44:40+00:00"
- },
- {
-  "id": "gh-gitlab-8924923002",
-  "title": "Intermediate Data Engineer",
-  "company": "Gitlab",
-  "location": "Bangalore, India; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8924923002",
-  "date": "2026-11-02T06:44:11+00:00",
-  "dateAdded": "2026-11-02T06:44:11+00:00"
  },
  {
   "id": "gh-turing-6218247004",
@@ -6746,17 +6768,6 @@
   "sourceUrl": "https://remotive.com/remote-jobs/software-development/software-engineer-ai-coding-tasks-2091158",
   "date": "2026-10-17T16:04:29+00:00",
   "dateAdded": "2026-10-17T16:04:29+00:00"
- },
- {
-  "id": "ab-clickhouse-87d3538a-99db-4751-b220-a2474dec514b",
-  "title": "Regional Field Marketing, India",
-  "company": "Clickhouse",
-  "location": "India; Bangalore; Mumbai; Delhi",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/clickhouse/87d3538a-99db-4751-b220-a2474dec514b",
-  "date": "2026-10-15T20:57:40+00:00",
-  "dateAdded": "2026-10-15T20:57:40+00:00"
  },
  {
   "id": "lv-netomi-946847b5-c634-4808-9076-79e49f041ddb",
@@ -7103,7 +7114,7 @@
   "id": "gh-fastly-8184616",
   "title": "Strategic Sales Account Manager",
   "company": "Fastly",
-  "location": "India (Remote); Pune, India",
+  "location": "Mumbai, India; Pune, India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
   "url": "https://www.fastly.com/about/jobs/apply?gh_jid=8184616",
@@ -7540,17 +7551,6 @@
   "dateAdded": "2026-06-03T20:06:54+00:00"
  },
  {
-  "id": "gh-okta-7897264",
-  "title": "Senior Regional Alliance Partnership Manager",
-  "company": "Okta",
-  "location": "Mumbai, India; India Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.okta.com/company/careers/opportunity/7897264?gh_jid=7897264",
-  "date": "2026-05-06T12:02:07+00:00",
-  "dateAdded": "2026-05-06T12:02:07+00:00"
- },
- {
   "id": "gh-databricks-8503068002",
   "title": "Manager, Forward Deployed Engineering",
   "company": "Databricks",
@@ -7571,17 +7571,6 @@
   "url": "https://jobs.ashbyhq.com/clickhouse/c3a55a5b-479c-409c-b5c5-8e0eec6b25f2",
   "date": "2026-04-09T16:51:52+00:00",
   "dateAdded": "2026-04-09T16:51:52+00:00"
- },
- {
-  "id": "gh-cloudflare-7756883",
-  "title": "Manager, BDR - SAARC",
-  "company": "Cloudflare",
-  "location": "Distributed; Remote India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://boards.greenhouse.io/cloudflare/jobs/7756883?gh_jid=7756883",
-  "date": "2026-03-30T23:57:27+00:00",
-  "dateAdded": "2026-03-30T23:57:27+00:00"
  },
  {
   "id": "gh-devrev-5831999004",
