@@ -7102,17 +7102,6 @@
   "dateAdded": "2026-09-21T13:03:45+00:00"
  },
  {
-  "id": "lv-netomi-02b45afd-5a49-41b2-a244-b0ca76306692",
-  "title": "Data Engineer I",
-  "company": "Netomi",
-  "location": "Remote - India; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.lever.co/netomi/02b45afd-5a49-41b2-a244-b0ca76306692",
-  "date": "2026-09-21T12:58:12+00:00",
-  "dateAdded": "2026-09-21T12:58:12+00:00"
- },
- {
   "id": "ab-scribe-1a21c582-4ba6-45dd-aa2c-782fc73fd427",
   "title": "Account Executive, Enterprise Expansion",
   "company": "Scribe",
@@ -7122,17 +7111,6 @@
   "url": "https://jobs.ashbyhq.com/scribe/1a21c582-4ba6-45dd-aa2c-782fc73fd427",
   "date": "2026-09-16T17:26:44+00:00",
   "dateAdded": "2026-09-16T17:26:44+00:00"
- },
- {
-  "id": "gh-gitlab-8784185002",
-  "title": "Technical Program Manager",
-  "company": "Gitlab",
-  "location": "Bangalore, India; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8784185002",
-  "date": "2026-09-16T04:25:42+00:00",
-  "dateAdded": "2026-09-16T04:25:42+00:00"
  },
  {
   "id": "ab-drata-4b5cd1ca-7d7d-4985-ba77-a9870fbd3d1a",
@@ -7323,7 +7301,7 @@
  },
  {
   "id": "gh-bitwarden-7896737003",
-  "title": "Senior SDET",
+  "title": "Sr. SDET",
   "company": "Bitwarden",
   "location": "Noida, Delhi NCR; Noida",
   "category": "Tech",
@@ -7639,6 +7617,17 @@
   "url": "https://jobs.ashbyhq.com/clickhouse/c3a55a5b-479c-409c-b5c5-8e0eec6b25f2",
   "date": "2026-04-09T16:51:52+00:00",
   "dateAdded": "2026-04-09T16:51:52+00:00"
+ },
+ {
+  "id": "gh-gitlab-8478405002",
+  "title": "Engineering Manager, SSCS: Supply Chain",
+  "company": "Gitlab",
+  "location": "Bangalore, India; Remote Ireland; Remote, Canada; Remote, Israel; Remote, United Kingdom; Remote, United States; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8478405002",
+  "date": "2026-03-27T20:29:49+00:00",
+  "dateAdded": "2026-03-27T20:29:49+00:00"
  },
  {
   "id": "gh-devrev-5831999004",
