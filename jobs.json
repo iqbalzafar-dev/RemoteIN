@@ -1,5 +1,16 @@
 [
  {
+  "id": "ab-clickhouse-220080d1-c844-42e6-a762-9f3453289ac1",
+  "title": "Senior Software Engineer - Postgres Engine",
+  "company": "Clickhouse",
+  "location": "United States; Canada; United Kingdom; Australia; The Netherlands; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/220080d1-c844-42e6-a762-9f3453289ac1",
+  "date": "2026-11-20T05:19:25+00:00",
+  "dateAdded": "2026-11-20T05:19:25+00:00"
+ },
+ {
   "id": "ab-elevenlabs-e5cca48b-1f34-48fe-9ebf-3c6ff526f9ba",
   "title": "Commercial Counsel - India",
   "company": "Elevenlabs",
@@ -5860,17 +5871,6 @@
   "dateAdded": "2026-11-17T04:16:48+00:00"
  },
  {
-  "id": "gh-gitlab-8943636002",
-  "title": "Candidate Experience Specialist, Team Lead (APJ)",
-  "company": "Gitlab",
-  "location": "Remote, India; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8943636002",
-  "date": "2026-11-17T00:18:24+00:00",
-  "dateAdded": "2026-11-17T00:18:24+00:00"
- },
- {
   "id": "hm-https://himalayas.app/companies/micro1/jobs/stem-expert-5001388069",
   "title": "STEM Expert",
   "company": "micro1",
@@ -6980,17 +6980,6 @@
   "dateAdded": "2026-10-09T18:58:22+00:00"
  },
  {
-  "id": "gh-gitlab-8869167002",
-  "title": "Recruiter, R&D",
-  "company": "Gitlab",
-  "location": "Remote, Canada; Remote, India; Remote, Poland; Remote, United Kingdom; Remote, United States",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8869167002",
-  "date": "2026-10-08T14:40:23+00:00",
-  "dateAdded": "2026-10-08T14:40:23+00:00"
- },
- {
   "id": "gh-twilio-8258593",
   "title": "Staff Machine Learning Engineer (L4)",
   "company": "Twilio",
@@ -7027,7 +7016,7 @@
   "id": "ab-clickhouse-8d7ef0a5-5a0a-4598-b39d-c4c0ac011547",
   "title": "Full Stack Software Engineer - Postgres",
   "company": "Clickhouse",
-  "location": "India; Canada; United Kingdom; Australia; United States; The Netherlands",
+  "location": "United States; Canada; United Kingdom; Australia; The Netherlands; India",
   "category": "Tech",
   "remoteType": "confirmed",
   "url": "https://jobs.ashbyhq.com/clickhouse/8d7ef0a5-5a0a-4598-b39d-c4c0ac011547",
@@ -7651,6 +7640,17 @@
   "dateAdded": "2026-06-03T20:06:54+00:00"
  },
  {
+  "id": "ab-clickhouse-b196cca6-6cb3-4019-8d0f-1eaa7850bc07",
+  "title": "Senior Software Engineer - Postgres",
+  "company": "Clickhouse",
+  "location": "United States; Canada; United Kingdom; Australia; The Netherlands; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/b196cca6-6cb3-4019-8d0f-1eaa7850bc07",
+  "date": "2026-06-01T12:28:19+00:00",
+  "dateAdded": "2026-06-01T12:28:19+00:00"
+ },
+ {
   "id": "ab-clickhouse-a11e0267-85fb-4eaa-920b-849edbb5b625",
   "title": "Principal Software Engineer - Postgres",
   "company": "Clickhouse",
@@ -7748,6 +7748,17 @@
   "url": "https://jobs.elastic.co/jobs?gh_jid=7447236&gh_jid=7447236",
   "date": "2025-12-05T13:33:04+00:00",
   "dateAdded": "2025-12-05T13:33:04+00:00"
+ },
+ {
+  "id": "ab-clickhouse-cad55156-d34b-4071-9c0f-c730a1d09d55",
+  "title": "Senior Infrastructure Engineer - Postgres",
+  "company": "Clickhouse",
+  "location": "United States; Canada; United Kingdom; Australia; The Netherlands; India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/cad55156-d34b-4071-9c0f-c730a1d09d55",
+  "date": "2025-11-20T04:15:43+00:00",
+  "dateAdded": "2025-11-20T04:15:43+00:00"
  },
  {
   "id": "gh-devrev-5648777004",
