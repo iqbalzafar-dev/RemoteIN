@@ -1,5 +1,16 @@
 [
  {
+  "id": "ab-clickhouse-6cc6872b-e397-4225-b12b-1d3159f3d91a",
+  "title": "Senior GTM Recruiter, APJ",
+  "company": "Clickhouse",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/clickhouse/6cc6872b-e397-4225-b12b-1d3159f3d91a",
+  "date": "2026-11-23T17:12:16+00:00",
+  "dateAdded": "2026-11-23T17:12:16+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/mondelez-international/jobs/senior-cloud-engineer",
   "title": "Senior Cloud Engineer",
   "company": "Mondelēz International",
@@ -63,6 +74,17 @@
   "sourceUrl": "https://himalayas.app/companies/xperteez-technology/jobs/stem-expert-remote-contract-3276095955?utm_source=api",
   "date": "2026-11-23T10:27:09+00:00",
   "dateAdded": "2026-11-23T10:27:09+00:00"
+ },
+ {
+  "id": "ab-elevenlabs-277de6ad-3db5-4b96-afb5-cec3d797e788",
+  "title": "Enterprise Account Executive - India",
+  "company": "Elevenlabs",
+  "location": "India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/ElevenLabs/277de6ad-3db5-4b96-afb5-cec3d797e788",
+  "date": "2026-11-23T06:21:37+00:00",
+  "dateAdded": "2026-11-23T06:21:37+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/tolken/jobs/applied-scientist-applied-ml-engineer",
@@ -6537,17 +6559,6 @@
   "dateAdded": "2026-11-16T05:59:50+00:00"
  },
  {
-  "id": "gh-bitwarden-8005304003",
-  "title": "Senior Software Engineer (Provider/Business Unit Portals)",
-  "company": "Bitwarden",
-  "location": "Noida, Delhi NCR; Noida",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://bitwarden.com/careers/8005304003/?gh_jid=8005304003",
-  "date": "2026-11-13T09:53:32+00:00",
-  "dateAdded": "2026-11-13T09:53:32+00:00"
- },
- {
   "id": "rm-1680495",
   "title": "Remote Office Assistant",
   "company": "Coalition Technologies ",
@@ -6609,17 +6620,6 @@
   "dateAdded": "2026-11-10T14:25:05+00:00"
  },
  {
-  "id": "gh-togetherai-5281341007",
-  "title": "Strategic Account Executive Inference India",
-  "company": "Togetherai",
-  "location": "India; Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/togetherai/jobs/5281341007",
-  "date": "2026-11-10T14:04:27+00:00",
-  "dateAdded": "2026-11-10T14:04:27+00:00"
- },
- {
   "id": "gh-gitlab-8829837002",
   "title": "Senior Solutions Architect",
   "company": "Gitlab",
@@ -6668,15 +6668,15 @@
   "dateAdded": "2026-11-06T07:39:58+00:00"
  },
  {
-  "id": "gh-twilio-8334053",
+  "id": "gh-twilio-8346263",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
-  "date": "2026-11-05T15:01:06+00:00",
-  "dateAdded": "2026-11-05T15:01:06+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
+  "date": "2026-11-05T15:03:53+00:00",
+  "dateAdded": "2026-11-05T15:03:53+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -6712,17 +6712,6 @@
   "sourceUrl": "https://remotive.com/remote-jobs/writing/freelance-writer-1185979",
   "date": "2026-11-04T16:53:35+00:00",
   "dateAdded": "2026-11-04T16:53:35+00:00"
- },
- {
-  "id": "gh-airbnb-8349121",
-  "title": "Senior Risk Tools & Automation Lead",
-  "company": "Airbnb",
-  "location": "Remote, India; India",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://careers.airbnb.com/positions/8349121?gh_jid=8349121",
-  "date": "2026-11-03T10:36:21+00:00",
-  "dateAdded": "2026-11-03T10:36:21+00:00"
  },
  {
   "id": "gh-gitlab-8926435002",
@@ -6865,30 +6854,6 @@
   "dateAdded": "2026-10-26T21:16:49+00:00"
  },
  {
-  "id": "gh-airbnb-8300382",
-  "title": "Support Specialist, R1",
-  "company": "Airbnb",
-  "location": "Gurugram, India",
-  "category": "Non-Tech",
-  "remoteType": "after-training",
-  "url": "https://careers.airbnb.com/positions/8300382?gh_jid=8300382",
-  "date": "2026-10-26T09:10:37+00:00",
-  "dateAdded": "2026-10-26T09:10:37+00:00"
- },
- {
-  "id": "rm-2091161",
-  "title": "AI Trainer - Video Annotation",
-  "company": "iMerit Technology",
-  "location": "Worldwide",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://remotive.com/remote-jobs/artificial-intelligence/ai-trainer-video-annotation-2091161",
-  "source": "Remotive",
-  "sourceUrl": "https://remotive.com/remote-jobs/artificial-intelligence/ai-trainer-video-annotation-2091161",
-  "date": "2026-10-22T18:40:19+00:00",
-  "dateAdded": "2026-10-22T18:40:19+00:00"
- },
- {
   "id": "gh-airbnb-8312713",
   "title": "Systems Engineer, Tech Foundations (Jira cloud)",
   "company": "Airbnb",
@@ -6964,17 +6929,6 @@
   "url": "https://jobs.ashbyhq.com/ElevenLabs/90873fda-95c3-4d21-bae8-c5a30f5b7ac8",
   "date": "2026-10-19T05:45:35+00:00",
   "dateAdded": "2026-10-19T05:45:35+00:00"
- },
- {
-  "id": "gh-databricks-8876680002",
-  "title": "Senior Forward Deployed Engineer, Sr FDE (L5)",
-  "company": "Databricks",
-  "location": "Remote - India; Karnataka, India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8876680002",
-  "date": "2026-10-19T04:40:24+00:00",
-  "dateAdded": "2026-10-19T04:40:24+00:00"
  },
  {
   "id": "lv-netomi-946847b5-c634-4808-9076-79e49f041ddb",
@@ -7340,17 +7294,6 @@
   "dateAdded": "2026-09-02T03:06:57+00:00"
  },
  {
-  "id": "gh-turing-6142224004",
-  "title": "Strategic Project Lead - Code",
-  "company": "Turing",
-  "location": "India - Remote",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/turing/jobs/6142224004",
-  "date": "2026-08-26T16:35:54+00:00",
-  "dateAdded": "2026-08-26T16:35:54+00:00"
- },
- {
   "id": "gh-bitwarden-7867093003",
   "title": "Implementation Engineer, Customer Support (APAC)",
   "company": "Bitwarden",
@@ -7580,6 +7523,17 @@
   "url": "https://jobs.lever.co/netomi/fd6df307-38b8-4f0d-81e9-392216edcaa2",
   "date": "2026-07-27T06:19:14+00:00",
   "dateAdded": "2026-07-27T06:19:14+00:00"
+ },
+ {
+  "id": "gh-twilio-8065032",
+  "title": "Software Engineer (L3)",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8065032",
+  "date": "2026-07-16T11:41:18+00:00",
+  "dateAdded": "2026-07-16T11:41:18+00:00"
  },
  {
   "id": "gh-turing-6115695004",
