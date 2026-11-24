@@ -1,5 +1,16 @@
 [
  {
+  "id": "gh-gitlab-8956660002",
+  "title": "Recruiter, R&D (APJ)",
+  "company": "Gitlab",
+  "location": "Bangalore, India; India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/gitlab/jobs/8956660002",
+  "date": "2026-11-24T17:24:14+00:00",
+  "dateAdded": "2026-11-24T17:24:14+00:00"
+ },
+ {
   "id": "ab-clickhouse-6cc6872b-e397-4225-b12b-1d3159f3d91a",
   "title": "Senior GTM Recruiter, APJ",
   "company": "Clickhouse",
@@ -7,8 +18,19 @@
   "category": "Non-Tech",
   "remoteType": "confirmed",
   "url": "https://jobs.ashbyhq.com/clickhouse/6cc6872b-e397-4225-b12b-1d3159f3d91a",
-  "date": "2026-11-23T17:12:16+00:00",
-  "dateAdded": "2026-11-23T17:12:16+00:00"
+  "date": "2026-11-24T13:52:45+00:00",
+  "dateAdded": "2026-11-24T13:52:45+00:00"
+ },
+ {
+  "id": "ab-sardine-2524d206-42cb-4202-8d85-59e47c72d704",
+  "title": "Software Engineer - Backend",
+  "company": "Sardine",
+  "location": "India",
+  "category": "Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.ashbyhq.com/sardine/2524d206-42cb-4202-8d85-59e47c72d704",
+  "date": "2026-11-24T12:41:55+00:00",
+  "dateAdded": "2026-11-24T12:41:55+00:00"
  },
  {
   "id": "hm-https://himalayas.app/companies/mondelez-international/jobs/senior-cloud-engineer",
@@ -5670,7 +5692,7 @@
  },
  {
   "id": "lv-outreach-025a6f1d-fccd-4b84-95d2-cbb034847d52",
-  "title": "Senior Technical Program Manager",
+  "title": "Senior Technical Program Manager (4pm - 12am IST shift)",
   "company": "Outreach",
   "location": "India",
   "category": "Non-Tech",
@@ -6657,15 +6679,15 @@
   "dateAdded": "2026-11-06T07:39:58+00:00"
  },
  {
-  "id": "gh-twilio-8334053",
+  "id": "gh-twilio-8346263",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
-  "date": "2026-11-05T15:01:06+00:00",
-  "dateAdded": "2026-11-05T15:01:06+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
+  "date": "2026-11-05T15:03:53+00:00",
+  "dateAdded": "2026-11-05T15:03:53+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -6918,17 +6940,6 @@
   "url": "https://jobs.lever.co/netomi/946847b5-c634-4808-9076-79e49f041ddb",
   "date": "2026-10-15T07:28:51+00:00",
   "dateAdded": "2026-10-15T07:28:51+00:00"
- },
- {
-  "id": "ab-sardine-2524d206-42cb-4202-8d85-59e47c72d704",
-  "title": "Software Engineer - Backend",
-  "company": "Sardine",
-  "location": "India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/sardine/2524d206-42cb-4202-8d85-59e47c72d704",
-  "date": "2026-10-14T17:55:01+00:00",
-  "dateAdded": "2026-10-14T17:55:01+00:00"
  },
  {
   "id": "ab-sardine-92da1cab-a832-4a34-b8fc-18a5b0a675d9",
@@ -7567,17 +7578,6 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/7781659",
   "date": "2026-06-30T05:16:56+00:00",
   "dateAdded": "2026-06-30T05:16:56+00:00"
- },
- {
-  "id": "ab-clickhouse-f0495f4d-fcc2-4a55-b9d5-5e7dbf20df1d",
-  "title": "Senior Software Engineer - Identity & Authorization Platform",
-  "company": "Clickhouse",
-  "location": "India; Singapore; Australia",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.ashbyhq.com/clickhouse/f0495f4d-fcc2-4a55-b9d5-5e7dbf20df1d",
-  "date": "2026-06-22T14:23:40+00:00",
-  "dateAdded": "2026-06-22T14:23:40+00:00"
  },
  {
   "id": "gh-twilio-7966928",
