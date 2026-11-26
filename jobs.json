@@ -6596,6 +6596,17 @@
   "dateAdded": "2026-11-11T18:39:59+00:00"
  },
  {
+  "id": "lv-crypto-45f2e51a-19d5-4112-a036-fb199d74fa9c",
+  "title": "Client Services Analyst",
+  "company": "Crypto",
+  "location": "Bangalore; India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://jobs.lever.co/crypto/45f2e51a-19d5-4112-a036-fb199d74fa9c",
+  "date": "2026-11-11T05:55:06+00:00",
+  "dateAdded": "2026-11-11T05:55:06+00:00"
+ },
+ {
   "id": "gh-turing-6241507004",
   "title": "Technical Delivery Lead, Emerging",
   "company": "Turing",
@@ -6679,15 +6690,15 @@
   "dateAdded": "2026-11-06T07:39:58+00:00"
  },
  {
-  "id": "gh-twilio-8334053",
+  "id": "gh-twilio-8346263",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
-  "date": "2026-11-05T15:01:06+00:00",
-  "dateAdded": "2026-11-05T15:01:06+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
+  "date": "2026-11-05T15:03:53+00:00",
+  "dateAdded": "2026-11-05T15:03:53+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -7294,17 +7305,6 @@
   "dateAdded": "2026-08-24T12:45:50+00:00"
  },
  {
-  "id": "lv-netomi-0e6b7355-330a-4d10-b8d5-c235bd555622",
-  "title": "Agentic Engineer Level II/III",
-  "company": "Netomi",
-  "location": "Remote - India; India",
-  "category": "Tech",
-  "remoteType": "confirmed",
-  "url": "https://jobs.lever.co/netomi/0e6b7355-330a-4d10-b8d5-c235bd555622",
-  "date": "2026-08-24T10:53:34+00:00",
-  "dateAdded": "2026-08-24T10:53:34+00:00"
- },
- {
   "id": "gh-buildkite-5399252008",
   "title": "Senior Engineer - Agents",
   "company": "Buildkite",
@@ -7699,17 +7699,6 @@
   "url": "https://jobs.ashbyhq.com/clickhouse/cad55156-d34b-4071-9c0f-c730a1d09d55",
   "date": "2025-11-20T04:15:43+00:00",
   "dateAdded": "2025-11-20T04:15:43+00:00"
- },
- {
-  "id": "gh-devrev-5648777004",
-  "title": "Account Executive : Field Sales - Delhi NCR",
-  "company": "Devrev",
-  "location": "India Remote; Delhi, NCR",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/devrev/jobs/5648777004",
-  "date": "2025-09-16T00:21:20+00:00",
-  "dateAdded": "2025-09-16T00:21:20+00:00"
  },
  {
   "id": "gh-togetherai-4840844007",
