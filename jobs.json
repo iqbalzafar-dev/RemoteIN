@@ -1,5 +1,16 @@
 [
  {
+  "id": "gh-twilio-8406761",
+  "title": "Personalized Support Engineer 2",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8406761",
+  "date": "2026-11-27T08:26:30+00:00",
+  "dateAdded": "2026-11-27T08:26:30+00:00"
+ },
+ {
   "id": "hm-https://himalayas.app/companies/finmid/jobs/entrepreneur-in-residence-intern-ops-focus",
   "title": "Entrepreneur in Residence Intern - Ops Focus",
   "company": "Finmid",
@@ -6484,15 +6495,15 @@
   "dateAdded": "2026-11-06T07:39:58+00:00"
  },
  {
-  "id": "gh-twilio-8346263",
+  "id": "gh-twilio-8334053",
   "title": "Phone Number specialist 1",
   "company": "Twilio",
   "location": "Remote - India",
   "category": "Non-Tech",
   "remoteType": "confirmed",
-  "url": "https://job-boards.greenhouse.io/twilio/jobs/8346263",
-  "date": "2026-11-05T15:03:53+00:00",
-  "dateAdded": "2026-11-05T15:03:53+00:00"
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8334053",
+  "date": "2026-11-05T15:01:06+00:00",
+  "dateAdded": "2026-11-05T15:01:06+00:00"
  },
  {
   "id": "gh-twilio-8028473",
@@ -6811,6 +6822,17 @@
   "url": "https://job-boards.greenhouse.io/twilio/jobs/8258587",
   "date": "2026-10-08T12:35:31+00:00",
   "dateAdded": "2026-10-08T12:35:31+00:00"
+ },
+ {
+  "id": "gh-twilio-8261279",
+  "title": "Onboarding Operations Specialist 1",
+  "company": "Twilio",
+  "location": "Remote - India",
+  "category": "Non-Tech",
+  "remoteType": "confirmed",
+  "url": "https://job-boards.greenhouse.io/twilio/jobs/8261279",
+  "date": "2026-10-08T09:44:17+00:00",
+  "dateAdded": "2026-10-08T09:44:17+00:00"
  },
  {
   "id": "ab-clickhouse-8d7ef0a5-5a0a-4598-b39d-c4c0ac011547",
@@ -7339,17 +7361,6 @@
   "url": "https://jobs.lever.co/netomi/a8cc0d22-25b4-48f4-a6b1-0d1fd37bcc84",
   "date": "2026-07-02T05:38:16+00:00",
   "dateAdded": "2026-07-02T05:38:16+00:00"
- },
- {
-  "id": "gh-fivetran-7790607003",
-  "title": "Manager, Customer Support Engineering",
-  "company": "Fivetran",
-  "location": "Remote, Australia, APAC; AUS - Sydney",
-  "category": "Non-Tech",
-  "remoteType": "confirmed",
-  "url": "https://www.fivetran.com/careers/job?gh_jid=7790607003",
-  "date": "2026-07-01T14:02:39+00:00",
-  "dateAdded": "2026-07-01T14:02:39+00:00"
  },
  {
   "id": "gh-twilio-7781659",
